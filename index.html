@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassePro - Cours 4ème</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS COMPLET - Mêmes styles que les fichiers précédents */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #FF7E5F;
+            --secondary: #3D3B8E;
+            --accent: #6883BA;
+            --light: #F9F9F9;
+            --dark: #2F2F2F;
+            --success: #4BB543;
+            --warning: #ff9800;
+            --info: #2196F3;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --card-shadow: 0 4px 12px rgba(61, 59, 142, 0.1);
+            --hover-shadow: 0 8px 20px rgba(61, 59, 142, 0.15);
+            --lesson-bg: rgba(104, 131, 186, 0.05);
+            --example-bg: rgba(255, 126, 95, 0.05);
+            --definition-bg: rgba(61, 59, 142, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            font-size: 14px;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Style pour la navbar */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 0.8rem 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            z-index: 101;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            font-size: 1.5rem;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+        
+        .menu-toggle span {
+            width: 100%;
+            height: 2.5px;
+            background-color: white;
+            border-radius: 5px;
+            transition: all 0.3s linear;
+            transform-origin: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            display: block;
+            font-size: 0.9rem;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Style pour le footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            margin-top: auto;
+            font-size: 0.85rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+        
+        .footer-content p {
+            font-size: 0.8rem;
+        }
+        
+        /* Styles pour le contenu principal */
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            width: 95%;
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 25px 20px;
+            flex: 1;
+        }
+        
+        .header {
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+        }
+        
+        h1 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            color: var(--dark);
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Menu des matières */
+        .matieres-container {
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(61, 59, 142, 0.1);
+            overflow-x: auto;
+            display: flex;
+            scrollbar-width: none;
+        }
+        
+        .matieres-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .matiere-btn {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+        }
+        
+        .matiere-btn:hover {
+            color: var(--primary);
+        }
+        
+        .matiere-btn.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        /* Liste des cours */
+        .cours-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .cours-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cours-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .cours-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .cours-title {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cours-description {
+            color: var(--dark);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .cours-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: auto;
+        }
+        
+        /* Styles pour les onglets */
+        .tabs-container {
+            margin-bottom: 25px;
+            border-bottom: 2px solid rgba(61, 59, 142, 0.1);
+            overflow-x: auto;
+            display: flex;
+            scrollbar-width: none;
+        }
+        
+        .tabs-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            background: none;
+            border: none;
+        }
+        
+        .tab:hover {
+            color: var(--primary);
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Styles pour les sections de leçon */
+        .lesson-section {
+            margin-bottom: 30px;
+            animation: fadeInUp 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(104, 131, 186, 0.3);
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+        
+        .lesson-content {
+            background-color: var(--lesson-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .definition-box {
+            background-color: var(--definition-bg);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .definition-title {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .example-box {
+            background-color: var(--example-bg);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .example-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .important-box {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .exercise-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--success);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .exercise-title {
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .exercise-title i {
+            margin-right: 8px;
+        }
+        
+        .tip-box {
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--info);
+        }
+        
+        .tip-title {
+            color: var(--info);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Styles pour les listes */
+        ol, ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        /* Styles spécifiques */
+        .highlight {
+            background-color: rgba(255, 126, 95, 0.15);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .term {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .timeline-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--accent);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .timeline-title {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            border: 1px solid rgba(255, 126, 95, 0.1);
+            padding: 10px 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: var(--gradient);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(255, 126, 95, 0.05);
+        }
+        
+        .step-box {
+            background-color: rgba(104, 131, 186, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid rgba(104, 131, 186, 0.2);
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 1.8rem;
+            height: 1.8rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 1.8rem;
+            margin-right: 0.8rem;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .key-point {
+            background: rgba(255, 126, 95, 0.08);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .key-point h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        /* Styles pour les exercices interactifs */
+        .question {
+            margin: 15px 0;
+            padding: 12px;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 126, 95, 0.1);
+        }
+        
+        input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        input[type="text"], textarea {
+            padding: 0.7rem;
+            border: 1px solid rgba(255, 126, 95, 0.2);
+            border-radius: 6px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            margin-top: 0.5rem;
+        }
+        
+        .show-answer {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-top: 0.8rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .show-answer:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .answer-box {
+            background: rgba(75, 181, 67, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid var(--success);
+            display: none;
+            font-size: 0.95rem;
+        }
+        
+        /* Barre de progression */
+        .progress-text {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: rgba(255, 126, 95, 0.1);
+            border-radius: 5px;
+            margin: 1rem 0 1.5rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 1s ease-in-out;
+        }
+        
+        /* Grilles */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .grid-item {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: white;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(61, 59, 142, 0.1);
+        }
+        
+        /* Animation d'entrée */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes confettiRain {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .lesson-section:nth-child(1) { animation-delay: 0.1s; }
+        .lesson-section:nth-child(2) { animation-delay: 0.2s; }
+        .lesson-section:nth-child(3) { animation-delay: 0.3s; }
+        .lesson-section:nth-child(4) { animation-delay: 0.4s; }
+        .lesson-section:nth-child(5) { animation-delay: 0.5s; }
+        .lesson-section:nth-child(6) { animation-delay: 0.6s; }
+        .lesson-section:nth-child(7) { animation-delay: 0.7s; }
+        .lesson-section:nth-child(8) { animation-delay: 0.8s; }
+        
+        /* Styles pour les modales personnalisées */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+            overflow: hidden;
+            animation: modalFadeIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: center;
+        }
+        
+        .modal-header {
+            padding: 25px 25px 15px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-icon {
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .success-icon {
+            color: var(--success);
+            animation: bounce 1s ease infinite;
+        }
+        
+        .error-icon {
+            color: var(--warning);
+            animation: pulse 1.5s ease infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .modal-content {
+            padding: 0 25px 25px;
+            text-align: center;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        
+        .modal-footer {
+            padding: 20px 25px;
+            background: rgba(0, 0, 0, 0.02);
+            display: flex;
+            justify-content: center;
+        }
+        
+        .modal-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            min-width: 120px;
+        }
+        
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(61, 59, 142, 0.2);
+        }
+        
+        .success-modal .modal-header {
+            background: linear-gradient(135deg, rgba(75, 181, 67, 0.1), rgba(75, 181, 67, 0.05));
+        }
+        
+        .error-modal .modal-header {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(255, 152, 0, 0.05));
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Page d'accueil */
+        .home-container {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .welcome-title {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        
+        .welcome-subtitle {
+            color: var(--dark);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Styles responsifs améliorés */
+        @media (min-width: 768px) {
+            html {
+                font-size: 15px;
+            }
+            
+            body {
+                background: var(--gradient);
+                padding: 20px 10px;
+            }
+            
+            .container {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+                padding: 35px 25px;
+                width: 92%;
+                margin: 0 auto;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .lesson-content, .definition-box, .example-box, .exercise-box {
+                padding: 25px;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .cours-list {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .modal {
+                max-width: 450px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            html {
+                font-size: 16px;
+            }
+            
+            .container {
+                max-width: 1200px;
+            }
+        }
+        
+        /* Media Queries pour la responsivité mobile */
+        @media (max-width: 767px) {
+            html {
+                font-size: 13px;
+            }
+            
+            body {
+                padding: 0;
+            }
+            
+            .container {
+                width: 100%;
+                border-radius: 0;
+                margin: 0;
+                padding: 20px 15px;
+                min-height: calc(100vh - 120px);
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                flex-direction: column;
+                background: var(--gradient);
+                padding: 5rem 1.5rem 1.5rem;
+                transition: right 0.3s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.2rem 0;
+            }
+            
+            .nav-links a {
+                padding: 0.7rem;
+                font-size: 1rem;
+            }
+            
+            .header {
+                margin-bottom: 20px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .lesson-content, .definition-box, .example-box, .exercise-box {
+                padding: 18px 15px;
+            }
+            
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cours-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal {
+                width: 95%;
+                max-width: 350px;
+            }
+            
+            .modal-icon {
+                font-size: 3.5rem;
+            }
+            
+            .modal-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px 10px;
+            }
+            
+            h1 {
+                font-size: 1.3rem;
+            }
+            
+            .subtitle {
+                font-size: 0.85rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-content, .definition-box, .example-box, .exercise-box {
+                padding: 15px 12px;
+            }
+            
+            .tab, .matiere-btn {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            .modal {
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .modal-icon {
+                font-size: 3rem;
+            }
+            
+            .modal-title {
+                font-size: 1.2rem;
+            }
+            
+            .modal-content {
+                padding: 0 20px 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>ClassePro - 4ème</span>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#" id="home-link">Accueil</a></li>
+                <li><a href="#" id="matieres-link">Matières</a></li>
+                <li><a href="#" id="cours-link">Mes Cours</a></li>
+                <li><a href="#" id="support-link">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <!-- Page d'accueil (visible par défaut) -->
+        <div id="home-page" class="home-container">
+            <h1 class="welcome-title">Bienvenue en classe de 4ème</h1>
+            <p class="welcome-subtitle">Explorez les différentes matières et accédez à vos cours interactifs. Sélectionnez une matière pour découvrir les cours disponibles.</p>
+            
+            <div class="cours-list" id="featured-courses">
+                <!-- Les cours en vedette seront chargés ici -->
+            </div>
+        </div>
+
+        <!-- Page des matières (cachée par défaut) -->
+        <div id="matieres-page" style="display: none;">
+            <div class="header">
+                <h1>Matières de 4ème</h1>
+                <p class="subtitle">Sélectionnez une matière pour voir les cours disponibles</p>
+            </div>
+            
+            <div class="matieres-container" id="matieres-list">
+                <!-- Les boutons des matières seront générés ici -->
+            </div>
+            
+            <div id="matiere-content">
+                <!-- Le contenu de la matière sélectionnée sera chargé ici -->
+            </div>
+        </div>
+
+        <!-- Page d'un cours spécifique (cachée par défaut) -->
+        <div id="cours-page" style="display: none;">
+            <div class="header">
+                <h1 id="cours-titre">Titre du cours</h1>
+                <p class="subtitle" id="cours-sousTitre">Sous-titre du cours</p>
+            </div>
+            
+            <!-- Onglets -->
+            <div class="tabs-container">
+                <button class="tab active" onclick="switchTab('lecon')">Leçon</button>
+                <button class="tab" onclick="switchTab('exercices')">Exercices</button>
+                <button class="tab" onclick="switchTab('astuces')">Astuces</button>
+                <button class="tab" onclick="switchTab('evaluation')">Évaluation</button>
+            </div>
+            
+            <!-- Onglet Leçon -->
+            <div id="lecon" class="tab-content active">
+                <!-- Le contenu de la leçon sera chargé ici -->
+            </div>
+            
+            <!-- Onglet Exercices -->
+            <div id="exercices" class="tab-content">
+                <!-- Le contenu des exercices sera chargé ici -->
+            </div>
+            
+            <!-- Onglet Astuces -->
+            <div id="astuces" class="tab-content">
+                <!-- Le contenu des astuces sera chargé ici -->
+            </div>
+            
+            <!-- Onglet Évaluation -->
+            <div id="evaluation" class="tab-content">
+                <!-- Le contenu de l'évaluation sera chargé ici -->
+            </div>
+            
+            <!-- Fiche de révision -->
+            <div id="fiche-revision" class="lesson-section" style="display: none;">
+                <!-- La fiche de révision sera chargée ici -->
+            </div>
+            
+            <!-- Bouton retour -->
+            <button id="back-to-matieres" class="show-answer" style="margin-top: 2rem;">
+                <i class="fas fa-arrow-left"></i> Retour aux matières
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>ClassePro - Cours 4ème</h3>
+            <p>Système de gestion de cours interactifs</p>
+            <p>&copy; 2025 ClassePro. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modales overlay -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div id="feedbackModal" class="modal">
+            <div class="modal-header">
+                <div id="modalIcon" class="modal-icon"></div>
+                <h3 id="modalTitle" class="modal-title"></h3>
+            </div>
+            <div class="modal-content">
+                <p id="modalMessage"></p>
+                <div id="modalDetails" style="margin-top: 15px; display: none;"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalButton" class="modal-btn">Continuer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script principal -->
+    <script>
+        // Variables globales
+        let currentCours = null;
+        let currentMatiere = null;
+        let coursData = {};
+        let matieresData = {};
+        let progress = 0;
+        let totalExercises = 10;
+
+        // Éléments de la modale
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalIcon = document.getElementById('modalIcon');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const modalDetails = document.getElementById('modalDetails');
+        const modalButton = document.getElementById('modalButton');
+        const feedbackModal = document.getElementById('feedbackModal');
+
+        // Pages
+        const homePage = document.getElementById('home-page');
+        const matieresPage = document.getElementById('matieres-page');
+        const coursPage = document.getElementById('cours-page');
+
+        // Navigation
+        document.getElementById('home-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('home');
+        });
+
+        document.getElementById('matieres-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('matieres');
+        });
+
+        document.getElementById('cours-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            // Si un cours est en cours, le montrer, sinon montrer les matières
+            if (currentCours) {
+                showPage('cours');
+            } else {
+                showPage('matieres');
+            }
+        });
+
+        document.getElementById('support-link').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Page support à venir...');
+        });
+
+        document.getElementById('back-to-matieres').addEventListener('click', () => {
+            showPage('matieres');
+        });
+
+        // Fonction pour afficher une page
+        function showPage(page) {
+            homePage.style.display = 'none';
+            matieresPage.style.display = 'none';
+            coursPage.style.display = 'none';
+            
+            if (page === 'home') {
+                homePage.style.display = 'block';
+                loadFeaturedCourses();
+            } else if (page === 'matieres') {
+                matieresPage.style.display = 'block';
+                loadMatieres();
+            } else if (page === 'cours') {
+                coursPage.style.display = 'block';
+            }
+        }
+
+        // Charger les matières
+        async function loadMatieres() {
+            try {
+                const response = await fetch('data/matieres-4e.json');
+                matieresData = await response.json();
+                displayMatieres();
+            } catch (error) {
+                console.error('Erreur de chargement des matières:', error);
+                showErrorModal('Erreur', 'Impossible de charger la liste des matières.');
+            }
+        }
+
+        // Afficher les matières
+        function displayMatieres() {
+            const matieresList = document.getElementById('matieres-list');
+            const matiereContent = document.getElementById('matiere-content');
+            
+            matieresList.innerHTML = '';
+            matiereContent.innerHTML = '';
+            
+            matieresData.matieres.forEach((matiere, index) => {
+                const button = document.createElement('button');
+                button.className = `matiere-btn ${index === 0 ? 'active' : ''}`;
+                button.textContent = matiere.nom;
+                button.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
+                    document.querySelectorAll('.matiere-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    // Ajouter la classe active au bouton cliqué
+                    button.classList.add('active');
+                    // Afficher les cours de cette matière
+                    displayCoursDeMatiere(matiere);
+                });
+                matieresList.appendChild(button);
+            });
+            
+            // Afficher les cours de la première matière par défaut
+            if (matieresData.matieres.length > 0) {
+                displayCoursDeMatiere(matieresData.matieres[0]);
+            }
+        }
+
+        // Afficher les cours d'une matière
+        function displayCoursDeMatiere(matiere) {
+            currentMatiere = matiere;
+            const matiereContent = document.getElementById('matiere-content');
+            
+            matiereContent.innerHTML = `
+                <div style="margin-top: 1.5rem;">
+                    <h2 style="color: var(--secondary); margin-bottom: 1rem;">
+                        <i class="${matiere.icone}"></i> ${matiere.nom}
+                    </h2>
+                    <p>${matiere.description}</p>
+                    
+                    <div class="cours-list" id="cours-de-matiere">
+                        <!-- Les cours seront chargés ici -->
+                    </div>
+                </div>
+            `;
+            
+            const coursList = document.getElementById('cours-de-matiere');
+            coursList.innerHTML = '';
+            
+            matiere.cours.forEach(cours => {
+                const card = document.createElement('div');
+                card.className = 'cours-card';
+                card.innerHTML = `
+                    <div class="cours-icon">
+                        <i class="${cours.icone || 'fas fa-book'}"></i>
+                    </div>
+                    <div class="cours-title">${cours.titre}</div>
+                    <div class="cours-description">${cours.description}</div>
+                    <div class="cours-meta">
+                        <span><i class="fas fa-clock"></i> ${cours.duree}</span>
+                        <span><i class="fas fa-star"></i> ${cours.niveau}</span>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    loadCours(cours.id);
+                });
+                
+                coursList.appendChild(card);
+            });
+        }
+
+        // Charger un cours spécifique
+        async function loadCours(coursId) {
+            try {
+                // Construire le chemin vers le fichier JSON du cours
+                const coursPath = `data/cours/${coursId}.json`;
+                const response = await fetch(coursPath);
+                currentCours = await response.json();
+                
+                // Mettre à jour l'interface
+                document.getElementById('cours-titre').textContent = currentCours.titre;
+                document.getElementById('cours-sousTitre').textContent = currentCours.sousTitre;
+                
+                // Charger le contenu des onglets
+                loadContenuOnglet('lecon', currentCours.lecon);
+                loadContenuOnglet('exercices', currentCours.exercices);
+                loadContenuOnglet('astuces', currentCours.astuces);
+                loadContenuOnglet('evaluation', currentCours.evaluation);
+                
+                // Charger la fiche de révision si elle existe
+                if (currentCours.ficheRevision) {
+                    document.getElementById('fiche-revision').innerHTML = currentCours.ficheRevision;
+                    document.getElementById('fiche-revision').style.display = 'block';
+                }
+                
+                // Afficher la page du cours
+                showPage('cours');
+                
+                // Réinitialiser la progression
+                progress = 0;
+                updateProgress();
+                
+            } catch (error) {
+                console.error('Erreur de chargement du cours:', error);
+                showErrorModal('Erreur', 'Impossible de charger le cours. Le fichier peut être introuvable.');
+            }
+        }
+
+        // Charger le contenu d'un onglet
+        function loadContenuOnglet(ongletId, contenu) {
+            const ongletElement = document.getElementById(ongletId);
+            
+            if (typeof contenu === 'string') {
+                // Si le contenu est une chaîne HTML
+                ongletElement.innerHTML = contenu;
+            } else if (Array.isArray(contenu)) {
+                // Si le contenu est un tableau de sections
+                ongletElement.innerHTML = '';
+                contenu.forEach((section, index) => {
+                    const sectionElement = document.createElement('div');
+                    sectionElement.className = 'lesson-section';
+                    sectionElement.style.animationDelay = `${index * 0.1}s`;
+                    sectionElement.innerHTML = section;
+                    ongletElement.appendChild(sectionElement);
+                });
+            }
+            
+            // Réattacher les événements après le chargement
+            setTimeout(() => {
+                reattachEvents();
+                // Animer les sections
+                const sections = ongletElement.querySelectorAll('.lesson-section');
+                sections.forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.opacity = '1';
+                    }, index * 100);
+                });
+            }, 100);
+        }
+
+        // Charger les cours en vedette pour la page d'accueil
+        async function loadFeaturedCourses() {
+            try {
+                const response = await fetch('data/matieres-4e.json');
+                const data = await response.json();
+                const featuredCourses = document.getElementById('featured-courses');
+                
+                featuredCourses.innerHTML = '';
+                
+                // Prendre les 3 premiers cours de chaque matière
+                let featured = [];
+                data.matieres.forEach(matiere => {
+                    matiere.cours.slice(0, 3).forEach(cours => {
+                        featured.push({
+                            ...cours,
+                            matiere: matiere.nom,
+                            matiereIcone: matiere.icone
+                        });
+                    });
+                });
+                
+                // Mélanger et prendre 6 cours maximum
+                featured = featured.sort(() => Math.random() - 0.5).slice(0, 6);
+                
+                featured.forEach(cours => {
+                    const card = document.createElement('div');
+                    card.className = 'cours-card';
+                    card.innerHTML = `
+                        <div class="cours-icon">
+                            <i class="${cours.icone || 'fas fa-book'}"></i>
+                        </div>
+                        <div class="cours-title">${cours.titre}</div>
+                        <div class="cours-description">${cours.description}</div>
+                        <div class="cours-meta">
+                            <span><i class="fas fa-bookmark"></i> ${cours.matiere}</span>
+                            <span><i class="fas fa-clock"></i> ${cours.duree}</span>
+                        </div>
+                    `;
+                    
+                    card.addEventListener('click', () => {
+                        loadCours(cours.id);
+                    });
+                    
+                    featuredCourses.appendChild(card);
+                });
+                
+            } catch (error) {
+                console.error('Erreur de chargement des cours en vedette:', error);
+            }
+        }
+
+        // Réattacher les événements après le chargement du contenu
+        function reattachEvents() {
+            // Réattacher les événements des boutons "Vérifier"
+            document.querySelectorAll('.show-answer').forEach(button => {
+                if (button.getAttribute('data-reattached') !== 'true') {
+                    button.setAttribute('data-reattached', 'true');
+                    
+                    if (button.onclick) {
+                        // Sauvegarder la fonction onclick originale
+                        const originalOnclick = button.onclick;
+                        button.onclick = null;
+                        button.addEventListener('click', originalOnclick);
+                    } else if (button.getAttribute('onclick')) {
+                        // Si l'événement est défini via l'attribut onclick
+                        const onclickFunc = button.getAttribute('onclick');
+                        button.removeAttribute('onclick');
+                        button.addEventListener('click', () => {
+                            eval(onclickFunc);
+                        });
+                    }
+                }
+            });
+            
+            // Réattacher les événements des inputs radio
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.addEventListener('change', function() {
+                    // Retirer la couleur des autres options
+                    const parent = this.closest('.question');
+                    parent.querySelectorAll('label').forEach(label => {
+                        label.style.color = '';
+                        label.style.fontWeight = '';
+                    });
+                });
+            });
+        }
+
+        // Fonctions pour les modales (identiques aux fichiers précédents)
+        function showSuccessModal(title, message, details = '', showConfetti = true) {
+            feedbackModal.classList.remove('error-modal');
+            feedbackModal.classList.add('success-modal');
+            modalIcon.innerHTML = '<i class="fas fa-check-circle success-icon"></i>';
+            modalIcon.className = 'modal-icon success-icon';
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            
+            if (details) {
+                modalDetails.innerHTML = details;
+                modalDetails.style.display = 'block';
+            } else {
+                modalDetails.style.display = 'none';
+            }
+            
+            modalButton.textContent = 'Continuer';
+            modalButton.onclick = closeModal;
+            
+            modalOverlay.classList.add('active');
+            
+            if (showConfetti) {
+                createConfetti();
+            }
+        }
+        
+        function showErrorModal(title, message, details = '', correctAnswer = '') {
+            feedbackModal.classList.remove('success-modal');
+            feedbackModal.classList.add('error-modal');
+            modalIcon.innerHTML = '<i class="fas fa-exclamation-triangle error-icon"></i>';
+            modalIcon.className = 'modal-icon error-icon';
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            
+            if (details) {
+                modalDetails.innerHTML = details;
+                modalDetails.style.display = 'block';
+            } else {
+                modalDetails.style.display = 'none';
+            }
+            
+            if (correctAnswer) {
+                modalDetails.innerHTML += `<p style="margin-top: 10px; font-weight: bold; color: var(--success);">La bonne réponse était : ${correctAnswer}</p>`;
+                modalDetails.style.display = 'block';
+            }
+            
+            modalButton.textContent = 'Compris';
+            modalButton.onclick = closeModal;
+            
+            modalOverlay.classList.add('active');
+        }
+        
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+        }
+        
+        function createConfetti() {
+            const colors = ['#FF7E5F', '#3D3B8E', '#6883BA', '#4BB543', '#FF9800'];
+            const confettiCount = 50;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                
+                const animationDuration = Math.random() * 3 + 2;
+                confetti.style.animation = `confettiRain ${animationDuration}s linear forwards`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, animationDuration * 1000);
+            }
+        }
+
+        // Fonction pour changer d'onglet
+        function switchTab(tabName) {
+            // Masquer tous les contenus d'onglet
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activer l'onglet sélectionné
+            document.getElementById(tabName).classList.add('active');
+            
+            // Activer le bouton d'onglet correspondant
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.textContent.includes(getTabName(tabName))) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Animer le contenu de l'onglet
+            const activeTab = document.getElementById(tabName);
+            activeTab.style.animation = 'none';
+            setTimeout(() => {
+                activeTab.style.animation = 'fadeInUp 0.5s ease-out';
+            }, 10);
+        }
+        
+        function getTabName(tabId) {
+            const names = {
+                'lecon': 'Leçon',
+                'exercices': 'Exercices',
+                'astuces': 'Astuces',
+                'evaluation': 'Évaluation'
+            };
+            return names[tabId] || tabId;
+        }
+
+        // Fonction pour mettre à jour la barre de progression
+        function updateProgress() {
+            progress = Math.min(progress + 1, totalExercises);
+            const percent = Math.round((progress / totalExercises) * 100);
+            
+            const progressPercent = document.getElementById('progressPercent');
+            const progressFill = document.getElementById('progressFill');
+            
+            if (progressPercent) {
+                progressPercent.textContent = `${percent}%`;
+            }
+            
+            if (progressFill) {
+                progressFill.style.width = `${percent}%`;
+            }
+        }
+
+        // Fonctions pour les exercices interactifs (adaptées pour fonctionner avec le contenu dynamique)
+        function checkRadio(questionName, correctAnswer) {
+            const radios = document.getElementsByName(questionName);
+            let selectedValue = '';
+            let selectedRadio = null;
+            
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    selectedRadio = radio;
+                    break;
+                }
+            }
+            
+            if (!selectedValue) {
+                showErrorModal(
+                    'Réponse manquante',
+                    'Tu dois sélectionner une réponse avant de vérifier.',
+                    'Clique sur "Vrai" ou "Faux" pour choisir ta réponse.'
+                );
+                return;
+            }
+            
+            if (selectedValue === correctAnswer) {
+                showSuccessModal(
+                    '🎉 Excellente réponse !',
+                    'Félicitations, tu as bien compris cette notion.',
+                    'Continue comme ça !'
+                );
+                updateProgress();
+                
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswer) {
+                        radio.parentElement.style.color = 'var(--success)';
+                        radio.parentElement.style.fontWeight = 'bold';
+                    }
+                });
+            } else {
+                const correctAnswerText = correctAnswer === 'vrai' ? 'VRAI' : 'FAUX';
+                const userAnswerText = selectedValue === 'vrai' ? 'VRAI' : 'FAUX';
+                
+                showErrorModal(
+                    'Presque !',
+                    `Ta réponse : <strong>${userAnswerText}</strong>`,
+                    `Ne te décourage pas ! Chaque erreur est une occasion d'apprendre.`,
+                    `Réponse correcte : ${correctAnswerText}`
+                );
+                
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswer) {
+                        radio.parentElement.style.color = 'var(--success)';
+                        radio.parentElement.style.fontWeight = 'bold';
+                    } else if (radio.checked) {
+                        radio.parentElement.style.color = 'var(--warning)';
+                    }
+                });
+            }
+        }
+        
+        function checkClassification() {
+            const survie = document.getElementById('survie')?.value.toLowerCase() || '';
+            const protection = document.getElementById('protection')?.value.toLowerCase() || '';
+            
+            const survieAttendus = ['soigné', 'malade', 'acte de naissance', 'manger', 'faim'];
+            const protectionAttendus = ['frappé', 'insulté', 'travailler', 'dangereuses', 'enlèvements', 'protégé'];
+            
+            let scoreSurvie = 0;
+            let scoreProtection = 0;
+            
+            survieAttendus.forEach(terme => {
+                if (survie.includes(terme)) scoreSurvie++;
+            });
+            
+            protectionAttendus.forEach(terme => {
+                if (protection.includes(terme)) scoreProtection++;
+            });
+            
+            const totalScore = scoreSurvie + scoreProtection;
+            const maxScore = 6;
+            
+            if (totalScore >= 5) {
+                showSuccessModal(
+                    '🌟 Classification parfaite !',
+                    `Tu as bien classé ${totalScore}/${maxScore} droits.`,
+                    'Tu maîtrises parfaitement la distinction entre survie et protection.'
+                );
+                updateProgress();
+                updateProgress();
+            } else if (totalScore >= 3) {
+                showSuccessModal(
+                    '👍 Bon travail !',
+                    `Tu as classé ${totalScore}/${maxScore} droits correctement.`,
+                    'Tu progresses bien dans la compréhension des différents types de droits.'
+                );
+                updateProgress();
+            } else {
+                showErrorModal(
+                    '📚 À revoir',
+                    `Tu as classé ${totalScore}/${maxScore} droits correctement.`,
+                    'Consulte les corrections pour mieux comprendre la différence entre droits à la survie et droits à la protection.'
+                );
+            }
+        }
+        
+        function checkCasPratique() {
+            const q1 = document.getElementById('q3-1')?.value.trim() || '';
+            const q2 = document.getElementById('q3-2')?.value.trim() || '';
+            const q3 = document.getElementById('q3-3')?.value.trim() || '';
+            
+            if (!q1 || !q2 || !q3) {
+                showErrorModal(
+                    'Réponses incomplètes',
+                    'Tu dois répondre à toutes les questions avant de vérifier.',
+                    'Prends le temps de bien réfléchir à chaque question.'
+                );
+                return;
+            }
+            
+            let score = 0;
+            let feedback = '';
+            
+            // Question 1
+            if (q1.length > 10 && (q1.includes('éducation') || q1.includes('repos') || q1.includes('loisirs') || q1.includes('équité') || q1.includes('exploitation'))) {
+                score += 2;
+                feedback += '<p>✓ <strong>Question 1 :</strong> Tu as bien identifié les droits non respectés.</p>';
+            } else {
+                feedback += '<p>✗ <strong>Question 1 :</strong> Essaie de penser aux droits spécifiques (éducation, repos, équité, protection).</p>';
+            }
+            
+            // Question 2
+            if (q2.length > 20 && (q2.includes('protection') || q2.includes('exploitation') || q2.includes('travail'))) {
+                score += 2;
+                feedback += '<p>✓ <strong>Question 2 :</strong> Bonne analyse du type de violation.</p>';
+            } else {
+                feedback += '<p>✗ <strong>Question 2 :</strong> Réfléchis : est-ce un problème de survie ou de protection ?</p>';
+            }
+            
+            // Question 3
+            if (q3.length > 15 && (q3.includes('parler') || q3.includes('adulte') || q3.includes('aide') || q3.includes('social'))) {
+                score += 2;
+                feedback += '<p>✓ <strong>Question 3 :</strong> Excellentes suggestions pour aider.</p>';
+            } else {
+                feedback += '<p>✗ <strong>Question 3 :</strong> Pense aux personnes qui peuvent aider (adultes de confiance).</p>';
+            }
+            
+            if (score >= 5) {
+                showSuccessModal(
+                    '💡 Très bon raisonnement !',
+                    'Tu as bien analysé la situation et proposé des solutions appropriées.',
+                    feedback
+                );
+                updateProgress();
+                updateProgress();
+            } else if (score >= 3) {
+                showSuccessModal(
+                    '🔍 Bon début de réflexion !',
+                    'Tu as compris l\'essentiel, continue à approfondir ton analyse.',
+                    feedback
+                );
+                updateProgress();
+            } else {
+                showErrorModal(
+                    '🧠 À approfondir',
+                    'Relis bien la situation et réfléchis aux différents droits concernés.',
+                    feedback
+                );
+            }
+        }
+        
+        function showAllAnswers() {
+            const answersDiv = document.getElementById('allAnswers');
+            if (!answersDiv) return;
+            
+            if (answersDiv.style.display === 'block') {
+                answersDiv.style.display = 'none';
+            } else {
+                answersDiv.style.display = 'block';
+                answersDiv.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    
+                    const spans = this.querySelectorAll('span');
+                    if (navLinks.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                    } else {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+                
+                // Fermer le menu en cliquant à l'extérieur
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.navbar')) {
+                        navLinks.classList.remove('active');
+                        document.querySelectorAll('.menu-toggle span').forEach(span => {
+                            span.style.transform = 'none';
+                            span.style.opacity = '1';
+                        });
+                    }
+                });
+            }
+            
+            // Charger les cours en vedette au démarrage
+            loadFeaturedCourses();
+            
+            // Gestion du responsive pour les tableaux
+            window.addEventListener('resize', function() {
+                if (window.innerWidth < 768) {
+                    document.querySelectorAll('table').forEach(table => {
+                        if (!table.hasAttribute('data-mobile-style')) {
+                            table.setAttribute('data-mobile-style', 'true');
+                            table.style.display = 'block';
+                            table.style.overflowX = 'auto';
+                        }
+                    });
+                }
+            });
+            
+            // Déclencher une fois au chargement
+            window.dispatchEvent(new Event('resize'));
+        });
+    </script>
+</body>
+</html>

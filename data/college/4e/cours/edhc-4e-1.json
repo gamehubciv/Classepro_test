@@ -3,8 +3,76 @@
   "classe": "4e",
   "matiere": "EDHC",
   "titre": "Les droits et devoirs du citoyen",
-  "lecon": "<h3>Introduction aux droits et devoirs</h3><p>Un citoyen est une personne membre d'un État et soumise à ses lois.</p><p>Les droits sont les libertés accordées aux citoyens.</p><p>Les devoirs sont les obligations du citoyen pour vivre en société.</p><h3>Les principaux droits du citoyen</h3><p>Droit à la liberté d'expression et d'opinion.</p><p>Droit à l'éducation.</p><p>Droit à la santé.</p><p>Droit de vote et participation à la vie politique.</p><h3>Les principaux devoirs du citoyen</h3><p>Respecter les lois et règlements.</p><p>Participer à la vie civique (vote, débats, initiatives).</p><p>Payer les impôts et contribuer au bien-être collectif.</p><p>Respecter les droits des autres citoyens.</p><h3>Conclusion</h3><p>Être citoyen implique de bénéficier de droits mais aussi d'assumer des responsabilités.</p><p>Le respect des droits et devoirs permet une société plus juste et harmonieuse.</p>",
-  "exercices": "<p>1. Citez trois droits fondamentaux d’un citoyen.</p><p>2. Citez deux devoirs essentiels d’un citoyen.</p><p>3. Pourquoi est-il important de respecter les droits des autres ?</p><p>4. Donnez un exemple de participation citoyenne dans votre commune.</p>",
-  "astuces": "<ul><li>Relisez les définitions de droits et devoirs pour ne pas les confondre.</li><li>Faites des exemples concrets pour mieux comprendre l’impact des devoirs.</li><li>Comparez vos réponses avec celles de vos camarades pour enrichir vos connaissances.</li></ul>",
-  "evaluation": "<p>1. Expliquez ce qu’est un droit et donnez deux exemples. (3 pts)</p><p>2. Expliquez ce qu’est un devoir et donnez deux exemples. (3 pts)</p><p>3. Pourquoi le respect des droits et devoirs est-il important dans une société ? (4 pts)</p>"
+  "lecon": [
+    {
+      "titre": "Introduction aux droits et devoirs",
+      "contenu": [
+        "Un citoyen est une personne membre d'un État et soumise à ses lois.",
+        "Les droits sont les libertés accordées aux citoyens.",
+        "Les devoirs sont les obligations du citoyen pour vivre en société."
+      ]
+    },
+    {
+      "titre": "Les principaux droits du citoyen",
+      "contenu": [
+        "Droit à la liberté d'expression et d'opinion.",
+        "Droit à l'éducation.",
+        "Droit à la santé.",
+        "Droit de vote et participation à la vie politique."
+      ]
+    },
+    {
+      "titre": "Les principaux devoirs du citoyen",
+      "contenu": [
+        "Respecter les lois et règlements.",
+        "Participer à la vie civique (vote, débats, initiatives).",
+        "Payer les impôts et contribuer au bien-être collectif.",
+        "Respecter les droits des autres citoyens."
+      ]
+    },
+    {
+      "titre": "Conclusion",
+      "contenu": [
+        "Être citoyen implique de bénéficier de droits mais aussi d'assumer des responsabilités.",
+        "Le respect des droits et devoirs permet une société plus juste et harmonieuse."
+      ]
+    }
+  ],
+  "exercices": [
+    {
+      "question": "Citez trois droits fondamentaux d’un citoyen.",
+      "type": "réponse libre"
+    },
+    {
+      "question": "Citez deux devoirs essentiels d’un citoyen.",
+      "type": "réponse libre"
+    },
+    {
+      "question": "Pourquoi est-il important de respecter les droits des autres ?",
+      "type": "réponse libre"
+    },
+    {
+      "question": "Donnez un exemple de participation citoyenne dans votre commune.",
+      "type": "réponse libre"
+    }
+  ],
+  "astuces": [
+    "Relisez les définitions de droits et devoirs pour ne pas les confondre.",
+    "Faites des exemples concrets pour mieux comprendre l’impact des devoirs.",
+    "Comparez vos réponses avec celles de vos camarades pour enrichir vos connaissances."
+  ],
+  "evaluation": [
+    {
+      "question": "Expliquez ce qu’est un droit et donnez deux exemples.",
+      "points": 3
+    },
+    {
+      "question": "Expliquez ce qu’est un devoir et donnez deux exemples.",
+      "points": 3
+    },
+    {
+      "question": "Pourquoi le respect des droits et devoirs est-il important dans une société ?",
+      "points": 4
+    }
+  ]
 }

@@ -1,42 +1,28 @@
 {
+  "id": "4e",
   "classe": "4e",
   "matieres": [
     {
       "id": "edhc",
       "nom": "EDHC",
       "cours": [
-        "edhc-4e-1.json"
+        {
+          "id": "edhc-4e-1",
+          "fichier": "edhc-4e-1.json",
+          "titre": "Les droits et devoirs du citoyen"
+        }
       ]
     },
     {
       "id": "francais",
       "nom": "FRANCAIS",
-      "cours": []
-    },
-    {
-      "id": "mathematiques",
-      "nom": "MATHEMATIQUES",
-      "cours": []
-    },
-    {
-      "id": "anglais",
-      "nom": "ANGLAIS",
-      "cours": []
-    },
-    {
-      "id": "histoire-geographie",
-      "nom": "HISTOIRE-GEOGRAPHIE",
-      "cours": []
-    },
-    {
-      "id": "svt",
-      "nom": "SVT",
-      "cours": []
-    },
-    {
-      "id": "physique-chimie",
-      "nom": "PHYSIQUE-CHIMIE",
-      "cours": []
+      "cours": [
+        {
+          "id": "francais-4e-1",
+          "fichier": "francais-4e-1.json",
+          "titre": "Le résumé de texte"
+        }
+      ]
     }
   ]
 }

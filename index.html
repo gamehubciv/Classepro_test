@@ -1584,6 +1584,7 @@
 
         // Charger les matières d'une classe
         async function loadMatieres(classe) {
+            console.log('Chargement des matières pour :', classe.nom);
             currentClasse = classe;
             
             // Mettre à jour le titre de la page
@@ -1609,19 +1610,23 @@
                     }
                 }
                 
+                console.log('Chemin du fichier matières :', matieresPath);
                 const response = await fetch(matieresPath);
+                console.log('Réponse du fetch :', response.ok);
                 matieresData = await response.json();
+                console.log('Données des matières chargées :', matieresData);
                 displayMatieres();
             } catch (error) {
                 console.error('Erreur de chargement des matières:', error);
                 // Si le fichier n'existe pas, afficher un message et créer une structure par défaut
-                showInfoModal('Information', `Les matières pour la ${classe.nom} seront bientôt disponibles.`);
+                console.log('Création des matières par défaut');
                 createDefaultMatieres();
             }
         }
 
-        // Créer une structure de matières par défaut
+        // Créer une structure de matières par défaut - CORRIGÉE POUR FONCTIONNER AVEC TOUTES LES CLASSES
         function createDefaultMatieres() {
+            console.log('Création des matières par défaut pour:', currentClasse.nom);
             matieresData = {
                 classe: currentClasse,
                 matieres: []
@@ -1630,7 +1635,13 @@
             // Définir les matières par défaut selon le niveau et la classe
             let defaultMatieres = [];
             
-            if (currentNiveau.id === 'college') {
+            if (currentNiveau.id === 'primaire') {
+                defaultMatieres = [
+                    { id: 'francais', nom: 'FRANÇAIS', icone: 'fas fa-book', description: 'Langue française' },
+                    { id: 'mathematiques', nom: 'MATHÉMATIQUES', icone: 'fas fa-calculator', description: 'Calcul et géométrie' },
+                    { id: 'decouverte', nom: 'DÉCOUVERTE', icone: 'fas fa-globe', description: 'Découverte du monde' }
+                ];
+            } else if (currentNiveau.id === 'college') {
                 defaultMatieres = [
                     { id: 'eps', nom: 'EPS', icone: 'fas fa-running', description: 'Éducation Physique et Sportive' },
                     { id: 'anglais', nom: 'ANGLAIS', icone: 'fas fa-globe-americas', description: 'Langue anglaise' },
@@ -1643,6 +1654,42 @@
                     { id: 'mathematiques', nom: 'MATHÉMATIQUES', icone: 'fas fa-calculator', description: 'Algèbre, géométrie et calcul' },
                     { id: 'physique-chimie', nom: 'PHYSIQUE-CHIMIE', icone: 'fas fa-flask', description: 'Sciences physiques et chimie' },
                     { id: 'tic', nom: 'TIC', icone: 'fas fa-laptop-code', description: 'Technologies de l\'Information et de la Communication' }
+                ];
+                
+                // Ajouter des cours par défaut pour la 4ème en EDHC
+                if (currentClasse.id === '4e') {
+                    defaultMatieres.forEach(matiere => {
+                        matiere.cours = [];
+                        
+                        if (matiere.id === 'edhc') {
+                            matiere.cours.push({
+                                id: 'edhc-4e-droits-survie-protection',
+                                titre: 'Les Droits à la Survie et à la Protection de l\'Enfant',
+                                description: 'Cours complet sur les droits à la survie et à la protection',
+                                duree: '2h',
+                                niveau: '4ème',
+                                icone: 'fas fa-balance-scale'
+                            });
+                        } else {
+                            matiere.cours.push({
+                                id: `${matiere.id}-introduction`,
+                                titre: `Introduction à ${matiere.nom}`,
+                                description: `Cours d'introduction à ${matiere.nom}`,
+                                duree: '1h',
+                                niveau: currentClasse.nom,
+                                icone: matiere.icone
+                            });
+                        }
+                    });
+                }
+            } else if (currentNiveau.id === 'lycee') {
+                defaultMatieres = [
+                    { id: 'philosophie', nom: 'PHILOSOPHIE', icone: 'fas fa-brain', description: 'Philosophie et pensée critique' },
+                    { id: 'francais', nom: 'FRANÇAIS', icone: 'fas fa-book', description: 'Langue et littérature' },
+                    { id: 'histoire-geographie', nom: 'HISTOIRE-GÉOGRAPHIE', icone: 'fas fa-globe', description: 'Histoire et géographie' },
+                    { id: 'langues', nom: 'LANGUES', icone: 'fas fa-language', description: 'Langues vivantes' },
+                    { id: 'sciences', nom: 'SCIENCES', icone: 'fas fa-flask', description: 'Sciences physiques et SVT' },
+                    { id: 'mathematiques', nom: 'MATHÉMATIQUES', icone: 'fas fa-calculator', description: 'Mathématiques avancées' }
                 ];
             }
             
@@ -1771,37 +1818,20 @@
                     }
                 }
                 
+                console.log('Chemin du cours :', coursPath);
                 const response = await fetch(coursPath);
                 currentCours = await response.json();
+                console.log('Cours chargé :', currentCours);
                 
                 // Mettre à jour l'interface
                 document.getElementById('cours-titre').textContent = currentCours.titre || currentCours.cours?.titre || 'Titre du cours';
                 document.getElementById('cours-sousTitre').textContent = currentCours.sousTitre || currentCours.cours?.sousTitre || 'Sous-titre du cours';
                 
-                // Charger le contenu des onglets
-                if (currentCours.lecon) {
-                    loadContenuOnglet('lecon', currentCours.lecon);
-                } else if (currentCours.cours?.lecon) {
-                    loadContenuOnglet('lecon', currentCours.cours.lecon);
-                }
-                
-                if (currentCours.exercices) {
-                    loadContenuOnglet('exercices', currentCours.exercices);
-                } else if (currentCours.cours?.exercices) {
-                    loadContenuOnglet('exercices', currentCours.cours.exercices);
-                }
-                
-                if (currentCours.astuces) {
-                    loadContenuOnglet('astuces', currentCours.astuces);
-                } else if (currentCours.cours?.astuces) {
-                    loadContenuOnglet('astuces', currentCours.cours.astuces);
-                }
-                
-                if (currentCours.evaluation) {
-                    loadContenuOnglet('evaluation', currentCours.evaluation);
-                } else if (currentCours.cours?.evaluation) {
-                    loadContenuOnglet('evaluation', currentCours.cours.evaluation);
-                }
+                // Charger le contenu des onglets avec format tableau d'objets
+                loadTabContent('lecon', currentCours.lecon || currentCours.cours?.lecon);
+                loadTabContent('exercices', currentCours.exercices || currentCours.cours?.exercices);
+                loadTabContent('astuces', currentCours.astuces || currentCours.cours?.astuces);
+                loadTabContent('evaluation', currentCours.evaluation || currentCours.cours?.evaluation);
                 
                 // Charger la fiche de révision si elle existe
                 if (currentCours.ficheRevision) {
@@ -1827,30 +1857,40 @@
             }
         }
 
-        // Charger le contenu d'un onglet
-        function loadContenuOnglet(ongletId, contenu) {
-            const ongletElement = document.getElementById(ongletId);
+        // Fonction générique pour charger le contenu d'un onglet avec format tableau d'objets
+        function loadTabContent(tabId, content) {
+            const tabElement = document.getElementById(tabId);
+            if (!tabElement) return;
             
-            if (typeof contenu === 'string') {
-                // Si le contenu est une chaîne HTML
-                ongletElement.innerHTML = contenu;
-            } else if (Array.isArray(contenu)) {
-                // Si le contenu est un tableau de sections
-                ongletElement.innerHTML = '';
-                contenu.forEach((section, index) => {
-                    const sectionElement = document.createElement('div');
-                    sectionElement.className = 'lesson-section';
-                    sectionElement.style.animationDelay = `${index * 0.1}s`;
-                    sectionElement.innerHTML = section;
-                    ongletElement.appendChild(sectionElement);
-                });
+            tabElement.innerHTML = '';
+            
+            if (!content) {
+                tabElement.innerHTML = `
+                    <div class="lesson-section" style="text-align: center; padding: 2rem;">
+                        <i class="fas fa-info-circle" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h3>Contenu non disponible</h3>
+                        <p>Le contenu pour cet onglet sera ajouté prochainement.</p>
+                    </div>
+                `;
+                return;
             }
             
-            // Réattacher les événements après le chargement
+            if (Array.isArray(content)) {
+                // Format tableau d'objets - plus professionnel
+                content.forEach((item, index) => {
+                    const section = createSectionForTab(tabId, item, index);
+                    if (section) {
+                        tabElement.appendChild(section);
+                    }
+                });
+            } else if (typeof content === 'string') {
+                // Format texte simple (compatibilité)
+                tabElement.innerHTML = content;
+            }
+            
+            // Animer les sections
             setTimeout(() => {
-                reattachEvents();
-                // Animer les sections
-                const sections = ongletElement.querySelectorAll('.lesson-section');
+                const sections = tabElement.querySelectorAll('.lesson-section');
                 sections.forEach((section, index) => {
                     setTimeout(() => {
                         section.style.opacity = '1';
@@ -1859,38 +1899,251 @@
             }, 100);
         }
 
+        // Créer une section pour un onglet spécifique (format tableau d'objets)
+        function createSectionForTab(tabId, item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            switch(tabId) {
+                case 'lecon':
+                    // Format attendu: { titre: string, contenu: array|string, type?: string }
+                    return createLeconSection(item, index);
+                case 'exercices':
+                    // Format attendu: { question: string, type: string, options?: array, reponse?: string }
+                    return createExerciceSection(item, index);
+                case 'astuces':
+                    // Format attendu: string ou { texte: string, icone?: string }
+                    return createAstuceSection(item, index);
+                case 'evaluation':
+                    // Format attendu: { question: string, points: number, type?: string }
+                    return createEvaluationSection(item, index);
+                default:
+                    return null;
+            }
+        }
+
+        // Créer une section de leçon
+        function createLeconSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let html = `<h3 class="section-title"><i class="fas fa-book"></i> ${item.titre || 'Section ' + (index + 1)}</h3>`;
+            html += '<div class="lesson-content">';
+            
+            if (Array.isArray(item.contenu)) {
+                html += '<ul>';
+                item.contenu.forEach(point => {
+                    html += `<li>${point}</li>`;
+                });
+                html += '</ul>';
+            } else if (item.contenu) {
+                html += `<p>${item.contenu}</p>`;
+            }
+            
+            // Ajouter des éléments supplémentaires selon le type
+            if (item.type === 'definition' && item.definition) {
+                html += `<div class="definition-box"><div class="definition-title">Définition</div><p>${item.definition}</p></div>`;
+            }
+            
+            if (item.type === 'exemple' && item.exemple) {
+                html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
+            }
+            
+            if (item.type === 'table' && item.table) {
+                html += `<table><thead><tr>`;
+                item.table.headers.forEach(header => {
+                    html += `<th>${header}</th>`;
+                });
+                html += `</tr></thead><tbody>`;
+                item.table.rows.forEach(row => {
+                    html += `<tr>`;
+                    row.forEach(cell => {
+                        html += `<td>${cell}</td>`;
+                    });
+                    html += `</tr>`;
+                });
+                html += `</tbody></table>`;
+            }
+            
+            if (item.important) {
+                html += `<div class="important-box"><strong>Important :</strong> ${item.important}</div>`;
+            }
+            
+            html += '</div>';
+            
+            section.innerHTML = html;
+            return section;
+        }
+
+        // Créer une section d'exercice
+        function createExerciceSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let html = `<div class="exercise-box">`;
+            html += `<div class="exercise-title"><i class="fas fa-question-circle"></i> Exercice ${index + 1}</div>`;
+            html += `<p>${item.question}</p>`;
+            
+            // Selon le type d'exercice
+            if (item.type === 'qcm' && item.options) {
+                html += '<div class="question">';
+                item.options.forEach((option, optIndex) => {
+                    const optionId = `exo-${index}-opt-${optIndex}`;
+                    html += `
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="${optionId}" name="exo-${index}" value="${option.value || option}">
+                            <label for="${optionId}">${option.text || option}</label>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                if (item.correction) {
+                    html += `<button class="show-answer" onclick="checkExoAnswer(${index}, '${item.reponse}')">Vérifier ma réponse</button>`;
+                    html += `<div id="correction-${index}" class="answer-box" style="display: none;">${item.correction}</div>`;
+                }
+            } else if (item.type === 'texte_libre' || item.type === 'réponse libre') {
+                html += `<textarea id="reponse-${index}" rows="3" placeholder="Écrivez votre réponse ici..."></textarea>`;
+                if (item.correction) {
+                    html += `<button class="show-answer" onclick="showCorrection(${index})">Voir la correction</button>`;
+                    html += `<div id="correction-${index}" class="answer-box" style="display: none;">${item.correction}</div>`;
+                }
+            } else if (item.type === 'vrai_faux') {
+                html += `
+                    <div class="question">
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="vrai-${index}" name="vf-${index}" value="vrai">
+                            <label for="vrai-${index}">Vrai</label>
+                        </div>
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="faux-${index}" name="vf-${index}" value="faux">
+                            <label for="faux-${index}">Faux</label>
+                        </div>
+                    </div>
+                `;
+                if (item.reponse) {
+                    html += `<button class="show-answer" onclick="checkVraiFaux(${index}, '${item.reponse}')">Vérifier</button>`;
+                }
+            }
+            
+            html += `</div>`;
+            
+            section.innerHTML = html;
+            return section;
+        }
+
+        // Créer une section d'astuce
+        function createAstuceSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let astuceText = typeof item === 'string' ? item : item.texte || '';
+            let astuceIcon = (typeof item === 'object' && item.icone) ? item.icone : 'fas fa-lightbulb';
+            
+            let html = `<div class="tip-box">`;
+            html += `<div class="tip-title"><i class="${astuceIcon}"></i> Astuce ${index + 1}</div>`;
+            html += `<p>${astuceText}</p>`;
+            html += `</div>`;
+            
+            section.innerHTML = html;
+            return section;
+        }
+
+        // Créer une section d'évaluation
+        function createEvaluationSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let html = `<div class="exercise-box">`;
+            html += `<div class="exercise-title"><i class="fas fa-star"></i> Question ${index + 1} (${item.points || 1} point${item.points > 1 ? 's' : ''})</div>`;
+            html += `<p>${item.question}</p>`;
+            
+            if (item.type === 'qcm' && item.options) {
+                html += '<div class="question">';
+                item.options.forEach((option, optIndex) => {
+                    const optionId = `eval-${index}-opt-${optIndex}`;
+                    html += `
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="${optionId}" name="eval-${index}" value="${option.value || option}">
+                            <label for="${optionId}">${option.text || option}</label>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            } else {
+                html += `<textarea id="eval-reponse-${index}" rows="4" placeholder="Répondez à la question..."></textarea>`;
+            }
+            
+            html += `</div>`;
+            
+            section.innerHTML = html;
+            return section;
+        }
+
+        // Fonctions pour les exercices interactifs
+        function checkExoAnswer(index, correctAnswer) {
+            const radios = document.getElementsByName(`exo-${index}`);
+            let selectedValue = '';
+            
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            
+            if (!selectedValue) {
+                showErrorModal('Réponse manquante', 'Veuillez sélectionner une réponse.');
+                return;
+            }
+            
+            const correctionDiv = document.getElementById(`correction-${index}`);
+            
+            if (selectedValue === correctAnswer) {
+                showSuccessModal('Bonne réponse !', 'Félicitations, vous avez trouvé la bonne réponse.');
+                if (correctionDiv) correctionDiv.style.display = 'block';
+                updateProgress();
+            } else {
+                showErrorModal('Mauvaise réponse', 'Ce n\'est pas la bonne réponse. Essayez encore !');
+                if (correctionDiv) correctionDiv.style.display = 'block';
+            }
+        }
+        
+        function checkVraiFaux(index, correctAnswer) {
+            const selectedRadio = document.querySelector(`input[name="vf-${index}"]:checked`);
+            
+            if (!selectedRadio) {
+                showErrorModal('Réponse manquante', 'Veuillez sélectionner Vrai ou Faux.');
+                return;
+            }
+            
+            if (selectedRadio.value === correctAnswer) {
+                showSuccessModal('Bonne réponse !', 'Félicitations, vous avez raison.');
+                updateProgress();
+            } else {
+                showErrorModal('Mauvaise réponse', `La bonne réponse était : ${correctAnswer === 'vrai' ? 'Vrai' : 'Faux'}.`);
+            }
+        }
+        
+        function showCorrection(index) {
+            const correctionDiv = document.getElementById(`correction-${index}`);
+            if (correctionDiv) {
+                correctionDiv.style.display = 'block';
+                showInfoModal('Correction', 'Voici la correction proposée.');
+            }
+        }
+
         // Réattacher les événements après le chargement du contenu
         function reattachEvents() {
-            // Réattacher les événements des boutons "Vérifier"
             document.querySelectorAll('.show-answer').forEach(button => {
-                if (button.getAttribute('data-reattached') !== 'true') {
-                    button.setAttribute('data-reattached', 'true');
-                    
-                    if (button.onclick) {
-                        // Sauvegarder la fonction onclick originale
-                        const originalOnclick = button.onclick;
-                        button.onclick = null;
-                        button.addEventListener('click', originalOnclick);
-                    } else if (button.getAttribute('onclick')) {
-                        // Si l'événement est défini via l'attribut onclick
-                        const onclickFunc = button.getAttribute('onclick');
-                        button.removeAttribute('onclick');
-                        button.addEventListener('click', () => {
-                            eval(onclickFunc);
-                        });
-                    }
-                }
-            });
-            
-            // Réattacher les événements des inputs radio
-            document.querySelectorAll('input[type="radio"]').forEach(input => {
-                input.addEventListener('change', function() {
-                    // Retirer la couleur des autres options
-                    const parent = this.closest('.question');
-                    parent.querySelectorAll('label').forEach(label => {
-                        label.style.color = '';
-                        label.style.fontWeight = '';
-                    });
+                button.addEventListener('click', function() {
+                    const onclick = this.getAttribute('onclick');
+                    if (onclick) eval(onclick);
                 });
             });
         }
@@ -2043,187 +2296,6 @@
             
             if (progressFill) {
                 progressFill.style.width = `${percent}%`;
-            }
-        }
-
-        // Fonctions pour les exercices interactifs (adaptées pour fonctionner avec le contenu dynamique)
-        function checkRadio(questionName, correctAnswer) {
-            const radios = document.getElementsByName(questionName);
-            let selectedValue = '';
-            let selectedRadio = null;
-            
-            for (const radio of radios) {
-                if (radio.checked) {
-                    selectedValue = radio.value;
-                    selectedRadio = radio;
-                    break;
-                }
-            }
-            
-            if (!selectedValue) {
-                showErrorModal(
-                    'Réponse manquante',
-                    'Tu dois sélectionner une réponse avant de vérifier.',
-                    'Clique sur "Vrai" ou "Faux" pour choisir ta réponse.'
-                );
-                return;
-            }
-            
-            if (selectedValue === correctAnswer) {
-                showSuccessModal(
-                    '🎉 Excellente réponse !',
-                    'Félicitations, tu as bien compris cette notion.',
-                    'Continue comme ça !'
-                );
-                updateProgress();
-                
-                radios.forEach(radio => {
-                    if (radio.value === correctAnswer) {
-                        radio.parentElement.style.color = 'var(--success)';
-                        radio.parentElement.style.fontWeight = 'bold';
-                    }
-                });
-            } else {
-                const correctAnswerText = correctAnswer === 'vrai' ? 'VRAI' : 'FAUX';
-                const userAnswerText = selectedValue === 'vrai' ? 'VRAI' : 'FAUX';
-                
-                showErrorModal(
-                    'Presque !',
-                    `Ta réponse : <strong>${userAnswerText}</strong>`,
-                    `Ne te décourage pas ! Chaque erreur est une occasion d'apprendre.`,
-                    `Réponse correcte : ${correctAnswerText}`
-                );
-                
-                radios.forEach(radio => {
-                    if (radio.value === correctAnswer) {
-                        radio.parentElement.style.color = 'var(--success)';
-                        radio.parentElement.style.fontWeight = 'bold';
-                    } else if (radio.checked) {
-                        radio.parentElement.style.color = 'var(--warning)';
-                    }
-                });
-            }
-        }
-        
-        function checkClassification() {
-            const survie = document.getElementById('survie')?.value.toLowerCase() || '';
-            const protection = document.getElementById('protection')?.value.toLowerCase() || '';
-            
-            const survieAttendus = ['soigné', 'malade', 'acte de naissance', 'manger', 'faim'];
-            const protectionAttendus = ['frappé', 'insulté', 'travailler', 'dangereuses', 'enlèvements', 'protégé'];
-            
-            let scoreSurvie = 0;
-            let scoreProtection = 0;
-            
-            survieAttendus.forEach(terme => {
-                if (survie.includes(terme)) scoreSurvie++;
-            });
-            
-            protectionAttendus.forEach(terme => {
-                if (protection.includes(terme)) scoreProtection++;
-            });
-            
-            const totalScore = scoreSurvie + scoreProtection;
-            const maxScore = 6;
-            
-            if (totalScore >= 5) {
-                showSuccessModal(
-                    '🌟 Classification parfaite !',
-                    `Tu as bien classé ${totalScore}/${maxScore} droits.`,
-                    'Tu maîtrises parfaitement la distinction entre survie et protection.'
-                );
-                updateProgress();
-                updateProgress();
-            } else if (totalScore >= 3) {
-                showSuccessModal(
-                    '👍 Bon travail !',
-                    `Tu as classé ${totalScore}/${maxScore} droits correctement.`,
-                    'Tu progresses bien dans la compréhension des différents types de droits.'
-                );
-                updateProgress();
-            } else {
-                showErrorModal(
-                    '📚 À revoir',
-                    `Tu as classé ${totalScore}/${maxScore} droits correctement.`,
-                    'Consulte les corrections pour mieux comprendre la différence entre droits à la survie et droits à la protection.'
-                );
-            }
-        }
-        
-        function checkCasPratique() {
-            const q1 = document.getElementById('q3-1')?.value.trim() || '';
-            const q2 = document.getElementById('q3-2')?.value.trim() || '';
-            const q3 = document.getElementById('q3-3')?.value.trim() || '';
-            
-            if (!q1 || !q2 || !q3) {
-                showErrorModal(
-                    'Réponses incomplètes',
-                    'Tu dois répondre à toutes les questions avant de vérifier.',
-                    'Prends le temps de bien réfléchir à chaque question.'
-                );
-                return;
-            }
-            
-            let score = 0;
-            let feedback = '';
-            
-            // Question 1
-            if (q1.length > 10 && (q1.includes('éducation') || q1.includes('repos') || q1.includes('loisirs') || q1.includes('équité') || q1.includes('exploitation'))) {
-                score += 2;
-                feedback += '<p>✓ <strong>Question 1 :</strong> Tu as bien identifié les droits non respectés.</p>';
-            } else {
-                feedback += '<p>✗ <strong>Question 1 :</strong> Essaie de penser aux droits spécifiques (éducation, repos, équité, protection).</p>';
-            }
-            
-            // Question 2
-            if (q2.length > 20 && (q2.includes('protection') || q2.includes('exploitation') || q2.includes('travail'))) {
-                score += 2;
-                feedback += '<p>✓ <strong>Question 2 :</strong> Bonne analyse du type de violation.</p>';
-            } else {
-                feedback += '<p>✗ <strong>Question 2 :</strong> Réfléchis : est-ce un problème de survie ou de protection ?</p>';
-            }
-            
-            // Question 3
-            if (q3.length > 15 && (q3.includes('parler') || q3.includes('adulte') || q3.includes('aide') || q3.includes('social'))) {
-                score += 2;
-                feedback += '<p>✓ <strong>Question 3 :</strong> Excellentes suggestions pour aider.</p>';
-            } else {
-                feedback += '<p>✗ <strong>Question 3 :</strong> Pense aux personnes qui peuvent aider (adultes de confiance).</p>';
-            }
-            
-            if (score >= 5) {
-                showSuccessModal(
-                    '💡 Très bon raisonnement !',
-                    'Tu as bien analysé la situation et proposé des solutions appropriées.',
-                    feedback
-                );
-                updateProgress();
-                updateProgress();
-            } else if (score >= 3) {
-                showSuccessModal(
-                    '🔍 Bon début de réflexion !',
-                    'Tu as compris l\'essentiel, continue à approfondir ton analyse.',
-                    feedback
-                );
-                updateProgress();
-            } else {
-                showErrorModal(
-                    '🧠 À approfondir',
-                    'Relis bien la situation et réfléchis aux différents droits concernés.',
-                    feedback
-                );
-            }
-        }
-        
-        function showAllAnswers() {
-            const answersDiv = document.getElementById('allAnswers');
-            if (!answersDiv) return;
-            
-            if (answersDiv.style.display === 'block') {
-                answersDiv.style.display = 'none';
-            } else {
-                answersDiv.style.display = 'block';
-                answersDiv.scrollIntoView({ behavior: 'smooth' });
             }
         }
 

@@ -1827,23 +1827,102 @@
             }
         }
 
-        // Charger le contenu d'un onglet
+        // Charger le contenu d'un onglet - FONCTION CORRIGÉE
         function loadContenuOnglet(ongletId, contenu) {
             const ongletElement = document.getElementById(ongletId);
+            ongletElement.innerHTML = '';
             
             if (typeof contenu === 'string') {
                 // Si le contenu est une chaîne HTML
                 ongletElement.innerHTML = contenu;
             } else if (Array.isArray(contenu)) {
-                // Si le contenu est un tableau de sections
-                ongletElement.innerHTML = '';
-                contenu.forEach((section, index) => {
-                    const sectionElement = document.createElement('div');
-                    sectionElement.className = 'lesson-section';
-                    sectionElement.style.animationDelay = `${index * 0.1}s`;
-                    sectionElement.innerHTML = section;
-                    ongletElement.appendChild(sectionElement);
-                });
+                // Selon l'onglet, nous affichons différemment
+                if (ongletId === 'lecon') {
+                    // Pour la leçon, on s'attend à un tableau d'objets avec titre et contenu
+                    contenu.forEach((section, index) => {
+                        const sectionElement = document.createElement('div');
+                        sectionElement.className = 'lesson-section';
+                        sectionElement.style.animationDelay = `${index * 0.1}s`;
+                        
+                        let html = `<h3 class="section-title"><i class="fas fa-book"></i> ${section.titre}</h3>`;
+                        html += '<div class="lesson-content">';
+                        
+                        if (Array.isArray(section.contenu)) {
+                            html += '<ul>';
+                            section.contenu.forEach(point => {
+                                html += `<li>${point}</li>`;
+                            });
+                            html += '</ul>';
+                        } else {
+                            html += `<p>${section.contenu}</p>`;
+                        }
+                        
+                        html += '</div>';
+                        
+                        sectionElement.innerHTML = html;
+                        ongletElement.appendChild(sectionElement);
+                    });
+                } else if (ongletId === 'exercices') {
+                    // Pour les exercices, on s'attend à un tableau d'objets avec question et type
+                    contenu.forEach((exercice, index) => {
+                        const sectionElement = document.createElement('div');
+                        sectionElement.className = 'lesson-section';
+                        sectionElement.style.animationDelay = `${index * 0.1}s`;
+                        
+                        let html = `<div class="exercise-box">`;
+                        html += `<div class="exercise-title"><i class="fas fa-question-circle"></i> Exercice ${index + 1}</div>`;
+                        html += `<p>${exercice.question}</p>`;
+                        
+                        if (exercice.type === 'réponse libre') {
+                            html += `<textarea id="reponse-${index}" rows="3" placeholder="Écrivez votre réponse ici..."></textarea>`;
+                        }
+                        
+                        html += `</div>`;
+                        
+                        sectionElement.innerHTML = html;
+                        ongletElement.appendChild(sectionElement);
+                    });
+                } else if (ongletId === 'astuces') {
+                    // Pour les astuces, on s'attend à un tableau de chaînes
+                    contenu.forEach((astuce, index) => {
+                        const sectionElement = document.createElement('div');
+                        sectionElement.className = 'lesson-section';
+                        sectionElement.style.animationDelay = `${index * 0.1}s`;
+                        
+                        let html = `<div class="tip-box">`;
+                        html += `<div class="tip-title"><i class="fas fa-lightbulb"></i> Astuce ${index + 1}</div>`;
+                        html += `<p>${astuce}</p>`;
+                        html += `</div>`;
+                        
+                        sectionElement.innerHTML = html;
+                        ongletElement.appendChild(sectionElement);
+                    });
+                } else if (ongletId === 'evaluation') {
+                    // Pour l'évaluation, on s'attend à un tableau d'objets avec question et points
+                    contenu.forEach((question, index) => {
+                        const sectionElement = document.createElement('div');
+                        sectionElement.className = 'lesson-section';
+                        sectionElement.style.animationDelay = `${index * 0.1}s`;
+                        
+                        let html = `<div class="exercise-box">`;
+                        html += `<div class="exercise-title"><i class="fas fa-star"></i> Question ${index + 1} (${question.points} points)</div>`;
+                        html += `<p>${question.question}</p>`;
+                        html += `<textarea id="evaluation-${index}" rows="4" placeholder="Répondez à la question..."></textarea>`;
+                        html += `</div>`;
+                        
+                        sectionElement.innerHTML = html;
+                        ongletElement.appendChild(sectionElement);
+                    });
+                } else {
+                    // Si on ne reconnaît pas l'onglet, on affiche le tableau comme du HTML brut
+                    contenu.forEach((section, index) => {
+                        const sectionElement = document.createElement('div');
+                        sectionElement.className = 'lesson-section';
+                        sectionElement.style.animationDelay = `${index * 0.1}s`;
+                        sectionElement.innerHTML = section;
+                        ongletElement.appendChild(sectionElement);
+                    });
+                }
             }
             
             // Réattacher les événements après le chargement

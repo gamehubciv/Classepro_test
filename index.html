@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClassePro - Cours 4ème</title>
+    <title>ClassePro - Plateforme Éducative</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS COMPLET - Mêmes styles que les fichiers précédents */
+        /* CSS COMPLET - Avec quelques ajouts pour la nouvelle structure */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         :root {
@@ -18,6 +18,9 @@
             --success: #4BB543;
             --warning: #ff9800;
             --info: #2196F3;
+            --primaire-color: #4CAF50;
+            --college-color: #2196F3;
+            --lycee-color: #9C27B0;
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
             --card-shadow: 0 4px 12px rgba(61, 59, 142, 0.1);
             --hover-shadow: 0 8px 20px rgba(61, 59, 142, 0.15);
@@ -152,7 +155,7 @@
             font-size: 0.8rem;
         }
         
-        /* Styles pour le contenu principal */
+        /* Styles pour le conteneur principal */
         .container {
             background-color: white;
             border-radius: 12px;
@@ -183,6 +186,161 @@
             font-size: 0.95rem;
             max-width: 600px;
             margin: 0 auto;
+        }
+        
+        /* Page d'accueil - Niveaux */
+        .niveaux-container {
+            margin: 2rem 0;
+        }
+        
+        .niveau-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+        
+        .niveau-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .niveau-card.primaire {
+            border-top-color: var(--primaire-color);
+        }
+        
+        .niveau-card.college {
+            border-top-color: var(--college-color);
+        }
+        
+        .niveau-card.lycee {
+            border-top-color: var(--lycee-color);
+        }
+        
+        .niveau-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .primaire .niveau-icon {
+            color: var(--primaire-color);
+        }
+        
+        .college .niveau-icon {
+            color: var(--college-color);
+        }
+        
+        .lycee .niveau-icon {
+            color: var(--lycee-color);
+        }
+        
+        .niveau-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .niveau-description {
+            font-size: 0.9rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .niveau-classes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .classe-badge {
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(104, 131, 186, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .primaire .classe-badge {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--primaire-color);
+        }
+        
+        .college .classe-badge {
+            background-color: rgba(33, 150, 243, 0.1);
+            color: var(--college-color);
+        }
+        
+        .lycee .classe-badge {
+            background-color: rgba(156, 39, 176, 0.1);
+            color: var(--lycee-color);
+        }
+        
+        /* Page des classes */
+        .classes-container {
+            margin: 2rem 0;
+        }
+        
+        .classe-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .classe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .classe-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .classe-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .classe-description {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .back-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
         }
         
         /* Menu des matières */
@@ -791,22 +949,26 @@
             pointer-events: none;
         }
         
-        /* Page d'accueil */
-        .home-container {
-            text-align: center;
-            padding: 2rem;
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
         }
         
-        .welcome-title {
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-size: 2rem;
+        .breadcrumb a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s;
         }
         
-        .welcome-subtitle {
+        .breadcrumb a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
             color: var(--dark);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            margin: 0 0.5rem;
         }
         
         /* Styles responsifs améliorés */
@@ -849,6 +1011,18 @@
             
             .cours-list {
                 grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .niveaux-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .classes-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
             }
             
             .modal {
@@ -944,6 +1118,14 @@
                 grid-template-columns: 1fr;
             }
             
+            .niveaux-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .classes-container {
+                grid-template-columns: 1fr;
+            }
+            
             .modal {
                 width: 95%;
                 max-width: 350px;
@@ -1010,7 +1192,7 @@
         <nav class="navbar">
             <div class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                <span>ClassePro - 4ème</span>
+                <span>ClassePro</span>
             </div>
             <button class="menu-toggle" aria-label="Toggle navigation menu">
                 <span></span>
@@ -1028,22 +1210,47 @@
 
     <!-- Conteneur principal -->
     <div class="container">
-        <!-- Page d'accueil (visible par défaut) -->
+        <!-- Fil d'Ariane -->
+        <div id="breadcrumb" class="breadcrumb" style="display: none;"></div>
+        
+        <!-- Page d'accueil - Niveaux (visible par défaut) -->
         <div id="home-page" class="home-container">
-            <h1 class="welcome-title">Bienvenue en classe de 4ème</h1>
-            <p class="welcome-subtitle">Explorez les différentes matières et accédez à vos cours interactifs. Sélectionnez une matière pour découvrir les cours disponibles.</p>
+            <div class="header">
+                <h1>Bienvenue sur ClassePro</h1>
+                <p class="subtitle">Sélectionnez un niveau d'études pour accéder aux cours et ressources pédagogiques</p>
+            </div>
             
-            <div class="cours-list" id="featured-courses">
-                <!-- Les cours en vedette seront chargés ici -->
+            <div class="niveaux-container" id="niveaux-list">
+                <!-- Les niveaux seront chargés ici -->
+            </div>
+        </div>
+
+        <!-- Page des classes (cachée par défaut) -->
+        <div id="classes-page" style="display: none;">
+            <div class="header">
+                <h1 id="classes-title">Classes</h1>
+                <p class="subtitle" id="classes-subtitle">Sélectionnez une classe</p>
+            </div>
+            
+            <button id="back-to-niveaux" class="back-button">
+                <i class="fas fa-arrow-left"></i> Retour aux niveaux
+            </button>
+            
+            <div class="classes-container" id="classes-list">
+                <!-- Les classes seront chargées ici -->
             </div>
         </div>
 
         <!-- Page des matières (cachée par défaut) -->
         <div id="matieres-page" style="display: none;">
             <div class="header">
-                <h1>Matières de 4ème</h1>
-                <p class="subtitle">Sélectionnez une matière pour voir les cours disponibles</p>
+                <h1 id="matieres-title">Matières</h1>
+                <p class="subtitle" id="matieres-subtitle">Sélectionnez une matière pour voir les cours disponibles</p>
             </div>
+            
+            <button id="back-to-classes" class="back-button">
+                <i class="fas fa-arrow-left"></i> Retour aux classes
+            </button>
             
             <div class="matieres-container" id="matieres-list">
                 <!-- Les boutons des matières seront générés ici -->
@@ -1060,6 +1267,10 @@
                 <h1 id="cours-titre">Titre du cours</h1>
                 <p class="subtitle" id="cours-sousTitre">Sous-titre du cours</p>
             </div>
+            
+            <button id="back-to-matieres" class="back-button">
+                <i class="fas fa-arrow-left"></i> Retour aux matières
+            </button>
             
             <!-- Onglets -->
             <div class="tabs-container">
@@ -1093,19 +1304,14 @@
             <div id="fiche-revision" class="lesson-section" style="display: none;">
                 <!-- La fiche de révision sera chargée ici -->
             </div>
-            
-            <!-- Bouton retour -->
-            <button id="back-to-matieres" class="show-answer" style="margin-top: 2rem;">
-                <i class="fas fa-arrow-left"></i> Retour aux matières
-            </button>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h3>ClassePro - Cours 4ème</h3>
-            <p>Système de gestion de cours interactifs</p>
+            <h3>ClassePro - Plateforme Éducative Complète</h3>
+            <p>Système de gestion de cours interactifs - Primaire, Collège, Lycée</p>
             <p>&copy; 2025 ClassePro. Tous droits réservés.</p>
         </div>
     </footer>
@@ -1130,10 +1336,14 @@
     <!-- Script principal -->
     <script>
         // Variables globales
-        let currentCours = null;
+        let currentNiveau = null;
+        let currentClasse = null;
         let currentMatiere = null;
-        let coursData = {};
+        let currentCours = null;
+        let niveauxData = {};
+        let classesData = {};
         let matieresData = {};
+        let coursData = {};
         let progress = 0;
         let totalExercises = 10;
 
@@ -1148,8 +1358,10 @@
 
         // Pages
         const homePage = document.getElementById('home-page');
+        const classesPage = document.getElementById('classes-page');
         const matieresPage = document.getElementById('matieres-page');
         const coursPage = document.getElementById('cours-page');
+        const breadcrumb = document.getElementById('breadcrumb');
 
         // Navigation
         document.getElementById('home-link').addEventListener('click', (e) => {
@@ -1159,22 +1371,36 @@
 
         document.getElementById('matieres-link').addEventListener('click', (e) => {
             e.preventDefault();
-            showPage('matieres');
+            // Si une matière est en cours, montrer les matières, sinon retour à l'accueil
+            if (currentClasse) {
+                showPage('matieres');
+            } else {
+                showPage('home');
+            }
         });
 
         document.getElementById('cours-link').addEventListener('click', (e) => {
             e.preventDefault();
-            // Si un cours est en cours, le montrer, sinon montrer les matières
+            // Si un cours est en cours, le montrer, sinon retour à l'accueil
             if (currentCours) {
                 showPage('cours');
             } else {
-                showPage('matieres');
+                showPage('home');
             }
         });
 
         document.getElementById('support-link').addEventListener('click', (e) => {
             e.preventDefault();
-            alert('Page support à venir...');
+            showInfoModal('Support', 'Cette fonctionnalité sera disponible prochainement. Pour toute question, contactez-nous à support@classepro.edu');
+        });
+
+        // Boutons de retour
+        document.getElementById('back-to-niveaux').addEventListener('click', () => {
+            showPage('home');
+        });
+
+        document.getElementById('back-to-classes').addEventListener('click', () => {
+            showPage('classes');
         });
 
         document.getElementById('back-to-matieres').addEventListener('click', () => {
@@ -1184,30 +1410,244 @@
         // Fonction pour afficher une page
         function showPage(page) {
             homePage.style.display = 'none';
+            classesPage.style.display = 'none';
             matieresPage.style.display = 'none';
             coursPage.style.display = 'none';
             
             if (page === 'home') {
                 homePage.style.display = 'block';
-                loadFeaturedCourses();
+                breadcrumb.style.display = 'none';
+                loadNiveaux();
+            } else if (page === 'classes') {
+                classesPage.style.display = 'block';
+                updateBreadcrumb(currentNiveau.nom, 'home');
             } else if (page === 'matieres') {
                 matieresPage.style.display = 'block';
-                loadMatieres();
+                updateBreadcrumb(currentClasse.nom, 'classes');
             } else if (page === 'cours') {
                 coursPage.style.display = 'block';
+                updateBreadcrumb(currentCours.titre, 'matieres');
             }
         }
 
-        // Charger les matières
-        async function loadMatieres() {
+        // Mettre à jour le fil d'Ariane
+        function updateBreadcrumb(currentPage, backPage) {
+            breadcrumb.style.display = 'block';
+            let html = '<a href="#" onclick="showPage(\'home\')">Accueil</a>';
+            
+            if (backPage === 'classes' || backPage === 'matieres' || backPage === 'cours') {
+                html += ' <span>></span> <a href="#" onclick="showPage(\'classes\')">' + currentNiveau.nom + '</a>';
+            }
+            
+            if (backPage === 'matieres' || backPage === 'cours') {
+                html += ' <span>></span> <a href="#" onclick="showPage(\'matieres\')">' + currentClasse.nom + '</a>';
+            }
+            
+            if (backPage === 'cours') {
+                html += ' <span>></span> ' + currentPage;
+            } else {
+                html += ' <span>></span> ' + currentPage;
+            }
+            
+            breadcrumb.innerHTML = html;
+        }
+
+        // Charger les niveaux
+        async function loadNiveaux() {
             try {
-                const response = await fetch('data/matieres-4e.json');
+                const response = await fetch('data/systeme/niveaux.json');
+                niveauxData = await response.json();
+                displayNiveaux();
+            } catch (error) {
+                console.error('Erreur de chargement des niveaux:', error);
+                showErrorModal('Erreur', 'Impossible de charger la liste des niveaux.');
+            }
+        }
+
+        // Afficher les niveaux
+        function displayNiveaux() {
+            const niveauxList = document.getElementById('niveaux-list');
+            niveauxList.innerHTML = '';
+            
+            const niveaux = [
+                {
+                    id: 'primaire',
+                    nom: 'Primaire',
+                    description: 'Cycle primaire (CP1 à CM2)',
+                    icone: 'fas fa-school',
+                    couleur: 'primaire',
+                    classes: ['CP1', 'CP2', 'CE1', 'CE2', 'CM1', 'CM2']
+                },
+                {
+                    id: 'college',
+                    nom: 'Collège',
+                    description: 'Cycle secondaire - Collège (6ème à 3ème)',
+                    icone: 'fas fa-chalkboard-teacher',
+                    couleur: 'college',
+                    classes: ['6ème', '5ème', '4ème', '3ème']
+                },
+                {
+                    id: 'lycee',
+                    nom: 'Lycée',
+                    description: 'Cycle secondaire - Lycée (Seconde à Terminale)',
+                    icone: 'fas fa-user-graduate',
+                    couleur: 'lycee',
+                    classes: ['Seconde', 'Première', 'Terminale']
+                }
+            ];
+            
+            niveaux.forEach(niveau => {
+                const card = document.createElement('div');
+                card.className = `niveau-card ${niveau.couleur}`;
+                card.innerHTML = `
+                    <div class="niveau-icon">
+                        <i class="${niveau.icone}"></i>
+                    </div>
+                    <div class="niveau-title">${niveau.nom}</div>
+                    <div class="niveau-description">${niveau.description}</div>
+                    <div class="niveau-classes">
+                        ${niveau.classes.map(classe => `<span class="classe-badge">${classe}</span>`).join('')}
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    loadClasses(niveau);
+                });
+                
+                niveauxList.appendChild(card);
+            });
+        }
+
+        // Charger les classes d'un niveau
+        function loadClasses(niveau) {
+            currentNiveau = niveau;
+            
+            // Mettre à jour le titre de la page
+            document.getElementById('classes-title').textContent = `Classes de ${niveau.nom}`;
+            document.getElementById('classes-subtitle').textContent = `Sélectionnez une classe pour accéder aux matières`;
+            
+            // Afficher les classes selon le niveau
+            const classesList = document.getElementById('classes-list');
+            classesList.innerHTML = '';
+            
+            let classes = [];
+            
+            if (niveau.id === 'primaire') {
+                classes = [
+                    { id: 'cp1', nom: 'CP1', description: 'Cours Préparatoire 1ère année', icone: 'fas fa-pencil-alt' },
+                    { id: 'cp2', nom: 'CP2', description: 'Cours Préparatoire 2ème année', icone: 'fas fa-pencil-alt' },
+                    { id: 'ce1', nom: 'CE1', description: 'Cours Élémentaire 1ère année', icone: 'fas fa-book' },
+                    { id: 'ce2', nom: 'CE2', description: 'Cours Élémentaire 2ème année', icone: 'fas fa-book' },
+                    { id: 'cm1', nom: 'CM1', description: 'Cours Moyen 1ère année', icone: 'fas fa-graduation-cap' },
+                    { id: 'cm2', nom: 'CM2', description: 'Cours Moyen 2ème année', icone: 'fas fa-graduation-cap' }
+                ];
+            } else if (niveau.id === 'college') {
+                classes = [
+                    { id: '6e', nom: '6ème', description: 'Classe de sixième', icone: 'fas fa-chalkboard-teacher' },
+                    { id: '5e', nom: '5ème', description: 'Classe de cinquième', icone: 'fas fa-chalkboard-teacher' },
+                    { id: '4e', nom: '4ème', description: 'Classe de quatrième', icone: 'fas fa-chalkboard-teacher' },
+                    { id: '3e', nom: '3ème', description: 'Classe de troisième', icone: 'fas fa-chalkboard-teacher' }
+                ];
+            } else if (niveau.id === 'lycee') {
+                classes = [
+                    { id: 'secondeA', nom: 'Seconde A', description: 'Série Littéraire', icone: 'fas fa-user-graduate' },
+                    { id: 'secondeC', nom: 'Seconde C', description: 'Série Scientifique', icone: 'fas fa-user-graduate' },
+                    { id: 'premiereA', nom: 'Première A', description: 'Littéraire', icone: 'fas fa-user-graduate' },
+                    { id: 'premiereC', nom: 'Première C', description: 'Scientifique', icone: 'fas fa-user-graduate' },
+                    { id: 'premiereD', nom: 'Première D', description: 'Sciences de la Vie', icone: 'fas fa-user-graduate' },
+                    { id: 'terminaleA', nom: 'Terminale A', description: 'Littéraire', icone: 'fas fa-user-graduate' },
+                    { id: 'terminaleC', nom: 'Terminale C', description: 'Scientifique', icone: 'fas fa-user-graduate' },
+                    { id: 'terminaleD', nom: 'Terminale D', description: 'Sciences de la Vie', icone: 'fas fa-user-graduate' }
+                ];
+            }
+            
+            classes.forEach(classe => {
+                const card = document.createElement('div');
+                card.className = 'classe-card';
+                card.innerHTML = `
+                    <div class="classe-icon">
+                        <i class="${classe.icone}"></i>
+                    </div>
+                    <div class="classe-title">${classe.nom}</div>
+                    <div class="classe-description">${classe.description}</div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    loadMatieres(classe);
+                });
+                
+                classesList.appendChild(card);
+            });
+            
+            showPage('classes');
+        }
+
+        // Charger les matières d'une classe
+        async function loadMatieres(classe) {
+            currentClasse = classe;
+            
+            // Mettre à jour le titre de la page
+            document.getElementById('matieres-title').textContent = `Matières de ${classe.nom}`;
+            document.getElementById('matieres-subtitle').textContent = `Sélectionnez une matière pour voir les cours disponibles`;
+            
+            try {
+                // Construire le chemin vers le fichier des matières
+                let matieresPath = '';
+                
+                if (currentNiveau.id === 'primaire') {
+                    matieresPath = `data/primaire/${classe.id}/matieres.json`;
+                } else if (currentNiveau.id === 'college') {
+                    matieresPath = `data/college/${classe.id}/matieres.json`;
+                } else if (currentNiveau.id === 'lycee') {
+                    // Pour le lycée, la structure est plus complexe
+                    if (classe.id.includes('seconde')) {
+                        matieresPath = `data/lycee/seconde/${classe.id}/matieres.json`;
+                    } else if (classe.id.includes('premiere')) {
+                        matieresPath = `data/lycee/premiere/${classe.id}/matieres.json`;
+                    } else if (classe.id.includes('terminale')) {
+                        matieresPath = `data/lycee/terminale/${classe.id}/matieres.json`;
+                    }
+                }
+                
+                const response = await fetch(matieresPath);
                 matieresData = await response.json();
                 displayMatieres();
             } catch (error) {
                 console.error('Erreur de chargement des matières:', error);
-                showErrorModal('Erreur', 'Impossible de charger la liste des matières.');
+                // Si le fichier n'existe pas, afficher un message et créer une structure par défaut
+                showInfoModal('Information', `Les matières pour la ${classe.nom} seront bientôt disponibles.`);
+                createDefaultMatieres();
             }
+        }
+
+        // Créer une structure de matières par défaut
+        function createDefaultMatieres() {
+            matieresData = {
+                classe: currentClasse,
+                matieres: []
+            };
+            
+            // Définir les matières par défaut selon le niveau et la classe
+            let defaultMatieres = [];
+            
+            if (currentNiveau.id === 'college') {
+                defaultMatieres = [
+                    { id: 'eps', nom: 'EPS', icone: 'fas fa-running', description: 'Éducation Physique et Sportive' },
+                    { id: 'anglais', nom: 'ANGLAIS', icone: 'fas fa-globe-americas', description: 'Langue anglaise' },
+                    { id: 'art-plastique', nom: 'ART PLASTIQUE', icone: 'fas fa-palette', description: 'Arts visuels et techniques' },
+                    { id: 'education-musicale', nom: 'ÉDUCATION MUSICALE', icone: 'fas fa-music', description: 'Histoire de la musique et pratique' },
+                    { id: 'edhc', nom: 'EDHC', icone: 'fas fa-balance-scale', description: 'Éducation aux Droits de l\'Homme et à la Citoyenneté' },
+                    { id: 'francais', nom: 'FRANÇAIS', icone: 'fas fa-book', description: 'Langue et littérature française' },
+                    { id: 'histoire-geographie', nom: 'HISTOIRE-GÉOGRAPHIE', icone: 'fas fa-globe', description: 'Histoire mondiale et géographie' },
+                    { id: 'svt', nom: 'SVT', icone: 'fas fa-leaf', description: 'Sciences de la Vie et de la Terre' },
+                    { id: 'mathematiques', nom: 'MATHÉMATIQUES', icone: 'fas fa-calculator', description: 'Algèbre, géométrie et calcul' },
+                    { id: 'physique-chimie', nom: 'PHYSIQUE-CHIMIE', icone: 'fas fa-flask', description: 'Sciences physiques et chimie' },
+                    { id: 'tic', nom: 'TIC', icone: 'fas fa-laptop-code', description: 'Technologies de l\'Information et de la Communication' }
+                ];
+            }
+            
+            matieresData.matieres = defaultMatieres;
+            displayMatieres();
         }
 
         // Afficher les matières
@@ -1217,6 +1657,17 @@
             
             matieresList.innerHTML = '';
             matiereContent.innerHTML = '';
+            
+            if (!matieresData.matieres || matieresData.matieres.length === 0) {
+                matiereContent.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: #666;">
+                        <i class="fas fa-book" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
+                        <h3>Aucune matière disponible</h3>
+                        <p>Les matières pour cette classe seront ajoutées prochainement.</p>
+                    </div>
+                `;
+                return;
+            }
             
             matieresData.matieres.forEach((matiere, index) => {
                 const button = document.createElement('button');
@@ -1239,6 +1690,8 @@
             if (matieresData.matieres.length > 0) {
                 displayCoursDeMatiere(matieresData.matieres[0]);
             }
+            
+            showPage('matieres');
         }
 
         // Afficher les cours d'une matière
@@ -1251,7 +1704,7 @@
                     <h2 style="color: var(--secondary); margin-bottom: 1rem;">
                         <i class="${matiere.icone}"></i> ${matiere.nom}
                     </h2>
-                    <p>${matiere.description}</p>
+                    <p>${matiere.description || 'Description de la matière'}</p>
                     
                     <div class="cours-list" id="cours-de-matiere">
                         <!-- Les cours seront chargés ici -->
@@ -1262,51 +1715,103 @@
             const coursList = document.getElementById('cours-de-matiere');
             coursList.innerHTML = '';
             
-            matiere.cours.forEach(cours => {
-                const card = document.createElement('div');
-                card.className = 'cours-card';
-                card.innerHTML = `
-                    <div class="cours-icon">
-                        <i class="${cours.icone || 'fas fa-book'}"></i>
-                    </div>
-                    <div class="cours-title">${cours.titre}</div>
-                    <div class="cours-description">${cours.description}</div>
-                    <div class="cours-meta">
-                        <span><i class="fas fa-clock"></i> ${cours.duree}</span>
-                        <span><i class="fas fa-star"></i> ${cours.niveau}</span>
+            // Si la matière a des cours, les afficher
+            if (matiere.cours && matiere.cours.length > 0) {
+                matiere.cours.forEach(cours => {
+                    const card = document.createElement('div');
+                    card.className = 'cours-card';
+                    card.innerHTML = `
+                        <div class="cours-icon">
+                            <i class="${cours.icone || 'fas fa-book'}"></i>
+                        </div>
+                        <div class="cours-title">${cours.titre}</div>
+                        <div class="cours-description">${cours.description}</div>
+                        <div class="cours-meta">
+                            <span><i class="fas fa-clock"></i> ${cours.duree}</span>
+                            <span><i class="fas fa-star"></i> ${cours.niveau}</span>
+                        </div>
+                    `;
+                    
+                    card.addEventListener('click', () => {
+                        loadCours(cours.id);
+                    });
+                    
+                    coursList.appendChild(card);
+                });
+            } else {
+                // Afficher un message si aucun cours n'est disponible
+                coursList.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: #666; grid-column: 1 / -1;">
+                        <i class="fas fa-graduation-cap" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
+                        <h3>Aucun cours disponible pour l'instant</h3>
+                        <p>Les cours pour cette matière seront ajoutés prochainement.</p>
                     </div>
                 `;
-                
-                card.addEventListener('click', () => {
-                    loadCours(cours.id);
-                });
-                
-                coursList.appendChild(card);
-            });
+            }
         }
 
         // Charger un cours spécifique
         async function loadCours(coursId) {
             try {
                 // Construire le chemin vers le fichier JSON du cours
-                const coursPath = `data/cours/${coursId}.json`;
+                let coursPath = '';
+                
+                if (currentNiveau.id === 'primaire') {
+                    coursPath = `data/primaire/${currentClasse.id}/cours/${coursId}.json`;
+                } else if (currentNiveau.id === 'college') {
+                    coursPath = `data/college/${currentClasse.id}/cours/${coursId}.json`;
+                } else if (currentNiveau.id === 'lycee') {
+                    // Pour le lycée, la structure est plus complexe
+                    if (currentClasse.id.includes('seconde')) {
+                        coursPath = `data/lycee/seconde/${currentClasse.id}/cours/${coursId}.json`;
+                    } else if (currentClasse.id.includes('premiere')) {
+                        coursPath = `data/lycee/premiere/${currentClasse.id}/cours/${coursId}.json`;
+                    } else if (currentClasse.id.includes('terminale')) {
+                        coursPath = `data/lycee/terminale/${currentClasse.id}/cours/${coursId}.json`;
+                    }
+                }
+                
                 const response = await fetch(coursPath);
                 currentCours = await response.json();
                 
                 // Mettre à jour l'interface
-                document.getElementById('cours-titre').textContent = currentCours.titre;
-                document.getElementById('cours-sousTitre').textContent = currentCours.sousTitre;
+                document.getElementById('cours-titre').textContent = currentCours.titre || currentCours.cours?.titre || 'Titre du cours';
+                document.getElementById('cours-sousTitre').textContent = currentCours.sousTitre || currentCours.cours?.sousTitre || 'Sous-titre du cours';
                 
                 // Charger le contenu des onglets
-                loadContenuOnglet('lecon', currentCours.lecon);
-                loadContenuOnglet('exercices', currentCours.exercices);
-                loadContenuOnglet('astuces', currentCours.astuces);
-                loadContenuOnglet('evaluation', currentCours.evaluation);
+                if (currentCours.lecon) {
+                    loadContenuOnglet('lecon', currentCours.lecon);
+                } else if (currentCours.cours?.lecon) {
+                    loadContenuOnglet('lecon', currentCours.cours.lecon);
+                }
+                
+                if (currentCours.exercices) {
+                    loadContenuOnglet('exercices', currentCours.exercices);
+                } else if (currentCours.cours?.exercices) {
+                    loadContenuOnglet('exercices', currentCours.cours.exercices);
+                }
+                
+                if (currentCours.astuces) {
+                    loadContenuOnglet('astuces', currentCours.astuces);
+                } else if (currentCours.cours?.astuces) {
+                    loadContenuOnglet('astuces', currentCours.cours.astuces);
+                }
+                
+                if (currentCours.evaluation) {
+                    loadContenuOnglet('evaluation', currentCours.evaluation);
+                } else if (currentCours.cours?.evaluation) {
+                    loadContenuOnglet('evaluation', currentCours.cours.evaluation);
+                }
                 
                 // Charger la fiche de révision si elle existe
                 if (currentCours.ficheRevision) {
                     document.getElementById('fiche-revision').innerHTML = currentCours.ficheRevision;
                     document.getElementById('fiche-revision').style.display = 'block';
+                } else if (currentCours.cours?.ficheRevision) {
+                    document.getElementById('fiche-revision').innerHTML = currentCours.cours.ficheRevision;
+                    document.getElementById('fiche-revision').style.display = 'block';
+                } else {
+                    document.getElementById('fiche-revision').style.display = 'none';
                 }
                 
                 // Afficher la page du cours
@@ -1318,7 +1823,7 @@
                 
             } catch (error) {
                 console.error('Erreur de chargement du cours:', error);
-                showErrorModal('Erreur', 'Impossible de charger le cours. Le fichier peut être introuvable.');
+                showErrorModal('Erreur', `Impossible de charger le cours "${coursId}". Le fichier peut être introuvable.`);
             }
         }
 
@@ -1352,57 +1857,6 @@
                     }, index * 100);
                 });
             }, 100);
-        }
-
-        // Charger les cours en vedette pour la page d'accueil
-        async function loadFeaturedCourses() {
-            try {
-                const response = await fetch('data/matieres-4e.json');
-                const data = await response.json();
-                const featuredCourses = document.getElementById('featured-courses');
-                
-                featuredCourses.innerHTML = '';
-                
-                // Prendre les 3 premiers cours de chaque matière
-                let featured = [];
-                data.matieres.forEach(matiere => {
-                    matiere.cours.slice(0, 3).forEach(cours => {
-                        featured.push({
-                            ...cours,
-                            matiere: matiere.nom,
-                            matiereIcone: matiere.icone
-                        });
-                    });
-                });
-                
-                // Mélanger et prendre 6 cours maximum
-                featured = featured.sort(() => Math.random() - 0.5).slice(0, 6);
-                
-                featured.forEach(cours => {
-                    const card = document.createElement('div');
-                    card.className = 'cours-card';
-                    card.innerHTML = `
-                        <div class="cours-icon">
-                            <i class="${cours.icone || 'fas fa-book'}"></i>
-                        </div>
-                        <div class="cours-title">${cours.titre}</div>
-                        <div class="cours-description">${cours.description}</div>
-                        <div class="cours-meta">
-                            <span><i class="fas fa-bookmark"></i> ${cours.matiere}</span>
-                            <span><i class="fas fa-clock"></i> ${cours.duree}</span>
-                        </div>
-                    `;
-                    
-                    card.addEventListener('click', () => {
-                        loadCours(cours.id);
-                    });
-                    
-                    featuredCourses.appendChild(card);
-                });
-                
-            } catch (error) {
-                console.error('Erreur de chargement des cours en vedette:', error);
-            }
         }
 
         // Réattacher les événements après le chargement du contenu
@@ -1441,7 +1895,7 @@
             });
         }
 
-        // Fonctions pour les modales (identiques aux fichiers précédents)
+        // Fonctions pour les modales
         function showSuccessModal(title, message, details = '', showConfetti = true) {
             feedbackModal.classList.remove('error-modal');
             feedbackModal.classList.add('success-modal');
@@ -1488,6 +1942,20 @@
             }
             
             modalButton.textContent = 'Compris';
+            modalButton.onclick = closeModal;
+            
+            modalOverlay.classList.add('active');
+        }
+        
+        function showInfoModal(title, message) {
+            feedbackModal.classList.remove('success-modal', 'error-modal');
+            modalIcon.innerHTML = '<i class="fas fa-info-circle" style="color: var(--info);"></i>';
+            modalIcon.className = 'modal-icon';
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            modalDetails.style.display = 'none';
+            
+            modalButton.textContent = 'OK';
             modalButton.onclick = closeModal;
             
             modalOverlay.classList.add('active');
@@ -1792,8 +2260,8 @@
                 });
             }
             
-            // Charger les cours en vedette au démarrage
-            loadFeaturedCourses();
+            // Charger les niveaux au démarrage
+            loadNiveaux();
             
             // Gestion du responsive pour les tableaux
             window.addEventListener('resize', function() {

@@ -1,29 +1,29 @@
-{
-  "id": "edhc",
-  "nom": "EDHC",
-  "cours": [
-    {
-      "id": "edhc-4e-1",
-      "fichier": "edhc-4e-1.json",
-      "titre": "Les droits et devoirs du citoyen"
-    },
-    {
-      "id": "edhc-4e-droits-survie-protection",
-      "fichier": "edhc-4e-droits-survie-protection.json",
-      "titre": "Les Droits à la Survie et à la Protection de l'Enfant"
-    }
-  ]
-}
-    {
-      "id": "francais",
-      "nom": "FRANCAIS",
-      "cours": [
-        {
-          "id": "francais-4e-1",
-          "fichier": "francais-4e-1.json",
-          "titre": "Le résumé de texte"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "id": "edhc",
+    "nom": "EDHC",
+    "cours": [
+      {
+        "id": "edhc-4e-1",
+        "fichier": "edhc-4e-1.json",
+        "titre": "Les droits et devoirs du citoyen"
+      },
+      {
+        "id": "edhc-4e-droits-survie-protection",
+        "fichier": "edhc-4e-droits-survie-protection.json",
+        "titre": "Les Droits à la Survie et à la Protection de l'Enfant"
+      }
+    ]
+  },
+  {
+    "id": "francais",
+    "nom": "FRANCAIS",
+    "cours": [
+      {
+        "id": "francais-4e-1",
+        "fichier": "francais-4e-1.json",
+        "titre": "Le résumé de texte"
+      }
+    ]
+  }
+]

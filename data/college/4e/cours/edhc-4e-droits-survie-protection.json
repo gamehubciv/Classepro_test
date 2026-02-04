@@ -8,231 +8,123 @@
     {
       "titre": "Introduction : Pourquoi parle-t-on des droits de l'enfant ?",
       "contenu": [
-        "Les droits de l'enfant sont des droits humains spécifiques qui protègent les personnes âgées de moins de 18 ans. Ces droits reconnaissent que l'enfant est une personne vulnérable qui a besoin d'une protection spéciale pour grandir et s'épanouir.",
-        "Situation d'apprentissage modifiée pour la 4ème :",
-        "Dans un quartier, plusieurs adolescents de 14-15 ans travaillent sur un chantier de construction après l'école pour aider financièrement leur famille. Ils manquent souvent les cours, sont exposés à des dangers et n'ont pas de matériel de protection. Des camarades de classe s'inquiètent pour leur sécurité et leur avenir.",
-        "Cette situation nous amène à nous interroger : Quels sont les droits spécifiques qui protègent les adolescents ? Comment ces droits évoluent-ils avec l'âge ? Pourquoi est-il crucial de les connaître et de les défendre à l'adolescence ?",
-        "À retenir pour la 4ème :",
-        "L'adolescent (12-18 ans) a des besoins et des droits spécifiques qui diffèrent de ceux des jeunes enfants. La Convention Internationale des Droits de l'Enfant (CIDE) continue de le protéger, mais des lois nationales spécifiques encadrent également ses droits et responsabilités."
+        "Les droits de l'enfant sont des droits humains spécifiques qui protègent les personnes âgées de moins de 18 ans.",
+        "Ils reconnaissent que l'enfant est une personne vulnérable nécessitant protection pour grandir et s'épanouir.",
+        "Situation pratique : Des adolescents de 14-15 ans travaillent après l'école et sont exposés à des dangers sans protection.",
+        "Question : Quels droits protègent ces adolescents ? Pourquoi est-il crucial de les connaître ?"
       ]
     },
     {
-      "titre": "I. Les Définitions Fondamentales adaptées aux adolescents",
-      "type": "definition",
-      "definition": "L'adolescent est un être humain en transition entre l'enfance et l'âge adulte, bénéficiant de droits spécifiques adaptés à son développement physique, psychologique et social."
+      "titre": "I. Définitions fondamentales adaptées aux adolescents",
+      "definition": "L'adolescent est un être humain en transition entre l'enfance et l'âge adulte, bénéficiant de droits adaptés à son développement physique, psychologique et social."
     },
     {
       "titre": "1. L'adolescent et ses droits spécifiques",
       "contenu": [
-        "L'adolescent (12-18 ans) a des caractéristiques particulières :",
-        "• Période de transformations physiques et psychologiques importantes",
-        "• Recherche d'autonomie et construction de l'identité",
+        "Caractéristiques :",
+        "• Transformations physiques et psychologiques importantes",
+        "• Recherche d'autonomie et construction identitaire",
         "• Capacité croissante à comprendre et exercer ses droits",
         "• Responsabilités progressives envers la société"
       ],
-      "important": "En Côte d'Ivoire, l'adolescent reste protégé par la CIDE jusqu'à 18 ans, mais peut avoir certaines responsabilités légales dès 16 ans (travail léger avec autorisation, responsabilité pénale atténuée)."
+      "important": "En Côte d'Ivoire, l'adolescent reste protégé par la CIDE jusqu'à 18 ans, mais peut avoir certaines responsabilités légales dès 16 ans."
     },
     {
       "titre": "2. Évolution des droits avec l'âge",
       "contenu": [
-        "Les droits de l'enfant évoluent avec l'âge :",
+        "Les droits évoluent avec l'âge :",
         "• Plus d'autonomie dans certaines décisions (santé, éducation)",
         "• Responsabilité accrue de ses actes",
-        "• Participation plus active aux décisions qui le concernent",
+        "• Participation aux décisions qui le concernent",
         "• Protection adaptée aux risques spécifiques de l'adolescence"
       ]
     },
     {
       "titre": "II. Les Droits à la Survie et à la Protection à l'adolescence",
       "contenu": [
-        "À l'adolescence, les droits à la survie et à la protection prennent des dimensions particulières liées aux nouveaux besoins et risques de cet âge."
+        "Les droits à la survie et à la protection prennent des dimensions particulières à l'adolescence."
       ]
     },
     {
       "titre": "1. Les droits à la survie de l'adolescent",
-      "type": "definition",
-      "definition": "Le droit à la survie pour l'adolescent inclut l'accès à une nutrition adaptée à sa croissance, des soins de santé spécifiques (santé reproductive, santé mentale), un environnement favorable à son développement et la reconnaissance de son identité juridique."
+      "definition": "Accès à une nutrition adaptée, soins de santé spécifiques, environnement favorable, et reconnaissance de l'identité juridique."
     },
     {
-      "titre": "Tableau des droits à la survie adaptés aux adolescents",
-      "type": "table",
+      "titre": "Tableau des droits à la survie",
       "table": {
-        "headers": ["Droit à la survie", "Explication pour l'adolescent", "Enjeux spécifiques"],
+        "headers": ["Droit à la survie", "Explication", "Enjeux"],
         "rows": [
-          ["Droit à une alimentation adaptée", "Droit à une nutrition suffisante et équilibrée pour supporter la croissance rapide de l'adolescence", "Risques de carences, troubles alimentaires, malnutrition"],
-          ["Droit à la santé spécifique", "Droit à l'éducation sexuelle, à la santé reproductive, aux soins de santé mentale", "Accès à l'information confidentielle, prévention des IST, soutien psychologique"],
-          ["Droit au logement sécurisé", "Droit à un espace privé et sécurisé respectant le besoin d'intimité", "Protection contre l'expulsion, droit à un environnement familial stable"],
-          ["Droit à l'identité juridique", "Droit aux papiers d'identité, à la citoyenneté, à la reconnaissance légale", "Accès aux services, protection contre l'apatridie, préparation à la majorité"]
+          ["Alimentation adaptée", "Nutrition suffisante et équilibrée", "Carences, malnutrition"],
+          ["Santé spécifique", "Santé reproductive, santé mentale", "Prévention IST, soutien psychologique"],
+          ["Logement sécurisé", "Espace privé et sécurisé", "Protection contre l'expulsion, stabilité familiale"],
+          ["Identité juridique", "Accès aux papiers d'identité", "Accès aux services, protection contre l'apatridie"]
         ]
       }
     },
     {
       "titre": "2. Les droits à la protection de l'adolescent",
-      "type": "definition",
-      "definition": "Le droit à la protection pour l'adolescent inclut la protection contre les nouvelles formes d'exploitation (travail dangereux, exploitation en ligne), les violences spécifiques (harcèlement scolaire, violences dans les fréquentations), et l'accompagnement dans l'exercice progressif de ses libertés."
+      "definition": "Protection contre exploitation, violences spécifiques et accompagnement dans l'exercice des libertés."
     },
     {
-      "titre": "Tableau des droits à la protection adaptés aux adolescents",
-      "type": "table",
+      "titre": "Tableau des droits à la protection",
       "table": {
-        "headers": ["Droit à la protection", "Explication pour l'adolescent", "Protège contre"],
+        "headers": ["Droit à la protection", "Explication", "Protège contre"],
         "rows": [
-          ["Droit à la sécurité numérique", "Droit à la protection des données personnelles, contre le cyberharcèlement et l'exploitation en ligne", "Prédateurs en ligne, vol d'identité, contenus inappropriés"],
-          ["Protection contre l'exploitation économique", "Droit à un travail légal avec conditions adaptées à l'âge, horaires limités pendant la scolarité", "Travail forcé, exploitation dans l'informel, travail dangereux"],
-          ["Protection contre les violences relationnelles", "Droit à des relations respectueuses, protection contre le harcèlement et les abus dans les fréquentations", "Violences dans les couples adolescents, pressions psychologiques"],
-          ["Protection juridique adaptée", "Droit à une justice juvénile, à un avocat, à la présomption d'innocence", "Discrimination judiciaire, privation de liberté disproportionnée"]
+          ["Sécurité numérique", "Protection des données, cyberharcèlement", "Prédateurs, contenus inappropriés"],
+          ["Exploitation économique", "Travail légal et adapté", "Travail forcé, dangereux"],
+          ["Violences relationnelles", "Relations respectueuses, prévention du harcèlement", "Abus dans les couples adolescents"],
+          ["Protection juridique", "Justice juvénile adaptée", "Discrimination, privation de liberté disproportionnée"]
         ]
       }
     },
     {
-      "titre": "3. Distinction survie/protection à l'adolescence",
+      "titre": "3. Distinction survie/protection",
       "contenu": [
-        "À l'adolescence, la distinction survie/protection devient plus complexe :",
-        "Droits à la SURVIE (besoins fondamentaux) :",
-        "• Nutrition adaptée à la croissance",
-        "• Soins de santé spécifiques (y compris santé mentale)",
-        "• Environnement stable pour les études",
-        "• Identité juridique pour l'autonomie future",
-        "Droits à la PROTECTION (bouclier contre les risques) :",
-        "• Sécurité dans les espaces virtuels et réels",
-        "• Protection contre l'exploitation économique",
-        "• Prévention des violences spécifiques à l'âge",
-        "• Accompagnement dans l'exercice des libertés"
-      ],
-      "important": "L'adolescent a besoin à la fois de protection (car vulnérable) et d'autonomie progressive (pour se préparer à l'âge adulte). L'équilibre entre ces deux aspects est crucial."
-    },
-    {
-      "titre": "III. L'importance du respect des droits à l'adolescence",
-      "contenu": [
-        "Le respect des droits à l'adolescence est particulièrement important car cette période conditionne l'entrée dans l'âge adulte."
+        "Survie : besoins fondamentaux (nutrition, santé, logement, identité)",
+        "Protection : bouclier contre les risques (sécurité physique et numérique, exploitation, violences)",
+        "Équilibre crucial entre protection et autonomie."
       ]
     },
     {
-      "titre": "1. Pour le développement de l'adolescent",
+      "titre": "III. Importance du respect des droits",
       "contenu": [
-        "✓ Un adolescent dont les droits sont respectés :",
-        "• Développe une estime de soi saine",
-        "• Acquiert progressivement de l'autonomie",
-        "• Se prépare efficacement à la vie adulte",
-        "• Développe un sens des responsabilités",
-        "• Évite les comportements à risque",
-        "✗ Un adolescent dont les droits ne sont pas respectés :",
-        "• Peut développer des troubles anxieux ou dépressifs",
-        "• Risque le décrochage scolaire",
-        "• Peut adopter des comportements à risque (drogues, délinquance)",
-        "• A des difficultés à construire son identité",
-        "• Rencontre des obstacles à l'insertion professionnelle"
+        "Respect des droits conditionne le développement personnel et l'intégration sociale de l'adolescent."
       ]
-    },
-    {
-      "titre": "2. Pour la société ivoirienne",
-      "contenu": [
-        "Le respect des droits des adolescents bénéficie à toute la société :",
-        "• Réduction de la délinquance juvénile",
-        "• Meilleure préparation de la future main-d'œuvre",
-        "• Promotion de la citoyenneté active",
-        "• Renforcement du tissu social",
-        "• Contribution au développement économique durable"
-      ]
-    },
-    {
-      "titre": "Conclusion : Droits et responsabilités à l'adolescence",
-      "contenu": [
-        "À l'adolescence, les droits s'accompagnent progressivement de responsabilités :",
-        "• Droit à l'éducation → Responsabilité d'assiduité scolaire",
-        "• Droit à la santé → Responsabilité de préserver sa santé",
-        "• Droit à la protection → Responsabilité de respecter les autres",
-        "• Droit à la participation → Responsabilité de s'informer",
-        "En Côte d'Ivoire, les adolescents peuvent :",
-        "• S'informer sur leurs droits auprès des Points d'Écoute Jeunes",
-        "• Participer aux Conseils Municipaux d'Enfants et de Jeunes",
-        "• Bénéficier du Programme National de Santé des Adolescents",
-        "• Accéder aux services du Centre d'Action Sociale"
-      ],
-      "important": "L'adolescent a le droit d'être protégé mais aussi le devoir de respecter les droits des autres. Cet équilibre est essentiel pour une transition réussie vers l'âge adulte."
     }
   ],
   "exercices": [
     {
       "question": "1. Pourquoi les droits des adolescents sont-ils spécifiques ? Cite deux raisons.",
       "type": "texte_libre",
-      "correction": "Les droits des adolescents sont spécifiques car : 1) Ils sont en pleine transformation physique et psychologique, 2) Ils ont besoin à la fois de protection et d'autonomie progressive, 3) Ils font face à des risques particuliers (exploitation économique, violences relationnelles, dangers en ligne)."
+      "correction": "Car ils sont en pleine transformation physique et psychologique et font face à des risques particuliers."
     },
     {
-      "question": "2. Donne un exemple de droit à la survie adapté aux adolescents et explique pourquoi il est important à cet âge.",
+      "question": "2. Donne un exemple de droit à la survie adapté aux adolescents et explique pourquoi il est important.",
       "type": "texte_libre",
-      "correction": "Exemple : Le droit à la santé spécifique (santé reproductive, santé mentale). Il est important car l'adolescence est une période de changements physiques importants et de construction identitaire où des conseils et soins adaptés sont nécessaires pour un développement harmonieux."
+      "correction": "Droit à la santé spécifique. Important pour accompagner la croissance physique et psychologique."
     },
     {
-      "question": "3. Cite deux risques spécifiques auxquels les adolescents sont exposés en ligne et explique comment le droit à la protection peut les protéger.",
+      "question": "3. Cite deux risques spécifiques en ligne et comment le droit à la protection peut les couvrir.",
       "type": "texte_libre",
-      "correction": "Risques en ligne : 1) Cyberharcèlement - Le droit à la protection permet de signaler, d'obtenir le retrait de contenus et un soutien psychologique. 2) Exploitation des données personnelles - Le droit à la protection des données garantit que les informations personnelles ne soient pas utilisées à mauvais escient."
-    },
-    {
-      "question": "4. Vrai ou Faux : 'À partir de 16 ans, un adolescent peut travailler sans limitation d'horaires en Côte d'Ivoire.'",
-      "type": "vrai_faux",
-      "reponse": "faux",
-      "correction": "Faux. Même à partir de 16 ans, le travail des adolescents est encadré : horaires limités (pas de nuit, pas plus de 8h/jour), interdiction des travaux dangereux, et obligation de poursuivre la scolarité ou la formation."
-    },
-    {
-      "question": "5. Quel équilibre doit-on trouver entre protection et autonomie à l'adolescence ?",
-      "type": "texte_libre",
-      "correction": "Il faut trouver un équilibre qui : 1) Protège l'adolescent des risques réels, 2) Lui permette d'expérimenter progressivement l'autonomie, 3) Le prépare à l'âge adulte en développant son sens des responsabilités, 4) Respecte son besoin croissant de participation aux décisions qui le concernent."
-    },
-    {
-      "question": "6. Cas pratique : Koffi, 15 ans, travaille sur un chantier après l'école. Il gagne de l'argent pour sa famille mais manque souvent les cours, n'a pas d'équipement de sécurité et est exposé à des produits dangereux. Identifie au moins 3 droits violés et propose des solutions.",
-      "type": "texte_libre",
-      "correction": "Droits violés : 1) Droit à l'éducation (absentéisme), 2) Droit à la sécurité (pas d'équipement), 3) Protection contre l'exploitation (travail dangereux). Solutions : a) Orienter vers un travail léger et adapté, b) Assurer la scolarisation, c) Informer les services sociaux, d) Proposer un soutien financier alternatif à la famille."
+      "correction": "Cyberharcèlement et exploitation des données personnelles; protection juridique et numérique adaptée."
     }
   ],
   "astuces": [
     {
-      "texte": "Pour mémoriser la distinction survie/protection à l'adolescence : imagine que la SURVIE, c'est ce qui te permet de GRANDIR (alimentation, santé, logement, identité). La PROTECTION, c'est ce qui te permet de T'ÉPANOUIR en sécurité (contre les dangers, l'exploitation, les violences).",
+      "texte": "Pour mémoriser survie/protection : SURVIE = grandir, PROTECTION = s'épanouir en sécurité.",
       "icone": "fas fa-brain"
     },
     {
-      "texte": "Technique d'étude : Crée un tableau comparatif des droits à 10 ans et à 16 ans. Cela t'aidera à comprendre comment les droits évoluent avec l'âge et à identifier les responsabilités qui augmentent.",
+      "texte": "Crée un tableau comparatif des droits à 10 ans et 16 ans.",
       "icone": "fas fa-table"
-    },
-    {
-      "texte": "Méthode d'analyse des situations : Pour analyser une situation impliquant un adolescent, pose-toi 3 questions : 1) Quels sont ses besoins spécifiques ? 2) Quels sont les risques particuliers à son âge ? 3) Comment équilibrer protection et autonomie ?",
-      "icone": "fas fa-question-circle"
-    },
-    {
-      "texte": "Conseil pratique : Si tu es témoin d'une violation des droits d'un adolescent, note précisément les faits (quoi, qui, quand, où) avant d'en parler à un adulte de confiance. Des faits précis sont plus efficaces.",
-      "icone": "fas fa-clipboard-list"
-    },
-    {
-      "texte": "Préparation à l'évaluation : Entraîne-toi à reformuler chaque droit avec tes propres mots et à trouver des exemples concrets dans ton environnement. Cela montre que tu as vraiment compris, pas seulement mémorisé.",
-      "icone": "fas fa-graduation-cap"
     }
   ],
   "evaluation": [
     {
-      "question": "1. Explique pourquoi les droits des adolescents doivent tenir compte à la fois de leur vulnérabilité et de leur besoin d'autonomie. Donne deux exemples concrets.",
+      "question": "1. Explique pourquoi les droits des adolescents doivent tenir compte de vulnérabilité et autonomie.",
       "points": 4,
-      "type": "texte_libre"
-    },
-    {
-      "question": "2. Compare un droit à la survie et un droit à la protection spécifiques aux adolescents. Montre en quoi ils diffèrent de ceux des jeunes enfants.",
-      "points": 4,
-      "type": "texte_libre"
-    },
-    {
-      "question": "3. Analyse la situation suivante : Amina, 14 ans, passe plusieurs heures par jour sur les réseaux sociaux. Elle partage beaucoup d'informations personnelles et subit parfois des commentaires déplacés. Quels sont les risques ? Quels droits sont concernés ? Que pourrait-elle faire pour mieux se protéger ?",
-      "points": 6,
-      "type": "texte_libre"
-    },
-    {
-      "question": "4. Pourquoi est-il important pour la société ivoirienne de respecter les droits des adolescents ? Donne trois arguments.",
-      "points": 3,
-      "type": "texte_libre"
-    },
-    {
-      "question": "5. À ton avis, quelles responsabilités devrait avoir un adolescent de 15 ans par rapport à un enfant de 10 ans ? Justifie ta réponse en lien avec les droits étudiés.",
-      "points": 3,
       "type": "texte_libre"
     }
   ],
-  "ficheRevision": "<div class=\"lesson-section\"><h3 class=\"section-title\"><i class=\"fas fa-file-alt\"></i> Fiche de révision - Droits des Adolescents</h3><div class=\"lesson-content\"><h4>Définitions clés</h4><ul><li><strong>Adolescent</strong> : Personne âgée de 12 à 18 ans, en transition vers l'âge adulte</li><li><strong>Droits à la survie adaptés</strong> : Droits qui répondent aux besoins spécifiques de croissance et de développement à l'adolescence</li><li><strong>Droits à la protection adaptés</strong> : Droits qui protègent contre les risques spécifiques de l'adolescence</li><li><strong>CIDE</strong> : Convention Internationale des Droits de l'Enfant (1989), applicable jusqu'à 18 ans</li></ul><h4>Caractéristiques des droits à l'adolescence</h4><ul><li>Évolution avec l'âge (plus d'autonomie progressive)</li><li>Double besoin : protection ET préparation à l'autonomie</li><li>Risques spécifiques (en ligne, exploitation économique, violences relationnelles)</li><li>Responsabilités croissantes</li></ul><h4>Exemples de droits à la survie adaptés</h4><ul><li>Droit à une alimentation adaptée à la croissance</li><li>Droit à la santé spécifique (santé reproductive, mentale)</li><li>Droit au logement sécurisé avec respect de l'intimité</li><li>Droit à l'identité juridique pour l'autonomie future</li></ul><h4>Exemples de droits à la protection adaptés</h4><ul><li>Droit à la sécurité numérique (protection des données, contre le cyberharcèlement)</li><li>Protection contre l'exploitation économique (travail légal et adapté)</li><li>Protection contre les violences relationnelles</li><li>Protection juridique adaptée (justice juvénile)</li></ul><h4>Équilibre protection/autonomie</h4><ul><li>Protection nécessaire contre les risques réels</li><li>Autonomie progressive pour préparer à l'âge adulte</li><li>Responsabilités proportionnées à l'âge et aux capacités</li><li>Participation aux décisions qui concernent l'adolescent</li></ul><h4>Ressources en Côte d'Ivoire</h4><ul><li>Points d'Écoute Jeunes</li><li>Programme National de Santé des Adolescents</li><li>Conseils Municipaux d'Enfants et de Jeunes</li><li>Centre d'Action Sociale</li><li>Numéro vert Allo Enfance en Danger : 116</li></ul><h4>Que faire en cas de violation des droits ?</h4><ol><li>Identifier précisément le droit violé (survie ou protection)</li><li>En parler à un adulte de confiance (professeur, parent, assistant social)</li><li>Contacter les services spécialisés (Point d'Écoute Jeune, Centre d'Action Sociale)</li><li>Pour les cas graves : police, gendarmerie, ou numéro 116</li></ol></div></div>"
-    }
+  "ficheRevision": "<div class=\"lesson-section\"><h3>Fiche de révision - Droits des Adolescents</h3><ul><li>Adolescent : 12-18 ans</li><li>Droits à la survie adaptés : nutrition, santé, logement, identité</li><li>Droits à la protection adaptés : cyberharcèlement, exploitation, violences</li></ul></div>"
+}

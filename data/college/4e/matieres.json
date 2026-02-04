@@ -1,12 +1,42 @@
 {
   "classe": "4e",
   "matieres": [
-    "FRANCAIS",
-    "MATHEMATIQUES",
-    "ANGLAIS",
-    "HISTOIRE-GEOGRAPHIE",
-    "SVT",
-    "PHYSIQUE-CHIMIE",
-    "EDHC"
+    {
+      "id": "edhc",
+      "nom": "EDHC",
+      "cours": [
+        "edhc-4e-1.json"
+      ]
+    },
+    {
+      "id": "francais",
+      "nom": "FRANCAIS",
+      "cours": []
+    },
+    {
+      "id": "mathematiques",
+      "nom": "MATHEMATIQUES",
+      "cours": []
+    },
+    {
+      "id": "anglais",
+      "nom": "ANGLAIS",
+      "cours": []
+    },
+    {
+      "id": "histoire-geographie",
+      "nom": "HISTOIRE-GEOGRAPHIE",
+      "cours": []
+    },
+    {
+      "id": "svt",
+      "nom": "SVT",
+      "cours": []
+    },
+    {
+      "id": "physique-chimie",
+      "nom": "PHYSIQUE-CHIMIE",
+      "cours": []
+    }
   ]
 }

@@ -1237,7 +1237,7 @@
             </button>
             
             <div class="classes-container" id="classes-list">
-                <!-- Les classes seront chargées ici -->
+                <!-- Les classes seront chargés ici -->
             </div>
         </div>
 
@@ -1857,38 +1857,195 @@
             }
         }
 
-        // Fonction générique pour charger le contenu d'un onglet avec format tableau d'objets
+        // FONCTION CORRIGÉE POUR AFFICHER TOUS LES TYPES DE BLOCS
+        function createLeconSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let html = '';
+            
+            // 1. Titre (toujours afficher si présent)
+            if (item.titre) {
+                html += `<h3 class="section-title"><i class="fas fa-book"></i> ${item.titre}</h3>`;
+            } else {
+                // Titre par défaut si absent
+                html += `<h3 class="section-title"><i class="fas fa-book"></i> Section ${index + 1}</h3>`;
+            }
+            
+            html += '<div class="lesson-content">';
+            
+            // 2. Contenu principal (tableau OU string)
+            if (Array.isArray(item.contenu)) {
+                // Contenu sous forme de liste
+                if (item.contenu.length > 0) {
+                    html += '<ul>';
+                    item.contenu.forEach(point => {
+                        html += `<li>${point}</li>`;
+                    });
+                    html += '</ul>';
+                }
+            } else if (typeof item.contenu === 'string' && item.contenu.trim()) {
+                // Contenu simple
+                html += `<p>${item.contenu}</p>`;
+            }
+            
+            // 3. Définition (type spécifique ou propriété "definition")
+            if (item.type === 'definition' && item.definition) {
+                html += `<div class="definition-box"><div class="definition-title">Définition</div><p>${item.definition}</p></div>`;
+            } else if (item.definition && !item.type) {
+                // Définition sans type explicite
+                html += `<div class="definition-box"><div class="definition-title">Définition</div><p>${item.definition}</p></div>`;
+            }
+            
+            // 4. Exemple (type spécifique ou propriété "exemple")
+            if (item.type === 'exemple' && item.exemple) {
+                html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
+            } else if (item.exemple && !item.type) {
+                // Exemple sans type explicite
+                html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
+            }
+            
+            // 5. Tableau (type spécifique)
+            if (item.type === 'table' && item.table) {
+                html += `<table><thead><tr>`;
+                if (item.table.headers && Array.isArray(item.table.headers)) {
+                    item.table.headers.forEach(header => {
+                        html += `<th>${header}</th>`;
+                    });
+                }
+                html += `</tr></thead><tbody>`;
+                if (item.table.rows && Array.isArray(item.table.rows)) {
+                    item.table.rows.forEach(row => {
+                        html += `<tr>`;
+                        if (Array.isArray(row)) {
+                            row.forEach(cell => {
+                                html += `<td>${cell}</td>`;
+                            });
+                        }
+                        html += `</tr>`;
+                    });
+                }
+                html += `</tbody></table>`;
+            }
+            
+            // 6. Important (propriété "important" - priorité haute)
+            if (item.important) {
+                html += `<div class="important-box"><strong>Important :</strong> ${item.important}</div>`;
+            }
+            
+            // 7. Points clés (format objet avec "points" ou "contenu")
+            if (item.points && Array.isArray(item.points)) {
+                html += '<div class="key-point"><h4>Points clés :</h4><ul>';
+                item.points.forEach(point => {
+                    html += `<li>${point}</li>`;
+                });
+                html += '</ul></div>';
+            }
+            
+            // 8. Étape par étape (format "steps")
+            if (item.steps && Array.isArray(item.steps)) {
+                html += '<div class="step-container">';
+                item.steps.forEach((step, stepIndex) => {
+                    html += `
+                        <div class="step-box">
+                            <span class="step-number">${stepIndex + 1}</span>
+                            <span>${step}</span>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            // 9. Si aucun contenu spécifique n'a été traité mais qu'il y a une propriété "texte"
+            if (!html.includes('lesson-content') && item.texte) {
+                html += `<p>${item.texte}</p>`;
+            }
+            
+            // 10. Cas où l'objet a un type non reconnu mais du contenu
+            if (item.type && !['definition', 'exemple', 'table'].includes(item.type) && item.contenu) {
+                // Afficher juste le contenu
+                if (Array.isArray(item.contenu)) {
+                    html += '<ul>';
+                    item.contenu.forEach(point => {
+                        html += `<li>${point}</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += `<p>${item.contenu}</p>`;
+                }
+            }
+            
+            // 11. Vérification finale : si le contenu est vide, ajouter un message
+            if (html === '<div class="lesson-content">') {
+                html += '<p><em>Contenu à venir...</em></p>';
+            }
+            
+            html += '</div>';
+            section.innerHTML = html;
+            return section;
+        }
+
+        // FONCTION CORRIGÉE POUR CHARGER LE CONTENU DES ONGLETS
         function loadTabContent(tabId, content) {
             const tabElement = document.getElementById(tabId);
             if (!tabElement) return;
             
             tabElement.innerHTML = '';
             
-            if (!content) {
+            // Cas 1: Contenu vide ou undefined
+            if (!content || (Array.isArray(content) && content.length === 0)) {
                 tabElement.innerHTML = `
                     <div class="lesson-section" style="text-align: center; padding: 2rem;">
                         <i class="fas fa-info-circle" style="font-size: 3rem; color: var(--accent); margin-bottom: 1rem;"></i>
-                        <h3>Contenu non disponible</h3>
-                        <p>Le contenu pour cet onglet sera ajouté prochainement.</p>
+                        <h3>Contenu en préparation</h3>
+                        <p>Le contenu pour cet onglet sera disponible très prochainement.</p>
                     </div>
                 `;
                 return;
             }
             
+            // Cas 2: Format tableau d'objets (LE PLUS IMPORTANT)
             if (Array.isArray(content)) {
-                // Format tableau d'objets - plus professionnel
                 content.forEach((item, index) => {
-                    const section = createSectionForTab(tabId, item, index);
+                    let section;
+                    
+                    switch(tabId) {
+                        case 'lecon':
+                            section = createLeconSection(item, index);
+                            break;
+                        case 'exercices':
+                            section = createExerciceSection(item, index);
+                            break;
+                        case 'astuces':
+                            section = createAstuceSection(item, index);
+                            break;
+                        case 'evaluation':
+                            section = createEvaluationSection(item, index);
+                            break;
+                        default:
+                            // Format générique
+                            section = createGenericSection(item, index);
+                    }
+                    
                     if (section) {
                         tabElement.appendChild(section);
                     }
                 });
-            } else if (typeof content === 'string') {
-                // Format texte simple (compatibilité)
+            } 
+            // Cas 3: Format HTML string (pour compatibilité)
+            else if (typeof content === 'string') {
                 tabElement.innerHTML = content;
             }
+            // Cas 4: Format objet unique (encapsuler dans un tableau)
+            else if (typeof content === 'object') {
+                const section = createLeconSection(content, 0);
+                if (section) {
+                    tabElement.appendChild(section);
+                }
+            }
             
-            // Animer les sections
+            // Animation des sections
             setTimeout(() => {
                 const sections = tabElement.querySelectorAll('.lesson-section');
                 sections.forEach((section, index) => {
@@ -1896,79 +2053,59 @@
                         section.style.opacity = '1';
                     }, index * 100);
                 });
+                
+                // Réattacher les événements interactifs
+                reattachEvents();
             }, 100);
         }
 
-        // Créer une section pour un onglet spécifique (format tableau d'objets)
-        function createSectionForTab(tabId, item, index) {
-            const section = document.createElement('div');
-            section.className = 'lesson-section';
-            section.style.animationDelay = `${index * 0.1}s`;
+        // Fonction utilitaire : formatage du contenu
+        function formatContenu(contenu) {
+            if (!contenu) return '<p><em>Aucun contenu disponible</em></p>';
             
-            switch(tabId) {
-                case 'lecon':
-                    // Format attendu: { titre: string, contenu: array|string, type?: string }
-                    return createLeconSection(item, index);
-                case 'exercices':
-                    // Format attendu: { question: string, type: string, options?: array, reponse?: string }
-                    return createExerciceSection(item, index);
-                case 'astuces':
-                    // Format attendu: string ou { texte: string, icone?: string }
-                    return createAstuceSection(item, index);
-                case 'evaluation':
-                    // Format attendu: { question: string, points: number, type?: string }
-                    return createEvaluationSection(item, index);
-                default:
-                    return null;
+            if (Array.isArray(contenu)) {
+                return '<ul>' + contenu.map(item => `<li>${item}</li>`).join('') + '</ul>';
             }
+            
+            if (typeof contenu === 'string') {
+                return `<p>${contenu}</p>`;
+            }
+            
+            if (typeof contenu === 'object') {
+                // Tenter de convertir l'objet en texte
+                return `<p>${JSON.stringify(contenu)}</p>`;
+            }
+            
+            return '<p><em>Format de contenu non reconnu</em></p>';
         }
 
-        // Créer une section de leçon
-        function createLeconSection(item, index) {
+        // Fonction générique pour les sections non spécifiques
+        function createGenericSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
             section.style.animationDelay = `${index * 0.1}s`;
             
-            let html = `<h3 class="section-title"><i class="fas fa-book"></i> ${item.titre || 'Section ' + (index + 1)}</h3>`;
+            let html = '';
+            
+            if (item.titre || item.title) {
+                html += `<h3 class="section-title"><i class="fas fa-file-alt"></i> ${item.titre || item.title}</h3>`;
+            }
+            
             html += '<div class="lesson-content">';
             
-            if (Array.isArray(item.contenu)) {
-                html += '<ul>';
-                item.contenu.forEach(point => {
-                    html += `<li>${point}</li>`;
-                });
-                html += '</ul>';
-            } else if (item.contenu) {
-                html += `<p>${item.contenu}</p>`;
-            }
-            
-            // Ajouter des éléments supplémentaires selon le type
-            if (item.type === 'definition' && item.definition) {
-                html += `<div class="definition-box"><div class="definition-title">Définition</div><p>${item.definition}</p></div>`;
-            }
-            
-            if (item.type === 'exemple' && item.exemple) {
-                html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
-            }
-            
-            if (item.type === 'table' && item.table) {
-                html += `<table><thead><tr>`;
-                item.table.headers.forEach(header => {
-                    html += `<th>${header}</th>`;
-                });
-                html += `</tr></thead><tbody>`;
-                item.table.rows.forEach(row => {
-                    html += `<tr>`;
-                    row.forEach(cell => {
-                        html += `<td>${cell}</td>`;
+            if (item.contenu || item.content) {
+                const contenu = item.contenu || item.content;
+                if (Array.isArray(contenu)) {
+                    html += '<ul>';
+                    contenu.forEach(point => {
+                        html += `<li>${point}</li>`;
                     });
-                    html += `</tr>`;
-                });
-                html += `</tbody></table>`;
-            }
-            
-            if (item.important) {
-                html += `<div class="important-box"><strong>Important :</strong> ${item.important}</div>`;
+                    html += '</ul>';
+                } else {
+                    html += `<p>${contenu}</p>`;
+                }
+            } else if (item.texte || item.text) {
+                html += `<p>${item.texte || item.text}</p>`;
             }
             
             html += '</div>';

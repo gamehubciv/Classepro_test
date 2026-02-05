@@ -1,0 +1,169 @@
+{
+  "id": "histoire-4e-revolution-francaise-1789",
+  "classe": "4e",
+  "matiere": "HISTOIRE",
+  "titre": "La Révolution Française de 1789",
+  "sousTitre": "Thème 2 : Bouleversements sociopolitiques et économiques",
+  "lecon": [
+    {
+      "titre": "Introduction",
+      "contenu": [
+        "La Révolution Française est une période de profondes transformations politiques et sociales connue par la France.",
+        "Elle débute le 14 juillet 1789 et entraîne d’importantes conséquences politiques, sociales et économiques.",
+        "Cette révolution marque la fin de l’Ancien Régime et l’entrée de la France dans une nouvelle ère politique."
+      ]
+    },
+    {
+      "titre": "Situation d’apprentissage",
+      "type": "situation",
+      "contenu": [
+        "Tes camarades et toi suivez un documentaire sur RTI 1.",
+        "Le présentateur affirme que le 14 juillet 1789 marque le début de la Révolution française.",
+        "De retour en classe, vous menez des recherches pour identifier les origines, les étapes et les conséquences de cette révolution."
+      ]
+    },
+    {
+      "titre": "I- Les causes de la Révolution française",
+      "contenu": [
+        "Plusieurs causes expliquent le déclenchement de la Révolution française."
+      ]
+    },
+    {
+      "titre": "1- Le pouvoir absolu du roi",
+      "contenu": [
+        "Avant 1789, la France est une monarchie de droit divin.",
+        "Le roi détient les pouvoirs politique et judiciaire.",
+        "La personne du roi est considérée comme sacrée."
+      ],
+      "important": "Le pouvoir absolu du roi empêche toute participation du peuple à la vie politique."
+    },
+    {
+      "titre": "2- Une société française inégalitaire",
+      "contenu": [
+        "La société est divisée en trois ordres : le Clergé, la Noblesse et le Tiers-Etat.",
+        "Le Clergé et la Noblesse représentent environ 2% de la population et sont privilégiés.",
+        "Le Tiers-Etat représente 98% de la population et supporte tous les impôts."
+      ]
+    },
+    {
+      "titre": "3- Les problèmes économiques et financiers",
+      "contenu": [
+        "Les mauvaises récoltes de 1787 et 1788 provoquent une hausse des prix.",
+        "La France connaît un déficit budgétaire important.",
+        "Ce déficit est lié aux dépenses de la cour et au soutien à la guerre d’indépendance des États-Unis."
+      ]
+    },
+    {
+      "titre": "4- La philosophie des Lumières",
+      "contenu": [
+        "Les philosophes des Lumières comme Voltaire, Rousseau et Diderot luttent contre l’arbitraire.",
+        "Ils défendent l’égalité entre les hommes et la séparation des pouvoirs."
+      ]
+    },
+    {
+      "titre": "II- Les étapes de la Révolution française",
+      "contenu": [
+        "La Révolution commence avec la convocation des États généraux le 05 mai 1789."
+      ]
+    },
+    {
+      "titre": "1- La monarchie constitutionnelle (1789-1792)",
+      "contenu": [
+        "Les députés se déclarent Assemblée nationale constituante.",
+        "La prise de la Bastille le 14 juillet 1789 sauve la Révolution.",
+        "Louis XVI accepte une constitution écrite."
+      ]
+    },
+    {
+      "titre": "2- La première République (1792-1799)",
+      "contenu": [
+        "Le 21 septembre 1792, la monarchie est abolie.",
+        "La première République est proclamée."
+      ]
+    },
+    {
+      "titre": "3- Le Consulat (1799-1804)",
+      "contenu": [
+        "Napoléon Bonaparte prend le pouvoir en 1799.",
+        "Il devient Premier Consul."
+      ]
+    },
+    {
+      "titre": "III- Les conséquences de la Révolution française",
+      "contenu": [
+        "La Révolution entraîne des conséquences politiques, sociales et économiques."
+      ]
+    },
+    {
+      "titre": "Conséquences politiques",
+      "contenu": [
+        "Fin de la monarchie absolue.",
+        "Naissance de la République.",
+        "Séparation des pouvoirs.",
+        "Droit de vote des citoyens."
+      ]
+    },
+    {
+      "titre": "Conséquences sociales et économiques",
+      "contenu": [
+        "Abolition des privilèges.",
+        "Égalité entre les citoyens.",
+        "Adoption de la Déclaration des Droits de l’Homme et du Citoyen."
+      ]
+    },
+    {
+      "titre": "Conclusion",
+      "contenu": [
+        "La Révolution française met fin à la monarchie absolue.",
+        "Elle favorise la naissance de la République.",
+        "Elle consacre les droits de l’homme et du citoyen."
+      ],
+      "important": "La Révolution française a profondément transformé la société française et inspiré d’autres peuples."
+    }
+  ],
+  "exercices": [
+    {
+      "question": "Complète : La cause directe de la révolution française est la ............... de la France.",
+      "type": "texte_libre",
+      "correction": "La cause directe de la révolution française est la situation financière de la France."
+    },
+    {
+      "question": "Relie : États généraux →",
+      "type": "texte_libre",
+      "correction": "Réunion des représentants du peuple en 1789."
+    },
+    {
+      "question": "Vrai ou Faux : La société française de 1789 était égalitaire.",
+      "type": "vrai_faux",
+      "reponse": "faux",
+      "correction": "Faux. La société était inégalitaire."
+    }
+  ],
+  "astuces": [
+    {
+      "texte": "Pour mémoriser les causes, pense : Politique (roi), Sociale (inégalités), Économique (crise).",
+      "icone": "fas fa-lightbulb"
+    },
+    {
+      "texte": "Retient la date clé : 14 juillet 1789 = prise de la Bastille.",
+      "icone": "fas fa-calendar"
+    }
+  ],
+  "evaluation": [
+    {
+      "question": "Explique deux causes de la Révolution française.",
+      "points": 4,
+      "type": "texte_libre"
+    },
+    {
+      "question": "Présente deux conséquences politiques de la Révolution française.",
+      "points": 4,
+      "type": "texte_libre"
+    },
+    {
+      "question": "Pourquoi peut-on dire que la Révolution française a transformé la société ?",
+      "points": 6,
+      "type": "texte_libre"
+    }
+  ]
+}

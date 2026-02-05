@@ -6,7 +6,7 @@
     <title>ClassePro - Plateforme Éducative</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS COMPLET - Avec quelques ajouts pour la nouvelle structure */
+        /* CSS COMPLET - Avec les améliorations du design officiel */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         :root {
@@ -432,7 +432,7 @@
             margin-top: auto;
         }
         
-        /* Styles pour les onglets */
+        /* Styles pour les onglets - AMÉLIORÉS */
         .tabs-container {
             margin-bottom: 25px;
             border-bottom: 2px solid rgba(61, 59, 142, 0.1);
@@ -546,6 +546,7 @@
             border-left: 4px solid var(--warning);
         }
         
+        /* STYLES AMÉLIORÉS POUR LES EXERCICES - COMME LE DEUXIÈME FICHIER */
         .exercise-box {
             background-color: white;
             border-radius: 8px;
@@ -568,6 +569,7 @@
             margin-right: 8px;
         }
         
+        /* STYLES AMÉLIORÉS POUR LES ASTUCES - COMME LE DEUXIÈME FICHIER */
         .tip-box {
             background-color: rgba(33, 150, 243, 0.1);
             border-radius: 8px;
@@ -683,7 +685,7 @@
             font-size: 1rem;
         }
         
-        /* Styles pour les exercices interactifs */
+        /* STYLES AMÉLIORÉS POUR LES EXERCICES INTERACTIFS - COMME LE DEUXIÈME FICHIER */
         .question {
             margin: 15px 0;
             padding: 12px;
@@ -736,7 +738,7 @@
             font-size: 0.95rem;
         }
         
-        /* Barre de progression */
+        /* Barre de progression - AMÉLIORÉE */
         .progress-text {
             text-align: right;
             font-size: 0.9rem;
@@ -788,6 +790,7 @@
             }
         }
         
+        /* ANIMATIONS DES MODALES AMÉLIORÉES */
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
@@ -822,6 +825,15 @@
             }
         }
         
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
         .lesson-section:nth-child(1) { animation-delay: 0.1s; }
         .lesson-section:nth-child(2) { animation-delay: 0.2s; }
         .lesson-section:nth-child(3) { animation-delay: 0.3s; }
@@ -831,7 +843,7 @@
         .lesson-section:nth-child(7) { animation-delay: 0.7s; }
         .lesson-section:nth-child(8) { animation-delay: 0.8s; }
         
-        /* Styles pour les modales personnalisées */
+        /* STYLES AMÉLIORÉS POUR LES MODALES - COMME LE DEUXIÈME FICHIER */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -884,15 +896,6 @@
         .error-icon {
             color: var(--warning);
             animation: pulse 1.5s ease infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
         }
         
         .modal-title {
@@ -1272,6 +1275,14 @@
                 <i class="fas fa-arrow-left"></i> Retour aux matières
             </button>
             
+            <!-- Barre de progression -->
+            <div class="progress-text" style="display: none;">
+                Progression : <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar" style="display: none;">
+                <div id="progressFill" class="progress-fill"></div>
+            </div>
+            
             <!-- Onglets -->
             <div class="tabs-container">
                 <button class="tab active" onclick="switchTab('lecon')">Leçon</button>
@@ -1316,7 +1327,7 @@
         </div>
     </footer>
 
-    <!-- Modales overlay -->
+    <!-- Modales overlay - AMÉLIORÉES -->
     <div id="modalOverlay" class="modal-overlay">
         <div id="feedbackModal" class="modal">
             <div class="modal-header">
@@ -1333,7 +1344,7 @@
         </div>
     </div>
 
-    <!-- Script principal -->
+    <!-- Script principal avec améliorations -->
     <script>
         // Variables globales
         let currentNiveau = null;
@@ -1347,7 +1358,7 @@
         let progress = 0;
         let totalExercises = 10;
 
-        // Éléments de la modale
+        // Éléments de la modale améliorée
         const modalOverlay = document.getElementById('modalOverlay');
         const modalIcon = document.getElementById('modalIcon');
         const modalTitle = document.getElementById('modalTitle');
@@ -1371,7 +1382,6 @@
 
         document.getElementById('matieres-link').addEventListener('click', (e) => {
             e.preventDefault();
-            // Si une matière est en cours, montrer les matières, sinon retour à l'accueil
             if (currentClasse) {
                 showPage('matieres');
             } else {
@@ -1381,7 +1391,6 @@
 
         document.getElementById('cours-link').addEventListener('click', (e) => {
             e.preventDefault();
-            // Si un cours est en cours, le montrer, sinon retour à l'accueil
             if (currentCours) {
                 showPage('cours');
             } else {
@@ -1827,6 +1836,10 @@
                 document.getElementById('cours-titre').textContent = currentCours.titre || currentCours.cours?.titre || 'Titre du cours';
                 document.getElementById('cours-sousTitre').textContent = currentCours.sousTitre || currentCours.cours?.sousTitre || 'Sous-titre du cours';
                 
+                // Afficher la barre de progression pour les exercices
+                document.querySelector('.progress-text').style.display = 'block';
+                document.querySelector('.progress-bar').style.display = 'block';
+                
                 // Charger le contenu des onglets avec format tableau d'objets
                 loadTabContent('lecon', currentCours.lecon || currentCours.cours?.lecon);
                 loadTabContent('exercices', currentCours.exercices || currentCours.cours?.exercices);
@@ -1857,14 +1870,11 @@
             }
         }
 
-        // FONCTION CORRIGÉE POUR AFFICHER TOUS LES TYPES DE BLOCS - AVEC DEBUG POUR LES TABLEAUX
+        // FONCTION CORRIGÉE POUR AFFICHER TOUS LES TYPES DE BLOCS
         function createLeconSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
             section.style.animationDelay = `${index * 0.1}s`;
-            
-            // DEBUG: Afficher l'item complet pour voir sa structure
-            console.log('ITEM LEÇON index', index, ':', item);
             
             let html = '';
             
@@ -1909,12 +1919,11 @@
                 html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
             }
             
-            // 5. TABLEAU - VERSION ULTRA ROBUSTE (plus dépendante du type)
+            // 5. TABLEAU
             if (item.table && item.table.headers && item.table.rows) {
-                console.log('Trouvé un tableau dans item:', item.table);
                 const { headers, rows } = item.table;
 
-                let tableHTML = '<table class="table-cours"><thead><tr>';
+                let tableHTML = '<table><thead><tr>';
                 headers.forEach(h => {
                     tableHTML += `<th>${h}</th>`;
                 });
@@ -2048,26 +2057,6 @@
             }, 100);
         }
 
-        // Fonction utilitaire : formatage du contenu
-        function formatContenu(contenu) {
-            if (!contenu) return '<p><em>Aucun contenu disponible</em></p>';
-            
-            if (Array.isArray(contenu)) {
-                return '<ul>' + contenu.map(item => `<li>${item}</li>`).join('') + '</ul>';
-            }
-            
-            if (typeof contenu === 'string') {
-                return `<p>${contenu}</p>`;
-            }
-            
-            if (typeof contenu === 'object') {
-                // Tenter de convertir l'objet en texte
-                return `<p>${JSON.stringify(contenu)}</p>`;
-            }
-            
-            return '<p><em>Format de contenu non reconnu</em></p>';
-        }
-
         // Fonction générique pour les sections non spécifiques
         function createGenericSection(item, index) {
             const section = document.createElement('div');
@@ -2103,15 +2092,20 @@
             return section;
         }
 
-        // Créer une section d'exercice
+        // Créer une section d'exercice - AMÉLIORÉE
         function createExerciceSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
             section.style.animationDelay = `${index * 0.1}s`;
             
             let html = `<div class="exercise-box">`;
-            html += `<div class="exercise-title"><i class="fas fa-question-circle"></i> Exercice ${index + 1}</div>`;
-            html += `<p>${item.question}</p>`;
+            html += `<div class="exercise-title"><i class="fas fa-tasks"></i> Activité d'application ${index + 1}</div>`;
+            
+            if (item.instructions) {
+                html += `<div class="question"><p><strong>Instructions</strong> : ${item.instructions}</p></div>`;
+            }
+            
+            html += `<div class="question"><p>${item.question}</p>`;
             
             // Selon le type d'exercice
             if (item.type === 'qcm' && item.options) {
@@ -2127,9 +2121,9 @@
                 });
                 html += '</div>';
                 
-                if (item.correction) {
-                    html += `<button class="show-answer" onclick="checkExoAnswer(${index}, '${item.reponse}')">Vérifier ma réponse</button>`;
-                    html += `<div id="correction-${index}" class="answer-box" style="display: none;">${item.correction}</div>`;
+                if (item.reponse) {
+                    html += `<button class="show-answer" onclick="checkRadioAnswer('exo-${index}', '${item.reponse}', ${index})">Vérifier ma réponse</button>`;
+                    html += `<div id="correction-${index}" class="answer-box" style="display: none;">${item.correction || ''}</div>`;
                 }
             } else if (item.type === 'texte_libre' || item.type === 'réponse libre') {
                 html += `<textarea id="reponse-${index}" rows="3" placeholder="Écrivez votre réponse ici..."></textarea>`;
@@ -2151,17 +2145,17 @@
                     </div>
                 `;
                 if (item.reponse) {
-                    html += `<button class="show-answer" onclick="checkVraiFaux(${index}, '${item.reponse}')">Vérifier</button>`;
+                    html += `<button class="show-answer" onclick="checkVraiFauxAnswer(${index}, '${item.reponse}')">Vérifier</button>`;
                 }
             }
             
-            html += `</div>`;
+            html += `</div></div>`;
             
             section.innerHTML = html;
             return section;
         }
 
-        // Créer une section d'astuce
+        // Créer une section d'astuce - AMÉLIORÉE
         function createAstuceSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
@@ -2179,7 +2173,7 @@
             return section;
         }
 
-        // Créer une section d'évaluation
+        // Créer une section d'évaluation - AMÉLIORÉE
         function createEvaluationSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
@@ -2187,7 +2181,7 @@
             
             let html = `<div class="exercise-box">`;
             html += `<div class="exercise-title"><i class="fas fa-star"></i> Question ${index + 1} (${item.points || 1} point${item.points > 1 ? 's' : ''})</div>`;
-            html += `<p>${item.question}</p>`;
+            html += `<div class="question"><p>${item.question}</p>`;
             
             if (item.type === 'qcm' && item.options) {
                 html += '<div class="question">';
@@ -2205,42 +2199,88 @@
                 html += `<textarea id="eval-reponse-${index}" rows="4" placeholder="Répondez à la question..."></textarea>`;
             }
             
-            html += `</div>`;
+            html += `</div></div>`;
             
             section.innerHTML = html;
             return section;
         }
 
-        // Fonctions pour les exercices interactifs
-        function checkExoAnswer(index, correctAnswer) {
-            const radios = document.getElementsByName(`exo-${index}`);
+        // FONCTIONS AMÉLIORÉES POUR LES EXERCICES INTERACTIFS
+        function checkRadioAnswer(questionName, correctAnswer, index) {
+            const radios = document.getElementsByName(questionName);
             let selectedValue = '';
+            let selectedRadio = null;
             
             for (const radio of radios) {
                 if (radio.checked) {
                     selectedValue = radio.value;
+                    selectedRadio = radio;
                     break;
                 }
             }
             
             if (!selectedValue) {
-                showErrorModal('Réponse manquante', 'Veuillez sélectionner une réponse.');
+                showErrorModal(
+                    'Réponse manquante',
+                    'Tu dois sélectionner une réponse avant de vérifier.',
+                    'Clique sur une option pour choisir ta réponse.'
+                );
                 return;
             }
             
-            const correctionDiv = document.getElementById(`correction-${index}`);
-            
             if (selectedValue === correctAnswer) {
-                showSuccessModal('Bonne réponse !', 'Félicitations, vous avez trouvé la bonne réponse.');
-                if (correctionDiv) correctionDiv.style.display = 'block';
+                // Bonne réponse
+                showSuccessModal(
+                    '🎉 Excellente réponse !',
+                    'Félicitations, tu as bien compris cette notion.',
+                    'Continue comme ça !'
+                );
                 updateProgress();
+                
+                // Colorer la bonne réponse
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswer) {
+                        radio.parentElement.style.color = 'var(--success)';
+                        radio.parentElement.style.fontWeight = 'bold';
+                    }
+                });
+                
+                // Afficher la correction si elle existe
+                const correctionDiv = document.getElementById(`correction-${index}`);
+                if (correctionDiv) {
+                    correctionDiv.style.display = 'block';
+                }
             } else {
-                showErrorModal('Mauvaise réponse', 'Ce n\'est pas la bonne réponse. Essayez encore !');
-                if (correctionDiv) correctionDiv.style.display = 'block';
+                // Mauvaise réponse
+                const correctAnswerText = correctAnswer;
+                const userAnswerText = selectedValue;
+                
+                showErrorModal(
+                    'Presque !',
+                    `Ta réponse : <strong>${userAnswerText}</strong>`,
+                    `Ne te décourage pas ! Chaque erreur est une occasion d'apprendre.`,
+                    `Réponse correcte : ${correctAnswerText}`
+                );
+                
+                // Colorer les réponses
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswer) {
+                        radio.parentElement.style.color = 'var(--success)';
+                        radio.parentElement.style.fontWeight = 'bold';
+                    } else if (radio.checked) {
+                        radio.parentElement.style.color = 'var(--warning)';
+                    }
+                });
+                
+                // Afficher la correction si elle existe
+                const correctionDiv = document.getElementById(`correction-${index}`);
+                if (correctionDiv) {
+                    correctionDiv.style.display = 'block';
+                }
             }
         }
         
-        function checkVraiFaux(index, correctAnswer) {
+        function checkVraiFauxAnswer(index, correctAnswer) {
             const selectedRadio = document.querySelector(`input[name="vf-${index}"]:checked`);
             
             if (!selectedRadio) {
@@ -2264,6 +2304,70 @@
             }
         }
 
+        // Fonction pour soumettre l'évaluation - AMÉLIORÉE
+        function submitEvaluation() {
+            const evalQuestions = document.querySelectorAll('#evaluation .exercise-box');
+            let score = 0;
+            let maxScore = evalQuestions.length;
+            let feedback = '';
+            
+            evalQuestions.forEach((question, index) => {
+                const textarea = question.querySelector('textarea');
+                const radios = question.querySelectorAll('input[type="radio"]');
+                
+                if (textarea && textarea.value.trim()) {
+                    score++;
+                    feedback += `<p>✓ <strong>Question ${index + 1} :</strong> Réponse fournie.</p>`;
+                } else if (radios.length > 0) {
+                    let answered = false;
+                    radios.forEach(radio => {
+                        if (radio.checked) {
+                            answered = true;
+                            score++;
+                        }
+                    });
+                    
+                    if (answered) {
+                        feedback += `<p>✓ <strong>Question ${index + 1} :</strong> Réponse sélectionnée.</p>`;
+                    } else {
+                        feedback += `<p>✗ <strong>Question ${index + 1} :</strong> Aucune réponse.</p>`;
+                    }
+                }
+            });
+            
+            const percentage = Math.round((score / maxScore) * 100);
+            let modalTitle = '';
+            let modalMessage = '';
+            
+            if (percentage >= 80) {
+                modalTitle = '🏆 Excellent travail !';
+                modalMessage = `Tu as obtenu ${score}/${maxScore} points (${percentage}%).`;
+                createConfetti();
+            } else if (percentage >= 60) {
+                modalTitle = '👍 Bon travail !';
+                modalMessage = `Tu as obtenu ${score}/${maxScore} points (${percentage}%).`;
+            } else if (percentage >= 40) {
+                modalTitle = '✅ Assez bien !';
+                modalMessage = `Tu as obtenu ${score}/${maxScore} points (${percentage}%).`;
+            } else {
+                modalTitle = '📚 À revoir !';
+                modalMessage = `Tu as obtenu ${score}/${maxScore} points (${percentage}%).`;
+            }
+            
+            showSuccessModal(
+                modalTitle,
+                modalMessage,
+                feedback
+            );
+            
+            // Mettre à jour la progression
+            if (percentage >= 60) {
+                updateProgress();
+                updateProgress();
+                updateProgress(); // Triple progression pour l'évaluation
+            }
+        }
+
         // Réattacher les événements après le chargement du contenu
         function reattachEvents() {
             document.querySelectorAll('.show-answer').forEach(button => {
@@ -2274,7 +2378,7 @@
             });
         }
 
-        // Fonctions pour les modales
+        // FONCTIONS AMÉLIORÉES POUR LES MODALES
         function showSuccessModal(title, message, details = '', showConfetti = true) {
             feedbackModal.classList.remove('error-modal');
             feedbackModal.classList.add('success-modal');
@@ -2368,7 +2472,21 @@
             }
         }
 
-        // Fonction pour changer d'onglet
+        // Fermer la modale en cliquant en dehors
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+        
+        // Fermer la modale avec la touche Échap
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Fonction pour changer d'onglet - AMÉLIORÉE
         function switchTab(tabName) {
             // Masquer tous les contenus d'onglet
             document.querySelectorAll('.tab-content').forEach(tab => {
@@ -2396,6 +2514,15 @@
             setTimeout(() => {
                 activeTab.style.animation = 'fadeInUp 0.5s ease-out';
             }, 10);
+            
+            // Afficher/masquer la barre de progression selon l'onglet
+            if (tabName === 'exercices' || tabName === 'evaluation') {
+                document.querySelector('.progress-text').style.display = 'block';
+                document.querySelector('.progress-bar').style.display = 'block';
+            } else {
+                document.querySelector('.progress-text').style.display = 'none';
+                document.querySelector('.progress-bar').style.display = 'none';
+            }
         }
         
         function getTabName(tabId) {
@@ -2408,21 +2535,12 @@
             return names[tabId] || tabId;
         }
 
-        // Fonction pour mettre à jour la barre de progression
+        // Fonction pour mettre à jour la barre de progression - AMÉLIORÉE
         function updateProgress() {
             progress = Math.min(progress + 1, totalExercises);
             const percent = Math.round((progress / totalExercises) * 100);
-            
-            const progressPercent = document.getElementById('progressPercent');
-            const progressFill = document.getElementById('progressFill');
-            
-            if (progressPercent) {
-                progressPercent.textContent = `${percent}%`;
-            }
-            
-            if (progressFill) {
-                progressFill.style.width = `${percent}%`;
-            }
+            document.getElementById('progressPercent').textContent = `${percent}%`;
+            document.getElementById('progressFill').style.width = `${percent}%`;
         }
 
         // Menu mobile

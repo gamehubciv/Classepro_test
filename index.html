@@ -6,7 +6,7 @@
     <title>ClassePro - Plateforme Éducative</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS COMPLET CLASSEPRO - Version PRO avec intégration complète */
+        /* CSS COMPLET - Avec quelques ajouts pour la nouvelle structure */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         
         :root {
@@ -508,642 +508,89 @@
             border-left: 4px solid var(--accent);
         }
         
-        /* ============================================
-           COMPOSANTS SPÉCIFIQUES CLASSEPRO
-           ============================================ */
-
-        /* Situation d'apprentissage */
-        .situation-apprentissage {
-            background: linear-gradient(135deg, rgba(61, 59, 142, 0.1), rgba(104, 131, 186, 0.05));
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 5px solid var(--secondary);
-            box-shadow: var(--card-shadow);
-        }
-
-        .situation-content {
-            background: white;
+        .definition-box {
+            background-color: var(--definition-bg);
             border-radius: 8px;
-            padding: 20px;
-            margin-top: 15px;
-        }
-
-        /* Cartes de définition et exemple */
-        .definition-card, .example-card {
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            box-shadow: var(--card-shadow);
-        }
-
-        .definition-card {
-            background: var(--definition-bg);
+            padding: 15px;
+            margin: 15px 0;
             border-left: 4px solid var(--secondary);
         }
-
-        .example-card {
-            background: var(--example-bg);
-            border-left: 4px solid var(--primary);
-        }
-
-        .definition-header, .example-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .definition-badge, .example-badge {
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .definition-badge {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .example-badge {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Alertes importantes */
-        .important-alert {
-            display: flex;
-            gap: 15px;
-            background: rgba(255, 152, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            border-left: 4px solid var(--warning);
-        }
-
-        .alert-icon {
-            color: var(--warning);
-            font-size: 1.5rem;
-        }
-
-        .alert-content h4 {
-            color: var(--warning);
-            margin-bottom: 5px;
-        }
-
-        /* Tableaux stylés */
-        .table-responsive {
-            overflow-x: auto;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .classepro-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.95rem;
-        }
-
-        .classepro-table th {
-            background: var(--gradient);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .classepro-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .classepro-table tr.even {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .classepro-table tr.odd {
-            background: rgba(104, 131, 186, 0.05);
-        }
-
-        .classepro-table tr:hover {
-            background: rgba(255, 126, 95, 0.05);
-        }
-
-        /* Timeline des étapes */
-        .steps-timeline {
-            position: relative;
-            padding-left: 30px;
-            margin: 25px 0;
-        }
-
-        .steps-timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--accent);
-        }
-
-        .step-item {
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .step-marker {
-            position: absolute;
-            left: -30px;
-            top: 0;
-            width: 30px;
-            height: 30px;
-            background: white;
-            border: 3px solid var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--accent);
-        }
-
-        .step-content {
-            background: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: var(--card-shadow);
-            border-left: 3px solid var(--accent);
-        }
-
-        /* Grille de points clés */
-        .key-points-container {
-            margin: 25px 0;
-        }
-
-        .sub-section-title {
+        
+        .definition-title {
             color: var(--secondary);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .key-points-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .key-point-card {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .key-point-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .key-point-icon {
-            color: var(--success);
-            font-size: 1.2rem;
-        }
-
-        .key-point-number {
-            width: 30px;
-            height: 30px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Cartes d'exercices */
-        .exercise-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: var(--card-shadow);
-            border-top: 4px solid var(--success);
-        }
-
-        .exercise-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0,0,0,0.05);
-        }
-
-        .exercise-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            color: var(--secondary);
-        }
-
-        .exercise-points {
-            background: var(--success);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
             font-weight: 600;
-        }
-
-        .exercise-question {
+            margin-bottom: 8px;
             font-size: 1.1rem;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .qcm-options, .evaluation-options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .qcm-option, .evaluation-option {
-            background: rgba(104, 131, 186, 0.05);
-            border-radius: 8px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .qcm-option:hover, .evaluation-option:hover {
-            background: rgba(104, 131, 186, 0.1);
-        }
-
-        .qcm-option.selected, .evaluation-option.selected {
-            border-color: var(--accent);
-            background: rgba(104, 131, 186, 0.15);
-        }
-
-        .option-letter {
-            display: inline-block;
-            width: 25px;
-            height: 25px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 25px;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-
-        .true-false-options {
-            display: flex;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .tf-btn {
-            flex: 1;
-            padding: 15px;
-            border: 2px solid rgba(104, 131, 186, 0.2);
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .tf-btn:hover {
-            border-color: var(--accent);
-            background: rgba(104, 131, 186, 0.05);
-        }
-
-        .tf-btn.selected {
-            border-color: var(--success);
-            background: rgba(75, 181, 67, 0.1);
-            color: var(--success);
-        }
-
-        .answer-textarea, .evaluation-textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid rgba(104, 131, 186, 0.2);
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            resize: vertical;
-            transition: border-color 0.3s ease;
-        }
-
-        .answer-textarea:focus, .evaluation-textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .answer-info {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: #666;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .exercise-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .btn-check, .btn-correction, .btn-submit-evaluation {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-check {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .btn-correction {
-            background: rgba(33, 150, 243, 0.1);
-            color: var(--info);
-            border: 2px solid var(--info);
-        }
-
-        .btn-check:hover, .btn-correction:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .exercise-feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            animation: fadeInUp 0.5s ease;
-        }
-
-        .feedback-correct {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--success);
-        }
-
-        .feedback-incorrect {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: var(--warning);
-        }
-
-        .correction-box {
-            margin-top: 20px;
-            background: rgba(75, 181, 67, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--success);
-        }
-
-        .correction-header {
-            background: var(--success);
-            color: white;
-            padding: 15px 20px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .correction-body {
-            padding: 20px;
-        }
-
-        /* Cartes d'astuces */
-        .astuce-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 20px 0;
-            box-shadow: var(--card-shadow);
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            position: relative;
-            border-top: 4px solid var(--info);
-        }
-
-        .astuce-icon {
-            color: var(--info);
-            font-size: 1.8rem;
-            flex-shrink: 0;
-        }
-
-        .astuce-content {
-            flex: 1;
-        }
-
-        .astuce-title {
-            color: var(--secondary);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        .astuce-number {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--gradient);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        /* Cartes d'évaluation */
-        .evaluation-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            box-shadow: var(--card-shadow);
-            border-top: 4px solid var(--warning);
-        }
-
-        .evaluation-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0,0,0,0.05);
-        }
-
-        .evaluation-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            color: var(--secondary);
-        }
-
-        .evaluation-points {
-            background: var(--warning);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .evaluation-submit-container {
-            text-align: center;
-            margin: 40px 0 20px;
-        }
-
-        .btn-submit-evaluation {
-            background: var(--gradient);
-            color: white;
-            padding: 15px 40px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-submit-evaluation:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(61, 59, 142, 0.2);
-        }
-
-        /* Progression */
-        .lesson-progress {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 0 0 30px;
-            box-shadow: var(--card-shadow);
-        }
-
-        .progress-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            color: var(--secondary);
-            font-weight: 600;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background: rgba(104, 131, 186, 0.1);
-            border-radius: 5px;
-            margin: 15px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--gradient);
-            border-radius: 5px;
-            width: 0%;
-            transition: width 1s ease-in-out;
-        }
-
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #progressPercent {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-
-        .progress-text {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Score d'évaluation */
-        .evaluation-score {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .score-circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            position: relative;
-        }
-
-        .score-circle::before {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        .score-circle span {
-            position: relative;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--secondary);
-            z-index: 1;
         }
         
-        /* Liste des leçons */
-        .lesson-list {
+        .example-box {
+            background-color: var(--example-bg);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .example-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .important-box {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .exercise-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid var(--success);
+            box-shadow: var(--card-shadow);
+        }
+        
+        .exercise-title {
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .exercise-title i {
+            margin-right: 8px;
+        }
+        
+        .tip-box {
+            background-color: rgba(33, 150, 243, 0.1);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid var(--info);
+        }
+        
+        .tip-title {
+            color: var(--info);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        /* Styles pour les listes */
+        ol, ul {
             margin-left: 20px;
             margin-bottom: 15px;
         }
         
-        .lesson-list li {
+        li {
             margin-bottom: 8px;
-        }
-        
-        .lesson-paragraph {
-            margin-bottom: 15px;
-            line-height: 1.6;
         }
         
         /* Styles spécifiques */
@@ -1174,6 +621,30 @@
             font-weight: 600;
             margin-bottom: 5px;
             font-size: 1.1rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            border: 1px solid rgba(255, 126, 95, 0.1);
+            padding: 10px 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: var(--gradient);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(255, 126, 95, 0.05);
         }
         
         .step-box {
@@ -1263,6 +734,30 @@
             border-left: 3px solid var(--success);
             display: none;
             font-size: 0.95rem;
+        }
+        
+        /* Barre de progression */
+        .progress-text {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background-color: rgba(255, 126, 95, 0.1);
+            border-radius: 5px;
+            margin: 1rem 0 1.5rem;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 1s ease-in-out;
         }
         
         /* Grilles */
@@ -1533,10 +1028,6 @@
             .modal {
                 max-width: 450px;
             }
-            
-            .key-points-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
         }
         
         @media (min-width: 1024px) {
@@ -1546,10 +1037,6 @@
             
             .container {
                 max-width: 1200px;
-            }
-            
-            .key-points-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
         
@@ -1650,33 +1137,6 @@
             
             .modal-title {
                 font-size: 1.3rem;
-            }
-            
-            .key-points-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .exercise-actions {
-                flex-direction: column;
-            }
-            
-            .btn-check, .btn-correction {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .true-false-options {
-                flex-direction: column;
-            }
-            
-            .situation-apprentissage,
-            .definition-card,
-            .example-card,
-            .important-alert,
-            .exercise-card,
-            .evaluation-card,
-            .astuce-card {
-                padding: 15px;
             }
         }
         
@@ -1911,6 +1371,7 @@
 
         document.getElementById('matieres-link').addEventListener('click', (e) => {
             e.preventDefault();
+            // Si une matière est en cours, montrer les matières, sinon retour à l'accueil
             if (currentClasse) {
                 showPage('matieres');
             } else {
@@ -1920,6 +1381,7 @@
 
         document.getElementById('cours-link').addEventListener('click', (e) => {
             e.preventDefault();
+            // Si un cours est en cours, le montrer, sinon retour à l'accueil
             if (currentCours) {
                 showPage('cours');
             } else {
@@ -2060,9 +1522,11 @@
         function loadClasses(niveau) {
             currentNiveau = niveau;
             
+            // Mettre à jour le titre de la page
             document.getElementById('classes-title').textContent = `Classes de ${niveau.nom}`;
             document.getElementById('classes-subtitle').textContent = `Sélectionnez une classe pour accéder aux matières`;
             
+            // Afficher les classes selon le niveau
             const classesList = document.getElementById('classes-list');
             classesList.innerHTML = '';
             
@@ -2123,10 +1587,12 @@
             console.log('Chargement des matières pour :', classe.nom);
             currentClasse = classe;
             
+            // Mettre à jour le titre de la page
             document.getElementById('matieres-title').textContent = `Matières de ${classe.nom}`;
             document.getElementById('matieres-subtitle').textContent = `Sélectionnez une matière pour voir les cours disponibles`;
             
             try {
+                // Construire le chemin vers le fichier des matières
                 let matieresPath = '';
                 
                 if (currentNiveau.id === 'primaire') {
@@ -2134,6 +1600,7 @@
                 } else if (currentNiveau.id === 'college') {
                     matieresPath = `data/college/${classe.id}/matieres.json`;
                 } else if (currentNiveau.id === 'lycee') {
+                    // Pour le lycée, la structure est plus complexe
                     if (classe.id.includes('seconde')) {
                         matieresPath = `data/lycee/seconde/${classe.id}/matieres.json`;
                     } else if (classe.id.includes('premiere')) {
@@ -2151,12 +1618,13 @@
                 displayMatieres();
             } catch (error) {
                 console.error('Erreur de chargement des matières:', error);
+                // Si le fichier n'existe pas, afficher un message et créer une structure par défaut
                 console.log('Création des matières par défaut');
                 createDefaultMatieres();
             }
         }
 
-        // Créer une structure de matières par défaut
+        // Créer une structure de matières par défaut - CORRIGÉE POUR FONCTIONNER AVEC TOUTES LES CLASSES
         function createDefaultMatieres() {
             console.log('Création des matières par défaut pour:', currentClasse.nom);
             matieresData = {
@@ -2164,6 +1632,7 @@
                 matieres: []
             };
             
+            // Définir les matières par défaut selon le niveau et la classe
             let defaultMatieres = [];
             
             if (currentNiveau.id === 'primaire') {
@@ -2187,6 +1656,7 @@
                     { id: 'tic', nom: 'TIC', icone: 'fas fa-laptop-code', description: 'Technologies de l\'Information et de la Communication' }
                 ];
                 
+                // Ajouter des cours par défaut pour la 4ème en EDHC
                 if (currentClasse.id === '4e') {
                     defaultMatieres.forEach(matiere => {
                         matiere.cours = [];
@@ -2251,15 +1721,19 @@
                 button.className = `matiere-btn ${index === 0 ? 'active' : ''}`;
                 button.textContent = matiere.nom;
                 button.addEventListener('click', () => {
+                    // Retirer la classe active de tous les boutons
                     document.querySelectorAll('.matiere-btn').forEach(btn => {
                         btn.classList.remove('active');
                     });
+                    // Ajouter la classe active au bouton cliqué
                     button.classList.add('active');
+                    // Afficher les cours de cette matière
                     displayCoursDeMatiere(matiere);
                 });
                 matieresList.appendChild(button);
             });
             
+            // Afficher les cours de la première matière par défaut
             if (matieresData.matieres.length > 0) {
                 displayCoursDeMatiere(matieresData.matieres[0]);
             }
@@ -2288,6 +1762,7 @@
             const coursList = document.getElementById('cours-de-matiere');
             coursList.innerHTML = '';
             
+            // Si la matière a des cours, les afficher
             if (matiere.cours && matiere.cours.length > 0) {
                 matiere.cours.forEach(cours => {
                     const card = document.createElement('div');
@@ -2311,6 +1786,7 @@
                     coursList.appendChild(card);
                 });
             } else {
+                // Afficher un message si aucun cours n'est disponible
                 coursList.innerHTML = `
                     <div style="text-align: center; padding: 2rem; color: #666; grid-column: 1 / -1;">
                         <i class="fas fa-graduation-cap" style="font-size: 3rem; margin-bottom: 1rem; color: #ccc;"></i>
@@ -2324,6 +1800,7 @@
         // Charger un cours spécifique
         async function loadCours(coursId) {
             try {
+                // Construire le chemin vers le fichier JSON du cours
                 let coursPath = '';
                 
                 if (currentNiveau.id === 'primaire') {
@@ -2331,6 +1808,7 @@
                 } else if (currentNiveau.id === 'college') {
                     coursPath = `data/college/${currentClasse.id}/cours/${coursId}.json`;
                 } else if (currentNiveau.id === 'lycee') {
+                    // Pour le lycée, la structure est plus complexe
                     if (currentClasse.id.includes('seconde')) {
                         coursPath = `data/lycee/seconde/${currentClasse.id}/cours/${coursId}.json`;
                     } else if (currentClasse.id.includes('premiere')) {
@@ -2345,14 +1823,17 @@
                 currentCours = await response.json();
                 console.log('Cours chargé :', currentCours);
                 
+                // Mettre à jour l'interface
                 document.getElementById('cours-titre').textContent = currentCours.titre || currentCours.cours?.titre || 'Titre du cours';
                 document.getElementById('cours-sousTitre').textContent = currentCours.sousTitre || currentCours.cours?.sousTitre || 'Sous-titre du cours';
                 
+                // Charger le contenu des onglets avec format tableau d'objets
                 loadTabContent('lecon', currentCours.lecon || currentCours.cours?.lecon);
                 loadTabContent('exercices', currentCours.exercices || currentCours.cours?.exercices);
                 loadTabContent('astuces', currentCours.astuces || currentCours.cours?.astuces);
                 loadTabContent('evaluation', currentCours.evaluation || currentCours.cours?.evaluation);
                 
+                // Charger la fiche de révision si elle existe
                 if (currentCours.ficheRevision) {
                     document.getElementById('fiche-revision').innerHTML = currentCours.ficheRevision;
                     document.getElementById('fiche-revision').style.display = 'block';
@@ -2363,7 +1844,10 @@
                     document.getElementById('fiche-revision').style.display = 'none';
                 }
                 
+                // Afficher la page du cours
                 showPage('cours');
+                
+                // Réinitialiser la progression
                 progress = 0;
                 updateProgress();
                 
@@ -2373,17 +1857,132 @@
             }
         }
 
-        // ============================================
-        // FONCTIONS DE RENDU COMPATIBLES CLASSEPRO
-        // ============================================
+        // FONCTION CORRIGÉE POUR AFFICHER TOUS LES TYPES DE BLOCS - AVEC DEBUG POUR LES TABLEAUX
+        function createLeconSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            // DEBUG: Afficher l'item complet pour voir sa structure
+            console.log('ITEM LEÇON index', index, ':', item);
+            
+            let html = '';
+            
+            // 1. Titre (toujours afficher si présent)
+            if (item.titre) {
+                html += `<h3 class="section-title"><i class="fas fa-book"></i> ${item.titre}</h3>`;
+            } else {
+                // Titre par défaut si absent
+                html += `<h3 class="section-title"><i class="fas fa-book"></i> Section ${index + 1}</h3>`;
+            }
+            
+            html += '<div class="lesson-content">';
+            
+            // 2. Contenu principal (tableau OU string)
+            if (Array.isArray(item.contenu)) {
+                // Contenu sous forme de liste
+                if (item.contenu.length > 0) {
+                    html += '<ul>';
+                    item.contenu.forEach(point => {
+                        html += `<li>${point}</li>`;
+                    });
+                    html += '</ul>';
+                }
+            } else if (typeof item.contenu === 'string' && item.contenu.trim()) {
+                // Contenu simple
+                html += `<p>${item.contenu}</p>`;
+            }
+            
+            // 3. Définition (type spécifique ou propriété "definition")
+            if (item.type === 'definition' && item.definition) {
+                html += `<div class="definition-box"><div class="definition-title">Définition</div><p>${item.definition}</p></div>`;
+            } else if (item.definition && !item.type) {
+                // Définition sans type explicite
+                html += `<div class="definition-box"><div class="definition-title">Définition</div><p>${item.definition}</p></div>`;
+            }
+            
+            // 4. Exemple (type spécifique ou propriété "exemple")
+            if (item.type === 'exemple' && item.exemple) {
+                html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
+            } else if (item.exemple && !item.type) {
+                // Exemple sans type explicite
+                html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
+            }
+            
+            // 5. TABLEAU - VERSION ULTRA ROBUSTE (plus dépendante du type)
+            if (item.table && item.table.headers && item.table.rows) {
+                console.log('Trouvé un tableau dans item:', item.table);
+                const { headers, rows } = item.table;
 
-        // Fonction pour charger le contenu d'un onglet avec intégration complète ClassePro
+                let tableHTML = '<table class="table-cours"><thead><tr>';
+                headers.forEach(h => {
+                    tableHTML += `<th>${h}</th>`;
+                });
+                tableHTML += '</tr></thead><tbody>';
+
+                rows.forEach(row => {
+                    tableHTML += '<tr>';
+                    row.forEach(cell => {
+                        tableHTML += `<td>${cell}</td>`;
+                    });
+                    tableHTML += '</tr>';
+                });
+
+                tableHTML += '</tbody></table>';
+                html += tableHTML;
+            }
+            
+            // 6. Important (propriété "important" - priorité haute)
+            if (item.important) {
+                html += `<div class="important-box"><strong>Important :</strong> ${item.important}</div>`;
+            }
+            
+            // 7. Points clés (format objet avec "points" ou "contenu")
+            if (item.points && Array.isArray(item.points)) {
+                html += '<div class="key-point"><h4>Points clés :</h4><ul>';
+                item.points.forEach(point => {
+                    html += `<li>${point}</li>`;
+                });
+                html += '</ul></div>';
+            }
+            
+            // 8. Étape par étape (format "steps")
+            if (item.steps && Array.isArray(item.steps)) {
+                html += '<div class="step-container">';
+                item.steps.forEach((step, stepIndex) => {
+                    html += `
+                        <div class="step-box">
+                            <span class="step-number">${stepIndex + 1}</span>
+                            <span>${step}</span>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            // 9. Si aucun contenu spécifique n'a été traité mais qu'il y a une propriété "texte"
+            if (!html.includes('lesson-content') && item.texte) {
+                html += `<p>${item.texte}</p>`;
+            }
+            
+            // 10. Vérification finale : si le contenu est vide, ajouter un message
+            if (html === '<div class="lesson-content">') {
+                html += '<p><em>Contenu à venir...</em></p>';
+            }
+            
+            html += '</div>';
+            section.innerHTML = html;
+            return section;
+        }
+
+        // FONCTION CORRIGÉE POUR CHARGER LE CONTENU DES ONGLETS
         function loadTabContent(tabId, content) {
             const tabElement = document.getElementById(tabId);
             if (!tabElement) return;
             
             tabElement.innerHTML = '';
             
+            // Cas 1: Contenu vide ou undefined
             if (!content || (Array.isArray(content) && content.length === 0)) {
                 tabElement.innerHTML = `
                     <div class="lesson-section" style="text-align: center; padding: 2rem;">
@@ -2395,50 +1994,47 @@
                 return;
             }
             
+            // Cas 2: Format tableau d'objets (LE PLUS IMPORTANT)
             if (Array.isArray(content)) {
-                if (tabId === 'lecon' && content.length > 0) {
-                    addProgressSection(tabElement);
-                }
-                
                 content.forEach((item, index) => {
                     let section;
                     
                     switch(tabId) {
                         case 'lecon':
-                            section = renderLeconItem(item, index);
+                            section = createLeconSection(item, index);
                             break;
                         case 'exercices':
-                            section = renderExerciceItem(item, index);
+                            section = createExerciceSection(item, index);
                             break;
                         case 'astuces':
-                            section = renderAstuceItem(item, index);
+                            section = createAstuceSection(item, index);
                             break;
                         case 'evaluation':
-                            section = renderEvaluationItem(item, index);
+                            section = createEvaluationSection(item, index);
                             break;
                         default:
-                            section = renderGenericItem(item, index);
+                            // Format générique
+                            section = createGenericSection(item, index);
                     }
                     
                     if (section) {
                         tabElement.appendChild(section);
                     }
                 });
-                
-                if (tabId === 'evaluation' && content.length > 0) {
-                    addEvaluationSubmitButton(tabElement);
-                }
             } 
+            // Cas 3: Format HTML string (pour compatibilité)
             else if (typeof content === 'string') {
                 tabElement.innerHTML = content;
             }
+            // Cas 4: Format objet unique (encapsuler dans un tableau)
             else if (typeof content === 'object') {
-                const section = renderLeconItem(content, 0);
+                const section = createLeconSection(content, 0);
                 if (section) {
                     tabElement.appendChild(section);
                 }
             }
             
+            // Animation des sections
             setTimeout(() => {
                 const sections = tabElement.querySelectorAll('.lesson-section');
                 sections.forEach((section, index) => {
@@ -2447,436 +2043,33 @@
                     }, index * 100);
                 });
                 
-                reattachClasseProEvents();
+                // Réattacher les événements interactifs
+                reattachEvents();
             }, 100);
         }
 
-        // ============================================
-        // COMPOSANTS LEÇON CLASSEPRO
-        // ============================================
-
-        function renderLeconItem(item, index) {
-            const section = document.createElement('div');
-            section.className = 'lesson-section';
-            section.style.animationDelay = `${index * 0.1}s`;
+        // Fonction utilitaire : formatage du contenu
+        function formatContenu(contenu) {
+            if (!contenu) return '<p><em>Aucun contenu disponible</em></p>';
             
-            let html = '';
-            
-            const isSituation = item.titre && (
-                item.titre.toLowerCase().includes('situation') || 
-                item.titre.toLowerCase().includes('introduction') ||
-                item.titre.toLowerCase().includes('scénario')
-            );
-            
-            if (item.titre) {
-                if (isSituation) {
-                    html += `
-                        <div class="situation-apprentissage">
-                            <h3 class="section-title">
-                                <i class="fas fa-map-marker-alt"></i> ${item.titre}
-                            </h3>
-                            <div class="situation-content">
-                    `;
-                } else {
-                    html += `<h3 class="section-title"><i class="fas fa-book"></i> ${item.titre}</h3>`;
-                }
+            if (Array.isArray(contenu)) {
+                return '<ul>' + contenu.map(item => `<li>${item}</li>`).join('') + '</ul>';
             }
             
-            html += '<div class="lesson-content">';
-            
-            if (Array.isArray(item.contenu)) {
-                if (item.contenu.length > 0) {
-                    if (item.contenu.length <= 5 && item.contenu.some(p => p.length < 100)) {
-                        html += '<div class="key-points-grid">';
-                        item.contenu.forEach((point, pointIndex) => {
-                            html += `
-                                <div class="key-point-card">
-                                    <div class="key-point-number">${pointIndex + 1}</div>
-                                    <div class="key-point-text">${point}</div>
-                                </div>
-                            `;
-                        });
-                        html += '</div>';
-                    } else {
-                        html += '<ul class="lesson-list">';
-                        item.contenu.forEach(point => {
-                            html += `<li>${point}</li>`;
-                        });
-                        html += '</ul>';
-                    }
-                }
-            } else if (typeof item.contenu === 'string' && item.contenu.trim()) {
-                html += `<p class="lesson-paragraph">${item.contenu}</p>`;
+            if (typeof contenu === 'string') {
+                return `<p>${contenu}</p>`;
             }
             
-            if (item.type === 'definition' && item.definition) {
-                html += `
-                    <div class="definition-card">
-                        <div class="definition-header">
-                            <i class="fas fa-bookmark"></i>
-                            <span class="definition-badge">Définition</span>
-                        </div>
-                        <div class="definition-body">
-                            <p>${item.definition}</p>
-                        </div>
-                    </div>
-                `;
-            } else if (item.definition && !item.type) {
-                html += `
-                    <div class="definition-card">
-                        <div class="definition-header">
-                            <i class="fas fa-bookmark"></i>
-                            <span class="definition-badge">Définition</span>
-                        </div>
-                        <div class="definition-body">
-                            <p>${item.definition}</p>
-                        </div>
-                    </div>
-                `;
+            if (typeof contenu === 'object') {
+                // Tenter de convertir l'objet en texte
+                return `<p>${JSON.stringify(contenu)}</p>`;
             }
             
-            if (item.type === 'exemple' && item.exemple) {
-                html += `
-                    <div class="example-card">
-                        <div class="example-header">
-                            <i class="fas fa-lightbulb"></i>
-                            <span class="example-badge">Exemple</span>
-                        </div>
-                        <div class="example-body">
-                            <p>${item.exemple}</p>
-                        </div>
-                    </div>
-                `;
-            } else if (item.exemple && !item.type) {
-                html += `
-                    <div class="example-card">
-                        <div class="example-header">
-                            <i class="fas fa-lightbulb"></i>
-                            <span class="example-badge">Exemple</span>
-                        </div>
-                        <div class="example-body">
-                            <p>${item.exemple}</p>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            if (item.table && item.table.headers && item.table.rows) {
-                console.log('Trouvé un tableau dans item:', item.table);
-                const { headers, rows } = item.table;
-
-                let tableHTML = '<div class="table-responsive">';
-                tableHTML += '<table class="classepro-table">';
-                tableHTML += '<thead><tr>';
-                
-                headers.forEach(header => {
-                    tableHTML += `<th><i class="fas fa-columns"></i> ${header}</th>`;
-                });
-                
-                tableHTML += '</tr></thead><tbody>';
-                
-                rows.forEach((row, rowIndex) => {
-                    const rowClass = rowIndex % 2 === 0 ? 'even' : 'odd';
-                    tableHTML += `<tr class="${rowClass}">`;
-                    
-                    row.forEach(cell => {
-                        tableHTML += `<td>${cell}</td>`;
-                    });
-                    
-                    tableHTML += '</tr>';
-                });
-                
-                tableHTML += '</tbody></table>';
-                tableHTML += '</div>';
-                html += tableHTML;
-            }
-            
-            if (item.important) {
-                html += `
-                    <div class="important-alert">
-                        <div class="alert-icon">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="alert-content">
-                            <h4>À retenir</h4>
-                            <p>${item.important}</p>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            if (item.steps && Array.isArray(item.steps)) {
-                html += '<div class="steps-timeline">';
-                item.steps.forEach((step, stepIndex) => {
-                    html += `
-                        <div class="step-item">
-                            <div class="step-marker">
-                                <span class="step-number">${stepIndex + 1}</span>
-                            </div>
-                            <div class="step-content">
-                                <p>${step}</p>
-                            </div>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-            }
-            
-            if (item.points && Array.isArray(item.points)) {
-                html += '<div class="key-points-container">';
-                html += '<h4 class="sub-section-title"><i class="fas fa-key"></i> Points clés</h4>';
-                html += '<div class="key-points-grid">';
-                
-                item.points.forEach((point, pointIndex) => {
-                    html += `
-                        <div class="key-point-card">
-                            <div class="key-point-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div class="key-point-content">
-                                <p>${point}</p>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += '</div></div>';
-            }
-            
-            if (isSituation) {
-                html += '</div></div>';
-            }
-            
-            html += '</div>';
-            
-            section.innerHTML = html;
-            return section;
+            return '<p><em>Format de contenu non reconnu</em></p>';
         }
 
-        // ============================================
-        // COMPOSANTS EXERCICES CLASSEPRO
-        // ============================================
-
-        function renderExerciceItem(item, index) {
-            const section = document.createElement('div');
-            section.className = 'exercise-card';
-            section.style.animationDelay = `${index * 0.1}s`;
-            
-            let html = `
-                <div class="exercise-header">
-                    <div class="exercise-title">
-                        <i class="fas fa-question-circle"></i>
-                        <span>Exercice ${index + 1}</span>
-                    </div>
-                    <div class="exercise-points">${item.points || 2} points</div>
-                </div>
-                
-                <div class="exercise-body">
-                    <p class="exercise-question">${item.question}</p>
-            `;
-            
-            if (item.type === 'qcm' && item.options) {
-                html += '<div class="qcm-options">';
-                item.options.forEach((option, optIndex) => {
-                    const optionId = `exo-${index}-opt-${optIndex}`;
-                    html += `
-                        <div class="qcm-option">
-                            <input type="radio" id="${optionId}" name="exo-${index}" value="${option.value || option}">
-                            <label for="${optionId}">
-                                <span class="option-letter">${String.fromCharCode(65 + optIndex)}</span>
-                                <span class="option-text">${option.text || option}</span>
-                            </label>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-            } 
-            else if (item.type === 'texte_libre' || item.type === 'réponse libre') {
-                html += `
-                    <div class="text-answer">
-                        <textarea id="reponse-${index}" 
-                                  rows="4" 
-                                  placeholder="Écrivez votre réponse ici..."
-                                  class="answer-textarea"></textarea>
-                    </div>
-                `;
-            }
-            else if (item.type === 'vrai_faux') {
-                html += `
-                    <div class="true-false-options">
-                        <button class="tf-btn" data-value="vrai" data-exo="${index}">
-                            <i class="fas fa-check-circle"></i> Vrai
-                        </button>
-                        <button class="tf-btn" data-value="faux" data-exo="${index}">
-                            <i class="fas fa-times-circle"></i> Faux
-                        </button>
-                    </div>
-                `;
-            }
-            
-            html += `
-                <div class="exercise-actions">
-                    <button class="btn-check" onclick="checkExerciseAnswer(${index}, '${item.reponse || ''}')">
-                        <i class="fas fa-check"></i> Vérifier ma réponse
-                    </button>
-            `;
-            
-            if (item.correction) {
-                html += `
-                    <button class="btn-correction" onclick="showExerciseCorrection(${index})">
-                        <i class="fas fa-eye"></i> Voir la correction
-                    </button>
-                `;
-            }
-            
-            html += `
-                </div>
-                
-                <div id="exercise-feedback-${index}" class="exercise-feedback" style="display: none;"></div>
-                
-                <div id="correction-${index}" class="correction-box" style="display: none;">
-                    <div class="correction-header">
-                        <i class="fas fa-graduation-cap"></i> Correction
-                    </div>
-                    <div class="correction-body">
-                        ${item.correction || 'Pas de correction disponible.'}
-                    </div>
-                </div>
-            `;
-            
-            html += '</div>';
-            
-            section.innerHTML = html;
-            return section;
-        }
-
-        // ============================================
-        // COMPOSANTS ASTUCES CLASSEPRO
-        // ============================================
-
-        function renderAstuceItem(item, index) {
-            const section = document.createElement('div');
-            section.className = 'astuce-card';
-            section.style.animationDelay = `${index * 0.1}s`;
-            
-            const astuceText = typeof item === 'string' ? item : item.texte || '';
-            const astuceIcon = (typeof item === 'object' && item.icone) ? item.icone : 'fas fa-lightbulb';
-            const astuceTitle = (typeof item === 'object' && item.titre) ? item.titre : `Astuce ${index + 1}`;
-            
-            const html = `
-                <div class="astuce-icon">
-                    <i class="${astuceIcon}"></i>
-                </div>
-                <div class="astuce-content">
-                    <h4 class="astuce-title">${astuceTitle}</h4>
-                    <p class="astuce-text">${astuceText}</p>
-                </div>
-                <div class="astuce-number">${index + 1}</div>
-            `;
-            
-            section.innerHTML = html;
-            return section;
-        }
-
-        // ============================================
-        // COMPOSANTS ÉVALUATION CLASSEPRO
-        // ============================================
-
-        function renderEvaluationItem(item, index) {
-            const section = document.createElement('div');
-            section.className = 'evaluation-card';
-            section.style.animationDelay = `${index * 0.1}s`;
-            
-            let html = `
-                <div class="evaluation-header">
-                    <div class="evaluation-title">
-                        <i class="fas fa-star"></i>
-                        <span>Question ${index + 1}</span>
-                    </div>
-                    <div class="evaluation-points">${item.points || 5} points</div>
-                </div>
-                
-                <div class="evaluation-body">
-                    <p class="evaluation-question">${item.question}</p>
-            `;
-            
-            if (item.type === 'qcm' && item.options) {
-                html += '<div class="evaluation-options">';
-                item.options.forEach((option, optIndex) => {
-                    const optionId = `eval-${index}-opt-${optIndex}`;
-                    html += `
-                        <div class="evaluation-option">
-                            <input type="radio" id="${optionId}" name="eval-${index}" value="${option.value || option}">
-                            <label for="${optionId}">
-                                <span class="option-letter">${String.fromCharCode(65 + optIndex)}</span>
-                                <span class="option-text">${option.text || option}</span>
-                            </label>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-            } else {
-                html += `
-                    <div class="evaluation-answer">
-                        <textarea id="eval-reponse-${index}" 
-                                  rows="6" 
-                                  placeholder="Développez votre réponse ici..."
-                                  class="evaluation-textarea"></textarea>
-                        <div class="answer-info">
-                            <i class="fas fa-info-circle"></i>
-                            Réponse attendue : ${item.minLength || 100} caractères minimum
-                        </div>
-                    </div>
-                `;
-            }
-            
-            html += '</div>';
-            
-            section.innerHTML = html;
-            return section;
-        }
-
-        // ============================================
-        // FONCTIONS UTILITAIRES CLASSEPRO
-        // ============================================
-
-        function addProgressSection(container) {
-            const progressHTML = `
-                <div class="lesson-progress">
-                    <div class="progress-header">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Votre progression</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="progressFill" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <div class="progress-info">
-                        <span id="progressPercent">0%</span>
-                        <span class="progress-text">complété</span>
-                    </div>
-                </div>
-            `;
-            
-            container.insertAdjacentHTML('afterbegin', progressHTML);
-        }
-
-        function addEvaluationSubmitButton(container) {
-            const button = document.createElement('button');
-            button.className = 'btn-submit-evaluation';
-            button.innerHTML = `
-                <i class="fas fa-paper-plane"></i>
-                <span>Soumettre l'évaluation</span>
-            `;
-            button.onclick = submitEvaluation;
-            
-            const buttonContainer = document.createElement('div');
-            buttonContainer.className = 'evaluation-submit-container';
-            buttonContainer.appendChild(button);
-            
-            container.appendChild(buttonContainer);
-        }
-
-        function renderGenericItem(item, index) {
+        // Fonction générique pour les sections non spécifiques
+        function createGenericSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
             section.style.animationDelay = `${index * 0.1}s`;
@@ -2892,16 +2085,16 @@
             if (item.contenu || item.content) {
                 const contenu = item.contenu || item.content;
                 if (Array.isArray(contenu)) {
-                    html += '<ul class="lesson-list">';
+                    html += '<ul>';
                     contenu.forEach(point => {
                         html += `<li>${point}</li>`;
                     });
                     html += '</ul>';
                 } else {
-                    html += `<p class="lesson-paragraph">${contenu}</p>`;
+                    html += `<p>${contenu}</p>`;
                 }
             } else if (item.texte || item.text) {
-                html += `<p class="lesson-paragraph">${item.texte || item.text}</p>`;
+                html += `<p>${item.texte || item.text}</p>`;
             }
             
             html += '</div>';
@@ -2910,198 +2103,178 @@
             return section;
         }
 
-        // ============================================
-        // ÉVÉNEMENTS INTERACTIFS CLASSEPRO
-        // ============================================
-
-        function reattachClasseProEvents() {
-            document.querySelectorAll('.tf-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const value = this.getAttribute('data-value');
-                    const exoIndex = this.getAttribute('data-exo');
-                    
-                    document.querySelectorAll(`[data-exo="${exoIndex}"]`).forEach(b => {
-                        b.classList.remove('selected');
-                    });
-                    
-                    this.classList.add('selected');
-                    
-                    setTimeout(() => {
-                        checkExerciseAnswer(exoIndex, value);
-                    }, 1000);
-                });
-            });
+        // Créer une section d'exercice
+        function createExerciceSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
             
-            document.querySelectorAll('.qcm-option input').forEach(input => {
-                input.addEventListener('change', function() {
-                    const option = this.closest('.qcm-option');
-                    const allOptions = option.parentElement.querySelectorAll('.qcm-option');
-                    
-                    allOptions.forEach(opt => {
-                        opt.classList.remove('selected');
-                    });
-                    
-                    option.classList.add('selected');
-                });
-            });
-        }
-
-        // ============================================
-        // FONCTIONS D'INTERACTION CLASSEPRO
-        // ============================================
-
-        function checkExerciseAnswer(index, correctAnswer) {
-            let selectedValue = '';
-            let isCorrect = false;
+            let html = `<div class="exercise-box">`;
+            html += `<div class="exercise-title"><i class="fas fa-question-circle"></i> Exercice ${index + 1}</div>`;
+            html += `<p>${item.question}</p>`;
             
-            const qcmInput = document.querySelector(`input[name="exo-${index}"]:checked`);
-            const vraiFauxBtn = document.querySelector(`.tf-btn.selected[data-exo="${index}"]`);
-            const textAnswer = document.getElementById(`reponse-${index}`);
-            
-            if (qcmInput) {
-                selectedValue = qcmInput.value;
-            } else if (vraiFauxBtn) {
-                selectedValue = vraiFauxBtn.getAttribute('data-value');
-            } else if (textAnswer && textAnswer.value.trim()) {
-                selectedValue = textAnswer.value;
-            }
-            
-            if (selectedValue) {
-                isCorrect = selectedValue === correctAnswer;
-                
-                const feedbackDiv = document.getElementById(`exercise-feedback-${index}`);
-                
-                if (isCorrect) {
-                    feedbackDiv.innerHTML = `
-                        <div class="feedback-correct">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <strong>Excellent !</strong>
-                                <p>Votre réponse est correcte.</p>
-                            </div>
+            // Selon le type d'exercice
+            if (item.type === 'qcm' && item.options) {
+                html += '<div class="question">';
+                item.options.forEach((option, optIndex) => {
+                    const optionId = `exo-${index}-opt-${optIndex}`;
+                    html += `
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="${optionId}" name="exo-${index}" value="${option.value || option}">
+                            <label for="${optionId}">${option.text || option}</label>
                         </div>
                     `;
-                    updateProgress(10);
-                } else {
-                    feedbackDiv.innerHTML = `
-                        <div class="feedback-incorrect">
-                            <i class="fas fa-times-circle"></i>
-                            <div>
-                                <strong>Presque !</strong>
-                                <p>Ce n'est pas la bonne réponse. Essayez encore.</p>
-                            </div>
-                        </div>
-                    `;
+                });
+                html += '</div>';
+                
+                if (item.correction) {
+                    html += `<button class="show-answer" onclick="checkExoAnswer(${index}, '${item.reponse}')">Vérifier ma réponse</button>`;
+                    html += `<div id="correction-${index}" class="answer-box" style="display: none;">${item.correction}</div>`;
                 }
-                
-                feedbackDiv.style.display = 'block';
-            } else {
-                showErrorModal('Réponse manquante', 'Veuillez sélectionner ou écrire une réponse avant de vérifier.');
+            } else if (item.type === 'texte_libre' || item.type === 'réponse libre') {
+                html += `<textarea id="reponse-${index}" rows="3" placeholder="Écrivez votre réponse ici..."></textarea>`;
+                if (item.correction) {
+                    html += `<button class="show-answer" onclick="showCorrection(${index})">Voir la correction</button>`;
+                    html += `<div id="correction-${index}" class="answer-box" style="display: none;">${item.correction}</div>`;
+                }
+            } else if (item.type === 'vrai_faux') {
+                html += `
+                    <div class="question">
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="vrai-${index}" name="vf-${index}" value="vrai">
+                            <label for="vrai-${index}">Vrai</label>
+                        </div>
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="faux-${index}" name="vf-${index}" value="faux">
+                            <label for="faux-${index}">Faux</label>
+                        </div>
+                    </div>
+                `;
+                if (item.reponse) {
+                    html += `<button class="show-answer" onclick="checkVraiFaux(${index}, '${item.reponse}')">Vérifier</button>`;
+                }
             }
+            
+            html += `</div>`;
+            
+            section.innerHTML = html;
+            return section;
         }
 
-        function showExerciseCorrection(index) {
+        // Créer une section d'astuce
+        function createAstuceSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let astuceText = typeof item === 'string' ? item : item.texte || '';
+            let astuceIcon = (typeof item === 'object' && item.icone) ? item.icone : 'fas fa-lightbulb';
+            
+            let html = `<div class="tip-box">`;
+            html += `<div class="tip-title"><i class="${astuceIcon}"></i> Astuce ${index + 1}</div>`;
+            html += `<p>${astuceText}</p>`;
+            html += `</div>`;
+            
+            section.innerHTML = html;
+            return section;
+        }
+
+        // Créer une section d'évaluation
+        function createEvaluationSection(item, index) {
+            const section = document.createElement('div');
+            section.className = 'lesson-section';
+            section.style.animationDelay = `${index * 0.1}s`;
+            
+            let html = `<div class="exercise-box">`;
+            html += `<div class="exercise-title"><i class="fas fa-star"></i> Question ${index + 1} (${item.points || 1} point${item.points > 1 ? 's' : ''})</div>`;
+            html += `<p>${item.question}</p>`;
+            
+            if (item.type === 'qcm' && item.options) {
+                html += '<div class="question">';
+                item.options.forEach((option, optIndex) => {
+                    const optionId = `eval-${index}-opt-${optIndex}`;
+                    html += `
+                        <div style="margin: 0.5rem 0;">
+                            <input type="radio" id="${optionId}" name="eval-${index}" value="${option.value || option}">
+                            <label for="${optionId}">${option.text || option}</label>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            } else {
+                html += `<textarea id="eval-reponse-${index}" rows="4" placeholder="Répondez à la question..."></textarea>`;
+            }
+            
+            html += `</div>`;
+            
+            section.innerHTML = html;
+            return section;
+        }
+
+        // Fonctions pour les exercices interactifs
+        function checkExoAnswer(index, correctAnswer) {
+            const radios = document.getElementsByName(`exo-${index}`);
+            let selectedValue = '';
+            
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            
+            if (!selectedValue) {
+                showErrorModal('Réponse manquante', 'Veuillez sélectionner une réponse.');
+                return;
+            }
+            
+            const correctionDiv = document.getElementById(`correction-${index}`);
+            
+            if (selectedValue === correctAnswer) {
+                showSuccessModal('Bonne réponse !', 'Félicitations, vous avez trouvé la bonne réponse.');
+                if (correctionDiv) correctionDiv.style.display = 'block';
+                updateProgress();
+            } else {
+                showErrorModal('Mauvaise réponse', 'Ce n\'est pas la bonne réponse. Essayez encore !');
+                if (correctionDiv) correctionDiv.style.display = 'block';
+            }
+        }
+        
+        function checkVraiFaux(index, correctAnswer) {
+            const selectedRadio = document.querySelector(`input[name="vf-${index}"]:checked`);
+            
+            if (!selectedRadio) {
+                showErrorModal('Réponse manquante', 'Veuillez sélectionner Vrai ou Faux.');
+                return;
+            }
+            
+            if (selectedRadio.value === correctAnswer) {
+                showSuccessModal('Bonne réponse !', 'Félicitations, vous avez raison.');
+                updateProgress();
+            } else {
+                showErrorModal('Mauvaise réponse', `La bonne réponse était : ${correctAnswer === 'vrai' ? 'Vrai' : 'Faux'}.`);
+            }
+        }
+        
+        function showCorrection(index) {
             const correctionDiv = document.getElementById(`correction-${index}`);
             if (correctionDiv) {
                 correctionDiv.style.display = 'block';
-                updateProgress(5);
+                showInfoModal('Correction', 'Voici la correction proposée.');
             }
         }
 
-        function submitEvaluation() {
-            const totalQuestions = document.querySelectorAll('.evaluation-card').length;
-            let answered = 0;
-            
-            document.querySelectorAll('.evaluation-card').forEach((card, index) => {
-                const hasQCM = card.querySelector(`input[name="eval-${index}"]:checked`);
-                const hasText = card.querySelector(`#eval-reponse-${index}`)?.value.trim();
-                
-                if (hasQCM || hasText) {
-                    answered++;
-                }
+        // Réattacher les événements après le chargement du contenu
+        function reattachEvents() {
+            document.querySelectorAll('.show-answer').forEach(button => {
+                button.addEventListener('click', function() {
+                    const onclick = this.getAttribute('onclick');
+                    if (onclick) eval(onclick);
+                });
             });
-            
-            const score = Math.round((answered / totalQuestions) * 100);
-            
-            showSuccessModal(
-                'Évaluation soumise',
-                `Vous avez répondu à ${answered} questions sur ${totalQuestions}.`,
-                `<div class="evaluation-score">
-                    <div class="score-circle" style="background: conic-gradient(var(--success) ${score}%, #eee 0);">
-                        <span>${score}%</span>
-                    </div>
-                    <p>Votre score sera analysé par votre professeur.</p>
-                </div>`
-            );
-            
-            updateProgress(20);
         }
 
-        function updateProgress(points = 0) {
-            progress = Math.min(progress + points, 100);
-            
-            const progressPercent = document.getElementById('progressPercent');
-            const progressFill = document.getElementById('progressFill');
-            
-            if (progressPercent) {
-                progressPercent.textContent = `${progress}%`;
-            }
-            
-            if (progressFill) {
-                progressFill.style.width = `${progress}%`;
-            }
-            
-            if (progress === 100) {
-                setTimeout(() => {
-                    showSuccessModal(
-                        'Félicitations ! 🎉',
-                        'Vous avez terminé ce cours avec succès !',
-                        'Continuez à explorer les autres cours pour approfondir vos connaissances.',
-                        true
-                    );
-                }, 1000);
-            }
-        }
-
-        // Fonction pour changer d'onglet
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            document.getElementById(tabName).classList.add('active');
-            
-            document.querySelectorAll('.tab').forEach(tab => {
-                if (tab.textContent.includes(getTabName(tabName))) {
-                    tab.classList.add('active');
-                }
-            });
-            
-            const activeTab = document.getElementById(tabName);
-            activeTab.style.animation = 'none';
-            setTimeout(() => {
-                activeTab.style.animation = 'fadeInUp 0.5s ease-out';
-            }, 10);
-        }
-        
-        function getTabName(tabId) {
-            const names = {
-                'lecon': 'Leçon',
-                'exercices': 'Exercices',
-                'astuces': 'Astuces',
-                'evaluation': 'Évaluation'
-            };
-            return names[tabId] || tabId;
-        }
-
-        // ============================================
-        // FONCTIONS POUR LES MODALES
-        // ============================================
-
+        // Fonctions pour les modales
         function showSuccessModal(title, message, details = '', showConfetti = true) {
             feedbackModal.classList.remove('error-modal');
             feedbackModal.classList.add('success-modal');
@@ -3195,6 +2368,63 @@
             }
         }
 
+        // Fonction pour changer d'onglet
+        function switchTab(tabName) {
+            // Masquer tous les contenus d'onglet
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activer l'onglet sélectionné
+            document.getElementById(tabName).classList.add('active');
+            
+            // Activer le bouton d'onglet correspondant
+            document.querySelectorAll('.tab').forEach(tab => {
+                if (tab.textContent.includes(getTabName(tabName))) {
+                    tab.classList.add('active');
+                }
+            });
+            
+            // Animer le contenu de l'onglet
+            const activeTab = document.getElementById(tabName);
+            activeTab.style.animation = 'none';
+            setTimeout(() => {
+                activeTab.style.animation = 'fadeInUp 0.5s ease-out';
+            }, 10);
+        }
+        
+        function getTabName(tabId) {
+            const names = {
+                'lecon': 'Leçon',
+                'exercices': 'Exercices',
+                'astuces': 'Astuces',
+                'evaluation': 'Évaluation'
+            };
+            return names[tabId] || tabId;
+        }
+
+        // Fonction pour mettre à jour la barre de progression
+        function updateProgress() {
+            progress = Math.min(progress + 1, totalExercises);
+            const percent = Math.round((progress / totalExercises) * 100);
+            
+            const progressPercent = document.getElementById('progressPercent');
+            const progressFill = document.getElementById('progressFill');
+            
+            if (progressPercent) {
+                progressPercent.textContent = `${percent}%`;
+            }
+            
+            if (progressFill) {
+                progressFill.style.width = `${percent}%`;
+            }
+        }
+
         // Menu mobile
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
@@ -3216,6 +2446,7 @@
                     }
                 });
                 
+                // Fermer le menu en cliquant à l'extérieur
                 document.addEventListener('click', function(e) {
                     if (!e.target.closest('.navbar')) {
                         navLinks.classList.remove('active');
@@ -3227,8 +2458,10 @@
                 });
             }
             
+            // Charger les niveaux au démarrage
             loadNiveaux();
             
+            // Gestion du responsive pour les tableaux
             window.addEventListener('resize', function() {
                 if (window.innerWidth < 768) {
                     document.querySelectorAll('table').forEach(table => {
@@ -3241,6 +2474,7 @@
                 }
             });
             
+            // Déclencher une fois au chargement
             window.dispatchEvent(new Event('resize'));
         });
     </script>

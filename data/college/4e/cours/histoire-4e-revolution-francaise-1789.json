@@ -3,114 +3,236 @@
   "classe": "4e",
   "matiere": "HISTOIRE",
   "titre": "La Révolution Française de 1789",
-  "sousTitre": "Thème 2 : Bouleversements sociopolitiques et économiques",
+  "sousTitre": "Thème 2 : Les bouleversements sociopolitiques et économiques en Afrique et Europe du XVIIème au XIXème siècle",
   "lecon": [
     {
       "titre": "Introduction",
       "contenu": [
-        "La Révolution Française est une période de profondes transformations politiques et sociales connue par la France.",
-        "Elle débute le 14 juillet 1789 et entraîne d’importantes conséquences politiques, sociales et économiques.",
-        "Cette révolution marque la fin de l’Ancien Régime et l’entrée de la France dans une nouvelle ère politique."
+        "La Révolution Française de 1789 représente une rupture fondamentale dans l'histoire de la France et de l'Europe.",
+        "Cette période marque la fin de l'Ancien Régime et l'avènement de nouvelles valeurs politiques fondées sur la souveraineté populaire.",
+        "Elle constitue un événement fondateur qui a influencé les mouvements révolutionnaires à travers le monde."
       ]
     },
     {
-      "titre": "Situation d’apprentissage",
+      "titre": "Situation d'apprentissage",
       "type": "situation",
       "contenu": [
-        "Tes camarades et toi suivez un documentaire sur RTI 1.",
-        "Le présentateur affirme que le 14 juillet 1789 marque le début de la Révolution française.",
-        "De retour en classe, vous menez des recherches pour identifier les origines, les étapes et les conséquences de cette révolution."
+        "En regardant un documentaire historique à la télévision, tu entends le journaliste déclarer : 'Le 14 juillet 1789 marque une étape décisive dans l'histoire de la France'.",
+        "Intrigué par cette affirmation, tu décides avec tes camarades d'enquêter sur les causes, le déroulement et les conséquences de cet événement majeur.",
+        "Votre objectif est de comprendre pourquoi cette date est considérée comme un tournant historique et quelles transformations elle a engendrées."
       ]
     },
     {
-      "titre": "I- Les causes de la Révolution française",
+      "titre": "I- Les origines et causes profondes de la Révolution",
       "contenu": [
-        "Plusieurs causes expliquent le déclenchement de la Révolution française."
+        "Plusieurs facteurs ont convergé pour provoquer l'éclatement de la Révolution Française en 1789."
       ]
     },
     {
-      "titre": "1- Le pouvoir absolu du roi",
+      "titre": "1- Un régime politique contesté : la Monarchie Absolue",
       "contenu": [
-        "Avant 1789, la France est une monarchie de droit divin.",
-        "Le roi détient les pouvoirs politique et judiciaire.",
-        "La personne du roi est considérée comme sacrée."
+        "Avant 1789, la France est gouvernée par une monarchie de droit divin où le roi concentre tous les pouvoirs.",
+        "Le souverain prend seul les décisions importantes sans consultation régulière des représentants du peuple.",
+        "Cette concentration du pouvoir suscite des critiques croissantes, notamment de la part des élites éduquées."
       ],
-      "important": "Le pouvoir absolu du roi empêche toute participation du peuple à la vie politique."
+      "important": "Le pouvoir absolu du roi exclut la majorité de la population de la participation politique."
     },
     {
-      "titre": "2- Une société française inégalitaire",
+      "titre": "2- Une société inégalitaire divisée en trois ordres",
       "contenu": [
-        "La société est divisée en trois ordres : le Clergé, la Noblesse et le Tiers-Etat.",
-        "Le Clergé et la Noblesse représentent environ 2% de la population et sont privilégiés.",
-        "Le Tiers-Etat représente 98% de la population et supporte tous les impôts."
+        "La société française est structurée en trois groupes distincts et hiérarchisés : le Clergé, la Noblesse et le Tiers État.",
+        "Le Clergé et la Noblesse, représentant environ 2% de la population, bénéficient de privilèges importants comme l'exemption d'impôts.",
+        "Le Tiers État, qui regroupe 98% de la population (paysans, artisans, bourgeois), supporte l'essentiel des charges financières du royaume."
       ]
     },
     {
-      "titre": "3- Les problèmes économiques et financiers",
+      "titre": "3- Une crise économique et financière aiguë",
       "contenu": [
-        "Les mauvaises récoltes de 1787 et 1788 provoquent une hausse des prix.",
-        "La France connaît un déficit budgétaire important.",
-        "Ce déficit est lié aux dépenses de la cour et au soutien à la guerre d’indépendance des États-Unis."
+        "Les mauvaises récoltes de 1787-1788 provoquent une forte hausse des prix des denrées alimentaires.",
+        "L'État français connaît un important déficit budgétaire aggravé par sa participation à la guerre d'indépendance américaine.",
+        "Les tentatives de réforme fiscale visant à faire contribuer les ordres privilégiés se heurtent à leur opposition."
       ]
     },
     {
-      "titre": "4- La philosophie des Lumières",
+      "titre": "4- L'influence des idées nouvelles des Lumières",
       "contenu": [
-        "Les philosophes des Lumières comme Voltaire, Rousseau et Diderot luttent contre l’arbitraire.",
-        "Ils défendent l’égalité entre les hommes et la séparation des pouvoirs."
+        "Les philosophes des Lumières (Voltaire, Rousseau, Diderot) critiquent l'absolutisme et les privilèges.",
+        "Ils défendent les principes de liberté, d'égalité et de séparation des pouvoirs politiques.",
+        "Ces idées circulent dans les salons, les clubs et à travers les publications, préparant intellectuellement la Révolution."
       ]
     },
     {
-      "titre": "II- Les étapes de la Révolution française",
+      "titre": "II- Le déroulement et les étapes de la Révolution (1789-1799)",
       "contenu": [
-        "La Révolution commence avec la convocation des États généraux le 05 mai 1789."
+        "La Révolution française se déroule en plusieurs phases marquées par des événements fondateurs."
       ]
     },
     {
-      "titre": "1- La monarchie constitutionnelle (1789-1792)",
+      "titre": "1- La fin de l'Ancien Régime (1789)",
       "contenu": [
-        "Les députés se déclarent Assemblée nationale constituante.",
-        "La prise de la Bastille le 14 juillet 1789 sauve la Révolution.",
-        "Louis XVI accepte une constitution écrite."
+        "Le 5 mai 1789, le roi convoque les États Généraux pour résoudre la crise financière.",
+        "Les députés du Tiers État se proclament Assemblée nationale le 17 juin, puis Assemblée nationale constituante le 9 juillet.",
+        "Le Serment du Jeu de Paume (20 juin) manifeste leur détermination à donner une constitution à la France."
       ]
     },
     {
-      "titre": "2- La première République (1792-1799)",
+      "titre": "2- La prise de la Bastille et ses conséquences",
       "contenu": [
-        "Le 21 septembre 1792, la monarchie est abolie.",
-        "La première République est proclamée."
+        "Le 14 juillet 1789, le peuple de Paris s'empare de la Bastille, symbole de l'arbitraire royal.",
+        "Cet événement marque l'entrée des masses populaires dans le processus révolutionnaire.",
+        "Il contraint le roi à reconnaître les changements en cours et à retirer les troupes stationnées autour de Paris."
+      ],
+      "important": "La prise de la Bastille est devenue le symbole universel de la lutte contre l'oppression."
+    },
+    {
+      "titre": "3- La Monarchie constitutionnelle (1789-1792)",
+      "contenu": [
+        "L'Assemblée constituante abolit les privilèges dans la nuit du 4 août 1789.",
+        "Elle adopte la Déclaration des Droits de l'Homme et du Citoyen le 26 août 1789.",
+        "La Constitution de 1791 établit une monarchie limitée où les pouvoirs du roi sont encadrés par la loi."
       ]
     },
     {
-      "titre": "3- Le Consulat (1799-1804)",
+      "titre": "4- La Première République (1792-1799)",
       "contenu": [
-        "Napoléon Bonaparte prend le pouvoir en 1799.",
-        "Il devient Premier Consul."
+        "La fuite manquée du roi à Varennes (juin 1791) discrédite la monarchie.",
+        "Le 10 août 1792, une insurrection populaire renverse la monarchie.",
+        "La République est proclamée le 21 septembre 1792 après la victoire de Valmy."
       ]
     },
     {
-      "titre": "III- Les conséquences de la Révolution française",
+      "titre": "5- La radicalisation et le Consulat",
       "contenu": [
-        "La Révolution entraîne des conséquences politiques, sociales et économiques."
+        "La période de la Terreur (1793-1794) vise à défendre la Révolution contre ses ennemis intérieurs et extérieurs.",
+        "Le Directoire (1795-1799) tente de stabiliser le régime mais doit faire face à de multiples difficultés.",
+        "Le coup d'État du 18 Brumaire (9 novembre 1799) porte Napoléon Bonaparte au pouvoir et établit le Consulat."
       ]
     },
     {
-      "titre": "Conséquences politiques",
+      "titre": "III- Les transformations et l'héritage de la Révolution",
       "contenu": [
-        "Fin de la monarchie absolue.",
-        "Naissance de la République.",
-        "Séparation des pouvoirs.",
-        "Droit de vote des citoyens."
+        "La Révolution française a engendré des changements profonds et durables dans tous les domaines."
       ]
     },
     {
-      "titre": "Conséquences sociales et économiques",
+      "titre": "1- Les bouleversements politiques",
       "contenu": [
-        "Abolition des privilèges.",
-        "Égalité entre les citoyens.",
-        "Adoption de la Déclaration des Droits de l’Homme et du Citoyen."
+        "Fin définitive de la monarchie absolue de droit divin.",
+        "Établissement de la souveraineté nationale : le pouvoir émane désormais du peuple.",
+        "Création d'une nouvelle organisation administrative avec la division du territoire en départements.",
+        "Instauration du principe de l'élection des représentants."
       ]
     },
+    {
+      "titre": "2- Les transformations sociales et économiques",
+      "contenu": [
+        "Abolition des privilèges et des droits féodaux.",
+        "Établissement de l'égalité juridique entre tous les citoyens.",
+        "Sécularisation des biens du clergé et vente des biens nationaux.",
+        "Libéralisation de l'économie et suppression des corporations."
+      ]
+    },
+    {
+      "titre": "3- La Déclaration des Droits de l'Homme et du Citoyen",
+      "contenu": [
+        "Ce texte fondamental proclame les droits naturels et imprescriptibles de l'homme.",
+        "Il affirme les principes de liberté, d'égalité, de propriété, de sûreté et de résistance à l'oppression.",
+        "Il garantit les libertés individuelles : opinion, expression, religion, dans le cadre de la loi."
+      ],
+      "important": "La Déclaration de 1789 a inspiré de nombreux textes constitutionnels à travers le monde."
+    },
+    {
+      "titre": "4- L'influence internationale",
+      "contenu": [
+        "La R française sert de modèle aux mouvements révolutionnaires en Europe et en Amérique latine.",
+        "Elle diffuse les idéaux de liberté et d'égalité qui remettent en cause l'ordre politique traditionnel.",
+        "Elle contribue à l'émergence du nationalisme et des aspirations démocratiques dans de nombreux pays."
+      ]
+    },
+    {
+      "titre": "Conclusion",
+      "contenu": [
+        "La Révolution française de 1789 marque la fin d'un monde fondé sur les privilèges et la tradition.",
+        "Elle ouvre une nouvelle ère politique caractérisée par la souveraineté populaire et la reconnaissance des droits fondamentaux.",
+        "Son héritage continue d'influencer les conceptions contemporaines de la démocratie et de la citoyenneté."
+      ],
+      "important": "La Révolution française constitue un événement fondateur qui a transformé durablement la société française et influencé l'histoire mondiale."
+    }
+  ],
+  "exercices": [
+    {
+      "question": "Complète le texte : La cause directe de la Révolution française est la __________ de la France. Depuis des années, le pays connaît __________ qui s'aggrave avec la guerre d'indépendance des États-Unis.",
+      "type": "texte_libre",
+      "correction": "La cause directe de la Révolution française est la situation financière de la France. Depuis des années, le pays connaît un déficit budgétaire qui s'aggrave avec la guerre d'indépendance des États-Unis."
+    },
+    {
+      "question": "Relie chaque terme à sa définition :\n1) États généraux\n2) Tiers-État\n3) Ancien Régime\n4) Déclaration des Droits de l'Homme",
+      "type": "association",
+      "options": {
+        "a": "Peuple non privilégié sous la monarchie",
+        "b": "Réunion des représentants des trois ordres",
+        "c": "Texte fondateur des libertés individuelles",
+        "d": "Système politique et social avant 1789"
+      },
+      "correction": "1-b, 2-a, 3-d, 4-c"
+    },
+    {
+      "question": "Vrai ou Faux : La société française de 1789 était égalitaire.",
+      "type": "vrai_faux",
+      "reponse": "faux",
+      "correction": "Faux. La société française était divisée en trois ordres inégaux où le Tiers-État supportait l'essentiel des charges tandis que le clergé et la noblesse bénéficiaient de privilèges."
+    },
+    {
+      "question": "Classe les événements suivants dans l'ordre chronologique : Prise de la Bastille, Convocation des États généraux, Proclamation de la République, Serment du Jeu de Paume.",
+      "type": "classement",
+      "correction": "1. Convocation des États généraux (5 mai 1789), 2. Serment du Jeu de Paume (20 juin 1789), 3. Prise de la Bastille (14 juillet 1789), 4. Proclamation de la République (21 septembre 1792)"
+    }
+  ],
+  "astuces": [
+    {
+      "texte": "Pour retenir les trois ordres de la société d'Ancien Régime : pense à 'CTN' - Clergé, Tiers-État, Noblesse.",
+      "icone": "fas fa-lightbulb"
+    },
+    {
+      "texte": "Mémorise la date du 14 juillet 1789 avec cette phrase : 'Un été révolutionnaire pour une Bastille libérée'.",
+      "icone": "fas fa-calendar-day"
+    },
+    {
+      "texte": "Distinguer les phases : 1789-1792 = Monarchie constitutionnelle ; 1792-1799 = République ; à partir de 1799 = Consulat puis Empire.",
+      "icone": "fas fa-history"
+    },
+    {
+      "texte": "Pour les causes : retiens l'acronyme PISE - Politique (absolutisme), Inégalités sociales, Situation économique, Idées des Lumières.",
+      "icone": "fas fa-brain"
+    }
+  ],
+  "evaluation": [
+    {
+      "question": "Explique deux causes profondes de la Révolution française de 1789.",
+      "points": 4,
+      "type": "texte_libre",
+      "correction_suggest": "Le pouvoir absolu du roi concentrant tous les pouvoirs sans contrepartie, et la société inégalitaire divisée en trois ordres où le Tiers-État supportait seul les charges fiscales."
+    },
+    {
+      "question": "Décris deux événements marquants de l'année 1789 et explique leur importance.",
+      "points": 6,
+      "type": "texte_libre",
+      "correction_suggest": "La prise de la Bastille (14 juillet) qui symbolise la fin de l'arbitraire royal et marque l'entrée du peuple dans la Révolution. La Déclaration des Droits de l'Homme et du Citoyen (26 août) qui énonce les principes fondateurs de la nouvelle société."
+    },
+    {
+      "question": "Montre en quoi la Révolution française a transformé la société et la politique en France.",
+      "points": 8,
+      "type": "texte_libre",
+      "correction_suggest": "Sur le plan politique : fin de la monarchie absolue, établissement de la souveraineté nationale et création des institutions représentatives. Sur le plan social : abolition des privilèges, égalité juridique, reconnaissance des droits fondamentaux et nouvelle organisation administrative du territoire."
+    },
+    {
+      "question": "Analyse l'influence de la Révolution française sur les autres pays européens.",
+      "points": 6,
+      "type": "texte_libre",
+      "correction_suggest": "La Révolution française a servi de modèle aux mouvements libéraux et nationaux en Europe, diffusant les idéaux de liberté, d'égalité et de souveraineté populaire. Elle a inspiré des révolutions et contribué à remettre en cause l'ordre politique traditionnel des monarchies européennes."
+    }
+  ]
+}    },
     {
       "titre": "Conclusion",
       "contenu": [

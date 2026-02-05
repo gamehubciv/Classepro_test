@@ -28,6 +28,17 @@
           "titre": "Le résumé de texte"
         }
       ]
+    },
+    {
+      "id": "histoire",
+      "nom": "HISTOIRE",
+      "cours": [
+        {
+          "id": "histoire-4e-revolution-francaise-1789",
+          "fichier": "histoire-4e-revolution-francaise-1789.json",
+          "titre": "La Révolution Française de 1789"
+        }
+      ]
     }
   ]
 }

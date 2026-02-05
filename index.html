@@ -1857,11 +1857,14 @@
             }
         }
 
-        // FONCTION CORRIGÉE POUR AFFICHER TOUS LES TYPES DE BLOCS
+        // FONCTION CORRIGÉE POUR AFFICHER TOUS LES TYPES DE BLOCS - AVEC DEBUG POUR LES TABLEAUX
         function createLeconSection(item, index) {
             const section = document.createElement('div');
             section.className = 'lesson-section';
             section.style.animationDelay = `${index * 0.1}s`;
+            
+            // DEBUG: Afficher l'item complet pour voir sa structure
+            console.log('ITEM LEÇON index', index, ':', item);
             
             let html = '';
             
@@ -1906,27 +1909,27 @@
                 html += `<div class="example-box"><div class="example-title">Exemple</div><p>${item.exemple}</p></div>`;
             }
             
-            // 5. Tableau (type spécifique)
-            if (item.type === 'table' && item.table) {
-                html += `<table><thead><tr>`;
-                if (item.table.headers && Array.isArray(item.table.headers)) {
-                    item.table.headers.forEach(header => {
-                        html += `<th>${header}</th>`;
+            // 5. TABLEAU - VERSION ULTRA ROBUSTE (plus dépendante du type)
+            if (item.table && item.table.headers && item.table.rows) {
+                console.log('Trouvé un tableau dans item:', item.table);
+                const { headers, rows } = item.table;
+
+                let tableHTML = '<table class="table-cours"><thead><tr>';
+                headers.forEach(h => {
+                    tableHTML += `<th>${h}</th>`;
+                });
+                tableHTML += '</tr></thead><tbody>';
+
+                rows.forEach(row => {
+                    tableHTML += '<tr>';
+                    row.forEach(cell => {
+                        tableHTML += `<td>${cell}</td>`;
                     });
-                }
-                html += `</tr></thead><tbody>`;
-                if (item.table.rows && Array.isArray(item.table.rows)) {
-                    item.table.rows.forEach(row => {
-                        html += `<tr>`;
-                        if (Array.isArray(row)) {
-                            row.forEach(cell => {
-                                html += `<td>${cell}</td>`;
-                            });
-                        }
-                        html += `</tr>`;
-                    });
-                }
-                html += `</tbody></table>`;
+                    tableHTML += '</tr>';
+                });
+
+                tableHTML += '</tbody></table>';
+                html += tableHTML;
             }
             
             // 6. Important (propriété "important" - priorité haute)
@@ -1962,21 +1965,7 @@
                 html += `<p>${item.texte}</p>`;
             }
             
-            // 10. Cas où l'objet a un type non reconnu mais du contenu
-            if (item.type && !['definition', 'exemple', 'table'].includes(item.type) && item.contenu) {
-                // Afficher juste le contenu
-                if (Array.isArray(item.contenu)) {
-                    html += '<ul>';
-                    item.contenu.forEach(point => {
-                        html += `<li>${point}</li>`;
-                    });
-                    html += '</ul>';
-                } else {
-                    html += `<p>${item.contenu}</p>`;
-                }
-            }
-            
-            // 11. Vérification finale : si le contenu est vide, ajouter un message
+            // 10. Vérification finale : si le contenu est vide, ajouter un message
             if (html === '<div class="lesson-content">') {
                 html += '<p><em>Contenu à venir...</em></p>';
             }

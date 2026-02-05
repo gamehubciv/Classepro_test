@@ -6,20 +6,20 @@
   "sousTitre": "Thème 2 : Les bouleversements sociopolitiques et économiques en Afrique et Europe du XVIIème au XIXème siècle",
   "lecon": [
     {
-      "titre": "Introduction",
-      "contenu": [
-        "La Révolution Française de 1789 représente une rupture fondamentale dans l'histoire de la France et de l'Europe.",
-        "Cette période marque la fin de l'Ancien Régime et l'avènement de nouvelles valeurs politiques fondées sur la souveraineté populaire.",
-        "Elle constitue un événement fondateur qui a influencé les mouvements révolutionnaires à travers le monde."
-      ]
-    },
-    {
       "titre": "Situation d'apprentissage",
       "type": "situation",
       "contenu": [
         "En regardant un documentaire historique à la télévision, tu entends le journaliste déclarer : 'Le 14 juillet 1789 marque une étape décisive dans l'histoire de la France'.",
         "Intrigué par cette affirmation, tu décides avec tes camarades d'enquêter sur les causes, le déroulement et les conséquences de cet événement majeur.",
         "Votre objectif est de comprendre pourquoi cette date est considérée comme un tournant historique et quelles transformations elle a engendrées."
+      ]
+    },
+    {
+      "titre": "Introduction",
+      "contenu": [
+        "La Révolution Française de 1789 représente une rupture fondamentale dans l'histoire de la France et de l'Europe.",
+        "Cette période marque la fin de l'Ancien Régime et l'avènement de nouvelles valeurs politiques fondées sur la souveraineté populaire.",
+        "Elle constitue un événement fondateur qui a influencé les mouvements révolutionnaires à travers le monde."
       ]
     },
     {
@@ -32,85 +32,155 @@
       "titre": "1- Un régime politique contesté : la Monarchie Absolue",
       "contenu": [
         "Avant 1789, la France est gouvernée par une monarchie de droit divin où le roi concentre tous les pouvoirs.",
-        "Le souverain prend seul les décisions importantes sans consultation régulière des représentants du peuple.",
-        "Cette concentration du pouvoir suscite des critiques croissantes, notamment de la part des élites éduquées."
+        "Le roi fait les lois, rend la justice et dirige l'armée.",
+        "Cette concentration du pouvoir suscite des critiques croissantes, notamment de la part des élites et de la bourgeoisie."
       ],
       "important": "Le pouvoir absolu du roi exclut la majorité de la population de la participation politique."
     },
     {
       "titre": "2- Une société inégalitaire divisée en trois ordres",
       "contenu": [
-        "La société française est structurée en trois groupes distincts et hiérarchisés : le Clergé, la Noblesse et le Tiers État.",
-        "Le Clergé et la Noblesse, représentant environ 2% de la population, bénéficient de privilèges importants comme l'exemption d'impôts.",
-        "Le Tiers État, qui regroupe 98% de la population (paysans, artisans, bourgeois), supporte l'essentiel des charges financières du royaume."
+        "La société française est divisée en trois ordres : le Clergé, la Noblesse et le Tiers État.",
+        "Le Clergé et la Noblesse bénéficient de privilèges comme l'exemption d'impôts.",
+        "Le Tiers État, qui représente environ 98% de la population, paie l'essentiel des impôts et subit de nombreuses injustices."
       ]
     },
     {
-      "titre": "3- Une crise économique et financière aiguë",
+      "titre": "3- Une crise économique et financière",
       "contenu": [
-        "Les mauvaises récoltes de 1787-1788 provoquent une forte hausse des prix des denrées alimentaires.",
-        "L'État français connaît un important déficit budgétaire aggravé par sa participation à la guerre d'indépendance américaine.",
-        "Les tentatives de réforme fiscale visant à faire contribuer les ordres privilégiés se heurtent à leur opposition."
+        "Les mauvaises récoltes entraînent une hausse du prix du pain.",
+        "L'État est très endetté à cause des guerres, notamment la guerre d'indépendance américaine.",
+        "Le peuple souffre de la faim et de la misère."
       ]
     },
     {
-      "titre": "4- L'influence des idées nouvelles des Lumières",
+      "titre": "4- L'influence des idées des Lumières",
       "contenu": [
-        "Les philosophes des Lumières (Voltaire, Rousseau, Diderot) critiquent l'absolutisme et les privilèges.",
-        "Ils défendent les principes de liberté, d'égalité et de séparation des pouvoirs politiques.",
-        "Ces idées circulent dans les salons, les clubs et à travers les publications, préparant intellectuellement la Révolution."
+        "Les philosophes des Lumières critiquent l'absolutisme.",
+        "Ils défendent la liberté, l'égalité et la séparation des pouvoirs.",
+        "Leurs idées encouragent le peuple à réclamer plus de droits."
       ]
     },
     {
-      "titre": "II- Le déroulement et les étapes de la Révolution (1789-1799)",
+      "titre": "II- Le déroulement de la Révolution",
       "contenu": [
-        "La Révolution française se déroule en plusieurs phases marquées par des événements fondateurs."
+        "La Révolution se déroule en plusieurs grandes étapes entre 1789 et 1799."
       ]
     },
     {
-      "titre": "1- La fin de l'Ancien Régime (1789)",
+      "titre": "1- Les États généraux et le Serment du Jeu de Paume",
       "contenu": [
-        "Le 5 mai 1789, le roi convoque les États Généraux pour résoudre la crise financière.",
-        "Les députés du Tiers État se proclament Assemblée nationale le 17 juin, puis Assemblée nationale constituante le 9 juillet.",
-        "Le Serment du Jeu de Paume (20 juin) manifeste leur détermination à donner une constitution à la France."
+        "Le roi convoque les États généraux en mai 1789.",
+        "Les députés du Tiers État se proclament Assemblée nationale.",
+        "Ils jurent de donner une constitution à la France."
       ]
     },
     {
-      "titre": "2- La prise de la Bastille et ses conséquences",
+      "titre": "2- La prise de la Bastille",
       "contenu": [
-        "Le 14 juillet 1789, le peuple de Paris s'empare de la Bastille, symbole de l'arbitraire royal.",
-        "Cet événement marque l'entrée des masses populaires dans le processus révolutionnaire.",
-        "Il contraint le roi à reconnaître les changements en cours et à retirer les troupes stationnées autour de Paris."
+        "Le 14 juillet 1789, le peuple prend la Bastille.",
+        "Cet événement symbolise la fin de l'arbitraire royal.",
+        "Il marque l'entrée du peuple dans la Révolution."
       ],
-      "important": "La prise de la Bastille est devenue le symbole universel de la lutte contre l'oppression."
+      "important": "La prise de la Bastille est devenue un symbole mondial de la lutte contre l'oppression."
     },
     {
-      "titre": "3- La Monarchie constitutionnelle (1789-1792)",
+      "titre": "3- Les grandes réformes",
       "contenu": [
-        "L'Assemblée constituante abolit les privilèges dans la nuit du 4 août 1789.",
-        "Elle adopte la Déclaration des Droits de l'Homme et du Citoyen le 26 août 1789.",
-        "La Constitution de 1791 établit une monarchie limitée où les pouvoirs du roi sont encadrés par la loi."
+        "Abolition des privilèges dans la nuit du 4 août 1789.",
+        "Adoption de la Déclaration des Droits de l'Homme et du Citoyen.",
+        "Mise en place d'une monarchie constitutionnelle."
       ]
     },
     {
-      "titre": "4- La Première République (1792-1799)",
+      "titre": "III- Les conséquences de la Révolution",
       "contenu": [
-        "La fuite manquée du roi à Varennes (juin 1791) discrédite la monarchie.",
-        "Le 10 août 1792, une insurrection populaire renverse la monarchie.",
-        "La République est proclamée le 21 septembre 1792 après la victoire de Valmy."
+        "La Révolution transforme profondément la société et la politique en France."
       ]
     },
     {
-      "titre": "5- La radicalisation et le Consulat",
+      "titre": "1- Conséquences politiques",
       "contenu": [
-        "La période de la Terreur (1793-1794) vise à défendre la Révolution contre ses ennemis intérieurs et extérieurs.",
-        "Le Directoire (1795-1799) tente de stabiliser le régime mais doit faire face à de multiples difficultés.",
-        "Le coup d'État du 18 Brumaire (9 novembre 1799) porte Napoléon Bonaparte au pouvoir et établit le Consulat."
+        "Fin de la monarchie absolue.",
+        "Naissance de la République.",
+        "Souveraineté du peuple."
       ]
     },
     {
-      "titre": "III- Les transformations et l'héritage de la Révolution",
+      "titre": "2- Conséquences sociales",
       "contenu": [
+        "Abolition des privilèges.",
+        "Égalité devant la loi.",
+        "Reconnaissance des droits fondamentaux."
+      ]
+    },
+    {
+      "titre": "Conclusion",
+      "contenu": [
+        "La Révolution française met fin à la monarchie absolue.",
+        "Elle favorise la naissance de la République.",
+        "Elle consacre les droits de l’homme et du citoyen."
+      ],
+      "important": "La Révolution française a profondément transformé la société française et inspiré d’autres peuples."
+    }
+  ],
+  "exercices": [
+    {
+      "question": "Complète : La cause directe de la Révolution française est la __________ de la France.",
+      "type": "texte_libre",
+      "correction": "La cause directe de la Révolution française est la situation financière de la France."
+    },
+    {
+      "question": "QCM : Quel événement symbolise le début de la Révolution ?",
+      "type": "qcm",
+      "options": [
+        "La prise de la Bastille",
+        "La bataille de Waterloo",
+        "Le sacre de Napoléon",
+        "La guerre de 1870"
+      ],
+      "reponse": "La prise de la Bastille"
+    },
+    {
+      "question": "Vrai ou Faux : Le clergé et la noblesse payaient beaucoup d'impôts.",
+      "type": "vrai_faux",
+      "reponse": "faux",
+      "correction": "Faux. Le clergé et la noblesse bénéficiaient de privilèges fiscaux."
+    },
+    {
+      "question": "Classe dans l'ordre : Prise de la Bastille, États généraux, Déclaration des Droits de l'Homme.",
+      "type": "classement",
+      "correction": "1. États généraux, 2. Prise de la Bastille, 3. Déclaration des Droits de l'Homme"
+    }
+  ],
+  "astuces": [
+    {
+      "texte": "Retient : 14 juillet 1789 = prise de la Bastille.",
+      "icone": "fas fa-calendar"
+    },
+    {
+      "texte": "Trois ordres : Clergé, Noblesse, Tiers État.",
+      "icone": "fas fa-lightbulb"
+    }
+  ],
+  "evaluation": [
+    {
+      "question": "Explique deux causes de la Révolution française.",
+      "points": 4,
+      "type": "texte_libre"
+    },
+    {
+      "question": "Présente deux conséquences politiques de la Révolution française.",
+      "points": 4,
+      "type": "texte_libre"
+    },
+    {
+      "question": "Pourquoi peut-on dire que la Révolution française a transformé la société ?",
+      "points": 6,
+      "type": "texte_libre"
+    }
+  ]
+}      "contenu": [
         "La Révolution française a engendré des changements profonds et durables dans tous les domaines."
       ]
     },
